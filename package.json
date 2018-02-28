@@ -25,7 +25,8 @@
     "test": "yarn run eslint && yarn run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "node src/",
-    "mocha": "mocha test/ --recursive --exit"
+    "mocha": "mocha test/ --recursive --exit",
+    "dev": "nodemon"
   },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.2",
@@ -39,6 +40,7 @@
     "@feathersjs/socketio": "^3.2.0",
     "compression": "^1.7.2",
     "cors": "^2.8.4",
+    "dev": "^0.1.3",
     "feathers-knex": "^3.0.3",
     "helmet": "^3.11.0",
     "knex": "^0.14.4",
@@ -50,6 +52,7 @@
   "devDependencies": {
     "eslint": "^4.18.1",
     "mocha": "^5.0.1",
+    "nodemon": "^1.17.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   }
