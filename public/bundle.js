@@ -22303,19 +22303,23 @@ var _Login = __webpack_require__(116);
 
 var _Login2 = _interopRequireDefault(_Login);
 
-var _Volumes = __webpack_require__(117);
+var _Home = __webpack_require__(117);
+
+var _Home2 = _interopRequireDefault(_Home);
+
+var _Volumes = __webpack_require__(118);
 
 var _Volumes2 = _interopRequireDefault(_Volumes);
 
-var _BestTrade = __webpack_require__(118);
+var _BestTrade = __webpack_require__(119);
 
 var _BestTrade2 = _interopRequireDefault(_BestTrade);
 
-var _DollarValues = __webpack_require__(119);
+var _DollarValues = __webpack_require__(120);
 
 var _DollarValues2 = _interopRequireDefault(_DollarValues);
 
-var _ExchangeDisplay = __webpack_require__(120);
+var _ExchangeDisplay = __webpack_require__(121);
 
 var _ExchangeDisplay2 = _interopRequireDefault(_ExchangeDisplay);
 
@@ -22345,6 +22349,7 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'app' },
+          _react2.default.createElement(_Home2.default, null),
           _react2.default.createElement(_DollarValues2.default, null)
         )
       );
@@ -25472,11 +25477,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Home() {
+  return _react2.default.createElement(
+    "div",
+    { className: "container" },
+    _react2.default.createElement(
+      "h2",
+      { className: "center-text" },
+      "Delt\u0394ge"
+    ),
+    _react2.default.createElement(
+      "footer",
+      null,
+      _react2.default.createElement(
+        "p",
+        { className: "center-text" },
+        "EDA Harakeke-2018 Project by Adam, Maddie, Peter, Tim & Tyler"
+      )
+    )
+  );
+}
+
+exports.default = Home;
 
 /***/ }),
 /* 118 */
@@ -25493,6 +25525,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /***/ }),
 /* 119 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25549,7 +25594,7 @@ var DollarValues = function (_React$Component) {
 exports.default = DollarValues;
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
