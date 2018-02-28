@@ -5,13 +5,15 @@
   "homepage": "",
   "main": "src",
   "keywords": [
-    "feathers"
+    "feathers",
+    "react",
+    "redux"
   ],
   "author": {
-    "name": "Peter Sim",
+    "name": "Deltage",
     "email": "ps.in.nz@gmail.com"
   },
-  "contributors": [],
+  "contributors": ["tyler", "madeleine", "adam", "peter", "tim"],
   "bugs": {},
   "directories": {
     "lib": "src",
@@ -27,6 +29,13 @@
     "start": "node src/",
     "mocha": "mocha test/ --recursive --exit",
     "dev": "nodemon"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
   },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.2",
@@ -46,13 +55,30 @@
     "passport-auth0": "^0.6.1",
     "serve-favicon": "^2.4.5",
     "sqlite3": "^3.1.13",
-    "winston": "^2.4.0"
+    "winston": "^2.4.0",
+    "dotenv": "^5.0.0",
+    "superagent": "^3.8.2"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
     "eslint": "^4.18.1",
     "mocha": "^5.0.1",
+    "enzyme": "^2.8.2",
     "nodemon": "^1.17.1",
     "request": "^2.83.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "react": "^16.2.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
   }
 }
