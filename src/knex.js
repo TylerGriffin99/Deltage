@@ -1,8 +1,8 @@
-const knex = require('knex');
+const knex = require('knex')
 
 module.exports = function (app) {
-  const { client, connection } = app.get('sqlite');
-  const db = knex({ client, connection });
+  const { client, connection } = app.get('sqlite')
+  const db = knex({ client, connection })
 
-  app.set('knexClient', db);
-};
+  app.set('knexClient', db)
+}
