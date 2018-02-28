@@ -15,7 +15,8 @@ class App extends React.Component{
   render(){
     return (
       <Router>
-        <div classNAme = 'app'>
+        <div className = 'app'>
+        <DollarValues />
         </div>
       </Router>
     )
