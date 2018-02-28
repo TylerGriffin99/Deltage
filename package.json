@@ -1,0 +1,93 @@
+{
+  "name": "deltage",
+  "description": "Arbitrage cryptocurrency tool",
+  "version": "0.0.0",
+  "homepage": "",
+  "main": "src",
+  "keywords": [
+    "feathers",
+    "react",
+    "redux"
+  ],
+  "author": {
+    "name": "Deltage",
+    "email": "ps.in.nz@gmail.com"
+  },
+  "contributors": [
+    "tyler",
+    "madeleine",
+    "adam",
+    "peter",
+    "tim"
+  ],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/"
+  },
+  "engines": {
+    "node": "^8.0.0",
+    "yarn": ">= 0.18.0"
+  },
+  "scripts": {
+    "test": "yarn run eslint && yarn run mocha",
+    "eslint": "eslint src/. test/. --config .eslintrc.json",
+    "start": "node src/",
+    "mocha": "mocha test/ --recursive --exit",
+    "dev": "nodemon --watch server & yarn build --watch",
+    "build": "webpack --config ./client/webpack.config.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
+  },
+  "dependencies": {
+    "@feathersjs/authentication": "^2.1.2",
+    "@feathersjs/authentication-jwt": "^2.0.0",
+    "@feathersjs/authentication-local": "^1.1.0",
+    "@feathersjs/authentication-oauth2": "^1.0.3",
+    "@feathersjs/configuration": "^1.0.2",
+    "@feathersjs/errors": "^3.3.0",
+    "@feathersjs/express": "^1.2.0",
+    "@feathersjs/feathers": "^3.1.3",
+    "@feathersjs/socketio": "^3.2.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "compression": "^1.7.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.0",
+    "feathers-knex": "^3.0.3",
+    "helmet": "^3.11.0",
+    "knex": "^0.14.4",
+    "passport-auth0": "^0.6.1",
+    "serve-favicon": "^2.4.5",
+    "sqlite3": "^3.1.13",
+    "superagent": "^3.8.2",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "enzyme": "^2.8.2",
+    "eslint": "^4.18.1",
+    "mocha": "^5.0.1",
+    "nodemon": "^1.17.1",
+    "react": "^16.2.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.2.0",
+    "react-redux": "^4.4.5",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
