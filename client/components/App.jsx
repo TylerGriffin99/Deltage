@@ -17,6 +17,7 @@ class App extends React.Component{
       <Router>
         <div className = 'app'>
           <ExchangeDisplay />
+          <DollarValues />
         </div>
       </Router>
     )

@@ -35,4 +35,4 @@ class ExchangeDisplay extends React.Component{
 
 }
 
-export default App
+export default ExchangeDisplay
