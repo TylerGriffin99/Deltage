@@ -114,3 +114,5 @@ data/
 # Database
 *.sqlite
 *.sqlite3
+
+bundle.*
