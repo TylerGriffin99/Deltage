@@ -19,6 +19,7 @@ class App extends React.Component{
           <BestTrade/>
           <DollarValues />
           <ExchangeDisplay />
+          <liveApp />
         </div>
       </Router>
     )
