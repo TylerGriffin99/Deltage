@@ -4,7 +4,6 @@ const favicon = require('serve-favicon')
 const feathers = require('@feathersjs/feathers')
 const configuration = require('@feathersjs/configuration')
 const express = require('@feathersjs/express')
-const socketio = require('@feathersjs/socketio')
 
 const knex = require('./knex')
 const services = require('./services')
@@ -23,7 +22,6 @@ app.use(favicon(path.join(app.get('public'), 'favicon.ico')))
 // Set up Plugins and providers
 app.configure(knex)
 app.configure(services)
-app.configure(socketio())
 app.configure(authentication)
 
 // Configure a middleware for 404s and the error handler

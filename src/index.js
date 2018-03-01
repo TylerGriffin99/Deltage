@@ -9,5 +9,5 @@ process.on('unhandledRejection', (reason, p) =>
 )
 
 server.on('listening', () =>
-  logger.info('Running on http://%s:%d', app.get('host'), port)
+  logger.info('Server is Listening on http://%s:%d', app.get('host'), port)
 )

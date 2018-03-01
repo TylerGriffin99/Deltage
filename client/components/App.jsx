@@ -16,7 +16,9 @@ class App extends React.Component{
     return (
       <Router>
         <div className = 'app'>
-        <DollarValues />
+          <BestTrade/>
+          <DollarValues />
+          <ExchangeDisplay />
         </div>
       </Router>
     )
