@@ -22345,7 +22345,9 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'app' },
-          _react2.default.createElement(_DollarValues2.default, null)
+          _react2.default.createElement(_BestTrade2.default, null),
+          _react2.default.createElement(_DollarValues2.default, null),
+          _react2.default.createElement(_ExchangeDisplay2.default, null)
         )
       );
     }
@@ -25472,11 +25474,99 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CoinVolumes = function (_React$Component) {
+  _inherits(CoinVolumes, _React$Component);
+
+  function CoinVolumes(props) {
+    _classCallCheck(this, CoinVolumes);
+
+    var _this = _possibleConstructorReturn(this, (CoinVolumes.__proto__ || Object.getPrototypeOf(CoinVolumes)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(CoinVolumes, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Coin Volume Graphs'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Bitcoin'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Insert Graph Here'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Ethereum'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Insert Graph Here'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Doge'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Insert Graph Here'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Pay'
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Insert Graph Here'
+        )
+      );
+    }
+  }]);
+
+  return CoinVolumes;
+}(_react2.default.Component);
+
+exports.default = CoinVolumes;
 
 /***/ }),
 /* 118 */
@@ -25485,11 +25575,66 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var BestTrade = function (_React$Component) {
+  _inherits(BestTrade, _React$Component);
+
+  function BestTrade(props) {
+    _classCallCheck(this, BestTrade);
+
+    var _this = _possibleConstructorReturn(this, (BestTrade.__proto__ || Object.getPrototypeOf(BestTrade)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(BestTrade, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Best Trade Component'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Buy: \'DogeCoin\' from Bittrex'
+        ),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Sell to: Jubi for 5% profit'
+        )
+      );
+    }
+  }]);
+
+  return BestTrade;
+}(_react2.default.Component);
+
+exports.default = BestTrade;
 
 /***/ }),
 /* 119 */
@@ -25537,7 +25682,51 @@ var DollarValues = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           null,
-          'I\'m the Dollar Value Component'
+          'Dollar Value Component'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Bitcoin'
+        ),
+        _react2.default.createElement(
+          'h4',
+          null,
+          '$10,408.60'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Ethereum'
+        ),
+        _react2.default.createElement(
+          'h4',
+          null,
+          '$859.06'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Tether'
+        ),
+        _react2.default.createElement(
+          'h4',
+          null,
+          '$1.00'
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'DogeCoin'
+        ),
+        _react2.default.createElement(
+          'h4',
+          null,
+          '$0.006048'
         )
       );
     }
@@ -25555,11 +25744,233 @@ exports.default = DollarValues;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ExchangeDisplay = function (_React$Component) {
+  _inherits(ExchangeDisplay, _React$Component);
+
+  function ExchangeDisplay(props) {
+    _classCallCheck(this, ExchangeDisplay);
+
+    var _this = _possibleConstructorReturn(this, (ExchangeDisplay.__proto__ || Object.getPrototypeOf(ExchangeDisplay)).call(this, props));
+
+    _this.state = {
+      result: ''
+      // // create a variable for new websocket
+      // this.ws = new WebSocket('wss://api.bitfinex.com/ws/2')
+
+      // // Create function to send on open
+      // this.ws.onopen = function() {
+      //   this.ws.send(JSON.stringify({"event":"subscribe", "channel":"ticker", "pair":"fUSD"}))
+      // }
+      // this.ws.onmessage = function(msg) {
+      //   // create a variable for response and parse the json data
+      //   var response = JSON.parse(msg.data)
+      //   // save hb variable from bitfinex
+      //   var hb = response[1]
+      //   if(hb != "hb") {
+      //     this.setState ({
+      //       result: "ASK: " + response[1][2] + "  VOLUME: " + response[1][7] + "  BID: " + response[1][0]
+      //     }) 
+      //   }      
+      // }
+      // //bind ws.onmessage
+      // this.ws.onmessage = this.ws.onmessage.bind(this)
+      // this.ws.onopen = this.ws.onopen.bind(this)
+    };return _this;
+  }
+
+  _createClass(ExchangeDisplay, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'exchangeContainer' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Exchange Container'
+        ),
+        _react2.default.createElement(
+          'table',
+          { className: 'exchangeTable' },
+          _react2.default.createElement(
+            'thead',
+            null,
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'th',
+                null,
+                ' Diff (%)'
+              ),
+              _react2.default.createElement(
+                'th',
+                null,
+                ' Buy (Exc)'
+              ),
+              _react2.default.createElement(
+                'th',
+                null,
+                ' Sell (Exc)'
+              ),
+              _react2.default.createElement(
+                'th',
+                null,
+                ' Coin '
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'tbody',
+            null,
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              )
+            ),
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              )
+            ),
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              )
+            ),
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              )
+            ),
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                ' '
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return ExchangeDisplay;
+}(_react2.default.Component);
+
+exports.default = ExchangeDisplay;
 
 /***/ })
 /******/ ]);
