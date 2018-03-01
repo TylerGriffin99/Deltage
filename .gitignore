@@ -110,3 +110,7 @@ $RECYCLE.BIN/
 # Others
 lib/
 data/
+
+# Database
+*.sqlite
+*.sqlite3

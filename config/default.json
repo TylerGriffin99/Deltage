@@ -9,8 +9,9 @@
   "sqlite": {
     "client": "sqlite3",
     "connection": {
-      "filename": "deltage.sqlite"
-    }
+      "filename": "dev.sqlite"
+    },
+    "useNullAsDefault": true
   },
   "authentication": {
     "secret": "76a1633d9bbfef88e85104e06c19b7aad431707d8e7013d756168f00176c907da605c597d8a63c9eece5ef04fd37f8d790ad48d7140c5415e939a1eff2add700c55b3493619d56396ba3a414d3587c41332fe29bb04a77b12d7e5ad2e44719a8a47a326941ffe763e36defc1ad6fc1f8800cb888ca4fc1081e3bf47d1399d17552d053d680ebdcc37d517d39b691e2cb4ae28ca3e4b435b1b0f13cc83a634ea56885cf0afbfb8bd906dfdf0754238133fe47e790b45b61e5ea3911fcc9d2c3f20269ad29a78fd5ffe67cda9ca750f15324856941ce60ae7e40e618ad0c34bcac5743c516ec32cd147f0bfc0c59f901b5af1ed6b39e18592289ba72e5bd5ec37f",
