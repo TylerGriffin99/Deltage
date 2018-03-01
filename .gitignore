@@ -111,4 +111,8 @@ $RECYCLE.BIN/
 lib/
 data/
 
+# Database
+*.sqlite
+*.sqlite3
+
 bundle.*
