@@ -16,20 +16,20 @@ class LiveApp extends React.Component {
   }
 
 
-  componentWillMount() {
+  componentDidMount() {
     this.initSocket()
   } 
   initSocket = () => {
     const socket = io(socketUrl)
     socket.on('connect', () => {
-      console.log('react connected', socket.id)
+      // console.log('react connected', socket.id)
      this.setState({socket})
     socket.on('server2client', (data) => {
       console.log('here from back end', data)
       this.setState({
         data: data
       })
-      console.log('server2client', this.state.data)
+      // console.log('server2client', this.state.data)
     })
     }) 
   }

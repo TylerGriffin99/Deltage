@@ -29640,14 +29640,14 @@ var LiveApp = function (_React$Component) {
     _this.initSocket = function () {
       var socket = (0, _socket2.default)(socketUrl);
       socket.on('connect', function () {
-        console.log('react connected', socket.id);
+        // console.log('react connected', socket.id)
         _this.setState({ socket: socket });
         socket.on('server2client', function (data) {
           console.log('here from back end', data);
           _this.setState({
             data: data
           });
-          console.log('server2client', _this.state.data);
+          // console.log('server2client', this.state.data)
         });
       });
     };
@@ -29661,8 +29661,8 @@ var LiveApp = function (_React$Component) {
   }
 
   _createClass(LiveApp, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
       this.initSocket();
     }
   }, {

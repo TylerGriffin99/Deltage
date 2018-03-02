@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 require('dotenv').config()
 
-const server = require('./server').app
+const server = require('./server')
 // const socket = require('socket.io')
 // const socketManager = require('./socketManager')
 

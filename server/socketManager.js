@@ -1,4 +1,4 @@
-const io = require('./server').io
+// const io = require('./server').io
 
 const data = {
   btc: {
@@ -14,7 +14,7 @@ const data = {
 module.exports =function(socket) {
   console.log('socket manager', socket.id)
 
-socket.on('dat2client', (data) => {
+socket.on('data2client', (data) => {
     console.log('emit connected', data)
     setInterval(() => {
       socket.emit('server2client', {msg: 'hello'})
