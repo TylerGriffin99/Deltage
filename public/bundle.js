@@ -34226,10 +34226,6 @@ var _socket = __webpack_require__(56);
 
 var _socket2 = _interopRequireDefault(_socket);
 
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _require = __webpack_require__(69),
@@ -34250,6 +34246,7 @@ var initSocket = function initSocket() {
 
   socket.on(COIN_DATA, function (data) {
     console.log(data);
+    dispatch();
     // this.setState({
     //   data: data,
     //   count: this.state.count + 1

@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import React from 'react'
+ 
 
 
 const {CONNECT, GET_DATA, COIN_DATA} = require('../../common/events')
@@ -17,6 +17,7 @@ const initSocket = () => {
  
   socket.on(COIN_DATA, (data) => {
     console.log(data)
+    dispatch()
     // this.setState({
     //   data: data,
     //   count: this.state.count + 1
