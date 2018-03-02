@@ -1,17 +1,47 @@
 const btcData = [
-  pay: {
-    bitrex: 500,
-    polinex: 200,
-    jubi: 10
+  {
+    coin:'pay',
+    exchanges:[
+      {
+        name: 'bitrex',
+        lastPrice: 500
+      },
+      {
+        name: 'polinex',
+        lastPrice: 200
+      },
+      {
+        name: 'jubi',
+        lastPrice: 10
+      }
+    ]
   },
-  eos: {
-    bitrex: 200,
-    polinex: 100,
-    jubi: 400
+  {
+    coin:'eos',
+    exchanges:[
+      {
+        name: 'bitrex',
+        lastPrice: 500
+      },
+      {
+        name: 'polinex',
+        lastPrice: 200
+      },
+      {
+        name: 'jubi',
+        lastPrice: 10
+      }
+    ]
   },
-  doge: {
-    bitrex: 200
-  }
+  {
+    coin:'doge',
+    exchanges:[
+      {
+        name: 'bitrex',
+        lastPrice: 500
+      }
+    ]
+  },
 ]
 
 function sort (data){
