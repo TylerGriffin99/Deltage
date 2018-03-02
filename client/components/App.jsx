@@ -17,10 +17,10 @@ class App extends React.Component{
     return (
       <Router>
         <div className = 'app'>
-          <Graph />
           <BestTrade/>
           <DollarValues />
           <ExchangeDisplay />
+          <Graph />
         </div>
       </Router>
     )
