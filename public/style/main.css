@@ -10,13 +10,15 @@ html, body {
  background-attachment: fixed; 
 }
 
-.header{
-  height: 20%;
-  background-image: linear-gradient(to bottom, #c0daf3 0%, rgb(255, 255, 255) 100%);
-  color: white;
-}
 h2, p{
 font-family: 'Dosis', sans-serif;
+}
+
+.app{ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 table, th, td {

@@ -1,16 +1,15 @@
 import React from 'react'
 
-class Login extends React.Component{
-  constructor(props){
-    super(props)
-  }
+import './login.css'
 
-  render(){
+class Login extends React.Component {
+  render () {
     return (
-        <div className = 'login'>
-        </div>
+      <div className = 'login'>
+      </div>
     )
   }
 }
 
-export default Login 
+export default Login
+    
