@@ -1,8 +1,5 @@
 import moment from 'moment'
 
-
-console.log(moment(1318874398806).unix())
-console.log(moment(1318874398806).hour())
 const graphData = {
     labels: [],
     datasets: [
