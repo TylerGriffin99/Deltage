@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './liveApp.css'
+
 import Volumes from '../Volumes/Volumes.jsx'
 import DollarValues from '../DollarValues/DollarValues.jsx'
 import BestTrade from '../BestTrade/BestTrade.jsx'
