@@ -6,6 +6,7 @@ import Volumes from './Volumes'
 import BestTrade from './BestTrade'
 import DollarValues from './DollarValues'
 import ExchangeDisplay from './ExchangeDisplay'
+import LiveApp from './LiveApp'
 
 class App extends React.Component{
   constructor(props){
@@ -19,6 +20,7 @@ class App extends React.Component{
           <BestTrade/>
           <DollarValues />
           <ExchangeDisplay />
+          <LiveApp />
         </div>
       </Router>
     )
