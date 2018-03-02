@@ -19,6 +19,7 @@ let coinNames = []
               .then((newCoinPrices) => {
                 numberOfRequests++
                 resolve(newCoinPrices)
+                console.log('sending to spread calc')
                 if (numberOfRequests >= 1) calculateSpread(coin_prices)
               })
             } else {
@@ -74,7 +75,6 @@ function calculateSpread (data) {
               ) // end push
             } // end for - j
           } // end for - i
-           console.log(results)
         } // end if obj.keys
       } // end initial for loop
       results.sort(function (a, b) {
