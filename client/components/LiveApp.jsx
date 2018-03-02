@@ -9,7 +9,8 @@ class LiveApp extends React.Component {
   constructor(props) {
     super (props)
     this.state = {
-      socket: null
+      socket: null,
+      data: ''
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -23,7 +24,13 @@ class LiveApp extends React.Component {
     socket.on('connect', () => {
       console.log('react connected', socket.id)
      this.setState({socket})
-    
+    socket.on('server2client', (data) => {
+      console.log('here from back end', data)
+      this.setState({
+        data: data
+      })
+      console.log('server2client', this.state.data)
+    })
     }) 
   }
 

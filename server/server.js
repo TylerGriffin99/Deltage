@@ -6,10 +6,13 @@ const bodyParser = require('body-parser')
 
 const authRoutes = require('./routes/auth')
 
-
-
-
 const io = require('socket.io')(app)
+
+const socketManager = require('./socketManager')
+
+io.on('connection',  socketManager)
+
+
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
@@ -20,4 +23,7 @@ server.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
-module.exports = app
+module.exports = {
+  app,
+  io
+}

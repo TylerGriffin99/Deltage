@@ -29642,11 +29642,19 @@ var LiveApp = function (_React$Component) {
       socket.on('connect', function () {
         console.log('react connected', socket.id);
         _this.setState({ socket: socket });
+        socket.on('server2client', function (data) {
+          console.log('here from back end', data);
+          _this.setState({
+            data: data
+          });
+          console.log('server2client', _this.state.data);
+        });
       });
     };
 
     _this.state = {
-      socket: null
+      socket: null,
+      data: ''
     };
     _this.handleClick = _this.handleClick.bind(_this);
     return _this;
