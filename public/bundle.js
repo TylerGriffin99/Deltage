@@ -7042,7 +7042,6 @@ module.exports = function(obj, fn){
 
 module.exports = {
   CONNECT: 'connect',
-  GET_DATA: 'GET_DATA',
   COIN_DATA: 'COIN_DATA'
 };
 
@@ -34229,8 +34228,6 @@ var _socket2 = _interopRequireDefault(_socket);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _require = __webpack_require__(69),
-    CONNECT = _require.CONNECT,
-    GET_DATA = _require.GET_DATA,
     COIN_DATA = _require.COIN_DATA;
 
 var socketUrl = process.env.PORT || 'http://localhost:3000/';
@@ -34239,18 +34236,8 @@ var socketUrl = process.env.PORT || 'http://localhost:3000/';
 
 var initSocket = function initSocket() {
   var socket = (0, _socket2.default)(socketUrl);
-  socket.on(CONNECT, function () {
-    // this.setState({socket})
-    socket.emit(GET_DATA);
-  });
-
   socket.on(COIN_DATA, function (data) {
     console.log(data);
-    dispatch();
-    // this.setState({
-    //   data: data,
-    //   count: this.state.count + 1
-    // })
   });
 };
 
