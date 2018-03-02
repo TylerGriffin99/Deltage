@@ -11,7 +11,7 @@ const authRoutes = require('./routes/auth')
 const {CONNECT} = require('../common/events')
 const socketManager = require('./socketManager')
 
-io.on('connection',  socketManager)
+io.on('connect',  socketManager)
 
 const getMarketData = require('./api/getMarketData')
 const markets = require('./api/markets')
