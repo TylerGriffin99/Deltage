@@ -1,5 +1,6 @@
 import React from 'react'
 
+import './liveApp.css'
 import Graph from '../Graph/Graph.jsx'
 import Volumes from '../Volumes/Volumes.jsx'
 import BestTrade from '../BestTrade/BestTrade.jsx'

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './dollarValues.css'
+
 class DollarValues extends React.Component {
 constructor (props) {
   super(props)
