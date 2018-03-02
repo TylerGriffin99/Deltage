@@ -1,3 +1,5 @@
+const {GET_DATA, COIN_DATA} = require('../common/events')
+// import {CONNECTED_CLIENT, SEND_DATA} from '../common/events'  
 const data = 
   {
     last: 2,
@@ -12,10 +14,10 @@ const data =
 module.exports =function(socket) {
   console.log('socket manager', socket.id)
 
-  socket.on('get-data', () => {
+  socket.on(GET_DATA, () => {
     console.log('getting data', data)
     setInterval(() => {
-      socket.emit('coin-data', data)
+      socket.emit(COIN_DATA, data)
     }, 3000)
   })
 

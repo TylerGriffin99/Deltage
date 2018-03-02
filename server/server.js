@@ -3,11 +3,12 @@ const express = require('express')
 const server = express()
 const app = require('http').Server(server)
 const bodyParser = require('body-parser')
+const io = require('socket.io')(app)
 
 const authRoutes = require('./routes/auth')
 
-const io = require('socket.io')(app)
 
+const {CONNECT} = require('../common/events')
 const socketManager = require('./socketManager')
 
 io.on('connection',  socketManager)

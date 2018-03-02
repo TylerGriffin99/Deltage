@@ -8,6 +8,9 @@ import DollarValues from '../DollarValues/DollarValues.jsx'
 import BestTrade from '../BestTrade/BestTrade.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
+//import lib functions
+const {CONNECT, GET_DATA, COIN_DATA} = require('../../../common/events')
+
 // not sure if this is correct for live app
 const socketUrl = process.env.PORT || 'http://localhost:3000/'
 
@@ -30,23 +33,20 @@ class LiveApp extends React.Component{
 
   initSocket = () => {
     const socket = io(socketUrl)
-    socket.on('connect', () => {
+    socket.on(CONNECT, () => {
       this.setState({socket})
     })
-    socket.emit('get-data') 
-    socket.on('coin-data', (data) => {
-      console.log(data)
+    socket.emit(GET_DATA) 
+    socket.on(COIN_DATA, (data) => {
       this.setState({
         data: data,
         count: this.state.count + 1
       })
-      console.log(this.state.data.name)
     })
   }
 
 
   render(){
-    console.log(this.state.data)
     return (
       <div className = 'liveApp'>
       <h2>{this.state.count}</h2>

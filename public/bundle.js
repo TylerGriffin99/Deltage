@@ -29568,7 +29568,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//import lib functions
+var _require = __webpack_require__(180),
+    CONNECT = _require.CONNECT,
+    GET_DATA = _require.GET_DATA,
+    COIN_DATA = _require.COIN_DATA;
+
 // not sure if this is correct for live app
+
+
 var socketUrl = process.env.PORT || 'http://localhost:3000/';
 
 var LiveApp = function (_React$Component) {
@@ -29581,17 +29589,15 @@ var LiveApp = function (_React$Component) {
 
     _this.initSocket = function () {
       var socket = (0, _socket2.default)(socketUrl);
-      socket.on('connect', function () {
+      socket.on(CONNECT, function () {
         _this.setState({ socket: socket });
       });
-      socket.emit('get-data');
-      socket.on('coin-data', function (data) {
-        console.log(data);
+      socket.emit(GET_DATA);
+      socket.on(COIN_DATA, function (data) {
         _this.setState({
           data: data,
           count: _this.state.count + 1
         });
-        console.log(_this.state.data.name);
       });
     };
 
@@ -29614,7 +29620,6 @@ var LiveApp = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log(this.state.data);
       return _react2.default.createElement(
         'div',
         { className: 'liveApp' },
@@ -34204,6 +34209,19 @@ exports.push([module.i, "", ""]);
 
 // exports
 
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {
+  CONNECT: 'CONNECT',
+  GET_DATA: 'GET_DATA',
+  COIN_DATA: 'COIN_DATA'
+};
 
 /***/ })
 /******/ ]);
