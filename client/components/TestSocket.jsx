@@ -5,7 +5,7 @@ import io from 'socket.io-client'
 
 const socketUrl = 'http://localhost:3000/'
 
-class LiveApp extends React.Component {
+class TestSocket extends React.Component {
   constructor(props) {
     super (props)
     this.state = {
@@ -52,4 +52,4 @@ class LiveApp extends React.Component {
   }
 }
 
-export default LiveApp
+export default TestSocket

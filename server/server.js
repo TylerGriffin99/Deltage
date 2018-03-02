@@ -12,6 +12,10 @@ const socketManager = require('./socketManager')
 
 io.on('connection',  socketManager)
 
+const getMarketData = require('./api/getMarketData')
+const markets = require('./api/markets')
+
+
 
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
@@ -24,3 +28,23 @@ server.get('*', function (req, res) {
 })
 
 module.exports = app
+function callMarkets () {
+  for (i = 0; i<markets.length; i++) {
+    getMarketData(markets[i])
+    .then((res) => {
+      console.log(res)
+    })
+  }
+}
+//callMarkets(markets)
+  // .then((res) => {
+  //   console.log(res)
+  // })
+
+callMarkets()
+  // .then((res) => {
+  //   console.log(res)
+  // })
+  
+
+
