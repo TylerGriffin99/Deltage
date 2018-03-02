@@ -1,10 +1,10 @@
 import React from 'react'
 
 import './liveApp.css'
-
+import Graph from '../Graph/Graph.jsx'
 import Volumes from '../Volumes/Volumes.jsx'
-import DollarValues from '../DollarValues/DollarValues.jsx'
 import BestTrade from '../BestTrade/BestTrade.jsx'
+import DollarValues from '../DollarValues/DollarValues.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
 class LiveApp extends React.Component{
@@ -33,6 +33,7 @@ class LiveApp extends React.Component{
         <DollarValues />
         <ExchangeDisplay />
         <Volumes />
+        <Graph />
       </div>
     )
   }
