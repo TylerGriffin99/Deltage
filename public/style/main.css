@@ -8,6 +8,13 @@ html, body {
  height:100%;
 }
 
+.app{ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 table, th, td {
   border: 0.5px solid black;
 }

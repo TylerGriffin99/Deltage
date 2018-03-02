@@ -7,15 +7,15 @@ class BestTrade extends React.Component {
     super(props)
     this.state = {}
   }
-  render() {
+  render () {
     return (
       <div>
         <h1>Best Trade Component</h1>
         <br/>
-        <h4>Buy: 'DogeCoin' from Bittrex</h4><h4>Sell to: Jubi for 5% profit</h4>
+        <h4>Buy: DogeCoin from Bittrex</h4><h4>Sell to: Jubi for 5% profit</h4>
       </div>
-      )
-    }
+    )
   }
-  
-  export default BestTrade
+}
+
+export default BestTrade
