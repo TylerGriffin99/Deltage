@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './volume.css'
+
 class Volumes extends React.Component {
   constructor (props) {
     super(props)
