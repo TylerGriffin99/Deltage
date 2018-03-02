@@ -7,7 +7,7 @@ import BestTrade from '../BestTrade/BestTrade.jsx'
 import DollarValues from '../DollarValues/DollarValues.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
-class LiveApp extends React.Component{
+class LiveApp extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -17,18 +17,10 @@ class LiveApp extends React.Component{
     }
   }
 
-  componentDidMount () {
-    // getPoloniexData()
-    //   .then((coin_prices) => {
-    //     this.setState({
-    //       coin_prices
-    //     })
-    //   })
-    // // result.then(() => {})
-  }
-  render(){
+  render () {
     return (
       <div className = 'liveApp'>
+        <h1> Delt&Delta;ge </h1>
         <BestTrade/>
         <DollarValues />
         <ExchangeDisplay />
@@ -37,7 +29,6 @@ class LiveApp extends React.Component{
       </div>
     )
   }
-
 }
 
 export default LiveApp
