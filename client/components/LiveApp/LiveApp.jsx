@@ -1,5 +1,6 @@
 import React from 'react'
 import io from 'socket.io-client'
+import {connect} from 'react-redux'
 
 import './liveApp.css'
 
@@ -8,12 +9,9 @@ import DollarValues from '../DollarValues/DollarValues.jsx'
 import BestTrade from '../BestTrade/BestTrade.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
-//import lib and common functions
-const {CONNECT, GET_DATA, COIN_DATA} = require('../../../common/events')
-import socket from '../../lib/socket'
-
-// not sure if this is correct for live app
-const socketUrl = process.env.PORT || 'http://localhost:3000/'
+import baseUrl from '../../lib/base-url'
+import {coinData} from '../../actions' 
+const {COIN_DATA} = require('../../../common/events')
 
 class LiveApp extends React.Component{
   constructor (props) {
@@ -28,9 +26,14 @@ class LiveApp extends React.Component{
     }
   }
 
-  componentDidMount () {
-    socket()
+componentDidMount () {
+ const socket = io(baseUrl)
+  socket.on(COIN_DATA, (data) => {
+      console.log('socket', data)
+      this.props.dispatch(coinData(data))
+    })
   }
+
 
   render(){
     return (
@@ -47,4 +50,4 @@ class LiveApp extends React.Component{
 
 }
 
-export default LiveApp
+export default connect()(LiveApp)

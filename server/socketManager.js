@@ -1,5 +1,5 @@
 const {COIN_DATA} = require('../common/events')
-// import {CONNECTED_CLIENT, SEND_DATA} from '../common/events'  
+  
 const data = 
   {
     last: 2,
@@ -7,9 +7,6 @@ const data =
     diff: 12,
     name: 'bitcoin'
   }
-
-
-
 
 module.exports =function(socket) {
   console.log('socket manager', socket.id)
