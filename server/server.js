@@ -23,7 +23,8 @@ function callMarkets () {
   for (i = 0; i<markets.length; i++) {
     getMarketData(markets[i])
     .then((res) => {
-      console.log(res)
+      
+      //console.log(res)
     })
   }
 }

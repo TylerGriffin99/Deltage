@@ -27,7 +27,7 @@ const markets = [
           }
           // return coin prices
           res(coinPriceData)
-          console.log(coinPriceData)
+          // console.log(coinPriceData)
               } catch (err) {
           console.log(err)
                   rej(err)

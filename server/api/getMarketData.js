@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 let coin_prices = {}
 let numberOfRequests = 0
 let results = []
-coinNames = []
+let coinNames = []
 
   module.exports = function getMarketData (options) {
     return new Promise ( (resolve, reject) => {
@@ -19,7 +19,7 @@ coinNames = []
               .then((newCoinPrices) => {
                 numberOfRequests++
                 resolve(newCoinPrices)
-                if (numberOfRequests >= 1) computePrices(coin_prices)
+                if (numberOfRequests >= 1) calculateSpread(coin_prices)
               })
             } else {
               resolve(coin_prices)
@@ -32,13 +32,14 @@ function calculateSpread (data) {
   results = []
 
   function loopData () {
+    console.log('here')
     if (numberOfRequests >= 2) {
       for (let coin in data) {
         if (Object.keys(data[coin]).length > 1) {
-          if(!coinNames.includes(coin)) {coinNames.push(coin)}
+          if(!coinNames.includes(coin)) coinNames.push(coin) 
           let arr = []
           for (let markets in data[coin]) {
-            arr.push(data[coin][market], market)
+            arr.push([data[coin][markets], markets])
           }
           arr.sort(function (a, b) {
             return a[0] - b[0]
@@ -71,10 +72,18 @@ function calculateSpread (data) {
 
               }
               ) // end push
-            }
-          }
-        }
-      }
+            } // end for - j
+          } // end for - i
+           console.log(results)
+        } // end if obj.keys
+      } // end initial for loop
+      results.sort(function (a, b) {
+        return a.spread - b.spread
+      })
+      console.log(results)
+      console.log('finishing sort function')
+      // resolve()
     }
   }
+  loopData()
 }
