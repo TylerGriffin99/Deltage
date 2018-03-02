@@ -41,8 +41,38 @@ function calculateSpread (data) {
             arr.push(data[coin][market], market)
           }
           arr.sort(function (a, b) {
-            
+            return a[0] - b[0]
           })
+          for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j< arr.length; j++) {
+              results.push(
+                {coin: coin,
+                spread: arr[i][0] / arr[j][0],
+                market2: {
+                  name: arr[i][1],
+                  last: arr[i][0]
+                },
+                market1: {
+                name: arr[j][1],
+                last: arr[j][0]
+                },
+              },
+              {// TODO, shouldnt have to create duplicate object for same markets
+                coin: coin,
+                spread: arr[j][0] / arr[i][0],
+                market2: {
+                  name: arr[j][1],
+                  last: arr[j][0]
+                },
+                market1: {
+                  name: arr[i][1],
+                  last: arr[i][0]
+                }
+
+              }
+              ) // end push
+            }
+          }
         }
       }
     }
