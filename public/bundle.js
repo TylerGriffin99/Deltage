@@ -22347,7 +22347,8 @@ var App = function (_React$Component) {
           { className: 'app' },
           _react2.default.createElement(_BestTrade2.default, null),
           _react2.default.createElement(_DollarValues2.default, null),
-          _react2.default.createElement(_ExchangeDisplay2.default, null)
+          _react2.default.createElement(_ExchangeDisplay2.default, null),
+          _react2.default.createElement('liveApp', null)
         )
       );
     }
