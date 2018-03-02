@@ -58,6 +58,7 @@
     "jsonwebtoken": "^8.1.1",
     "jwt-decode": "^2.2.0",
     "knex": "^0.14.4",
+    "moment": "^2.20.1",
     "pg": "^7.4.1",
     "react": "^16.2.0",
     "react-addons-test-utils": "^15.6.2",

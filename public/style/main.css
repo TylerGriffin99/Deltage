@@ -1,11 +1,22 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} */
+}
 
 html, body {
  height:100%;
+ background-repeat: no-repeat;
+ background-attachment: fixed; 
+}
+
+.header{
+  height: 20%;
+  background-image: linear-gradient(to bottom, #c0daf3 0%, rgb(255, 255, 255) 100%);
+  color: white;
+}
+h2, p{
+font-family: 'Dosis', sans-serif;
 }
 
 table, th, td {
@@ -15,3 +26,14 @@ table, th, td {
 th, td {
   padding:5px;
 }
+
+.blur {
+  width:100%;
+  height:100%;
+  background-size:cover;
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -ms-filter: blur(4px);
+  -o-filter: blur(4px);
+  filter: blur(4px);
+  }
