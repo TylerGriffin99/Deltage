@@ -19,7 +19,8 @@ class LiveApp extends React.Component{
       numberOfRequests: 0,
       results: [],
       socket: null,
-      data: ''
+      data: '',
+      count: 0
     }
   }
 
@@ -36,7 +37,8 @@ class LiveApp extends React.Component{
     socket.on('coin-data', (data) => {
       console.log(data)
       this.setState({
-        data: data
+        data: data,
+        count: this.state.count + 1
       })
     })
   }
@@ -45,6 +47,7 @@ class LiveApp extends React.Component{
   render(){
     return (
       <div className = 'liveApp'>
+      <h2>{this.state.count}</h2>
         <BestTrade/>
         <DollarValues />
         <ExchangeDisplay />

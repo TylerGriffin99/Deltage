@@ -29588,7 +29588,8 @@ var LiveApp = function (_React$Component) {
       socket.on('coin-data', function (data) {
         console.log(data);
         _this.setState({
-          data: data
+          data: data,
+          count: _this.state.count + 1
         });
       });
     };
@@ -29598,7 +29599,8 @@ var LiveApp = function (_React$Component) {
       numberOfRequests: 0,
       results: [],
       socket: null,
-      data: ''
+      data: '',
+      count: 0
     };
     return _this;
   }
@@ -29614,6 +29616,11 @@ var LiveApp = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'liveApp' },
+        _react2.default.createElement(
+          'h2',
+          null,
+          this.state.count
+        ),
         _react2.default.createElement(_BestTrade2.default, null),
         _react2.default.createElement(_DollarValues2.default, null),
         _react2.default.createElement(_ExchangeDisplay2.default, null),
