@@ -13,7 +13,11 @@
     "promise"
   ],
   "rules": {
-    "react/prop-types": "off",
-    "no-console": "off"
+    "eol-last": ["error", "always"],
+    "no-multiple-empty-lines": [
+      "error", { "max": 1, "maxEOF": 0, "maxBOF": 0 }
+    ],
+    "object-curly-spacing": ["error", "never"],
+    "react/prop-types": "off"
   }
 }
