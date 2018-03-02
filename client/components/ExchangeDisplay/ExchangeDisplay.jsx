@@ -1,5 +1,6 @@
 import React from 'react'
 
+import './exchangeDisplay.css'
 
 class ExchangeDisplay extends React.Component{
   constructor(props){
