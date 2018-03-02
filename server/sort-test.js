@@ -45,14 +45,13 @@ const btcData = [
 ]
 
 function sort (data){
-  for(coin in data){
-    console.log(coin)
-    if(coin.length>1){
-      console.log('big')
-    } else {
-      console.log('small')
+  data.map(coinData => {
+    if(coinData.exchanges.length <= 1){
+      console.log('too small')
+    }else{
+      console.log('good to go')
     }
-  }
+  })
 }
 
 sort(btcData)

@@ -19,7 +19,7 @@ coinNames = []
               .then((newCoinPrices) => {
                 numberOfRequests++
                 resolve(newCoinPrices)
-                if (numberOfRequests >= 1) computePrices(coin_prices)
+                // if (numberOfRequests >= 1) computePrices(coin_prices)
               })
             } else {
               resolve(coin_prices)
