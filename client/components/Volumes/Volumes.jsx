@@ -1,6 +1,6 @@
 import React from 'react'
 
-class CoinVolumes extends React.Component {
+class Volumes extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
@@ -26,4 +26,4 @@ class CoinVolumes extends React.Component {
     }
   }
   
-  export default CoinVolumes
+  export default Volumes
