@@ -1,7 +1,6 @@
 import React from 'react'
 import io from 'socket.io-client'
-// import {USER_CONNECTED, LOGOUT} from '../Events'
-// import LoginForm from './LoginForm'
+
 
 const socketUrl = 'http://localhost:3000/'
 
@@ -24,6 +23,7 @@ class TestSocket extends React.Component {
     socket.on('connect', () => {
       // console.log('react connected', socket.id)
      this.setState({socket})
+    
     socket.on('server2client', (data) => {
       console.log('here from back end', data)
       this.setState({

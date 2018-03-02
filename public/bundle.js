@@ -1723,7 +1723,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(168);
+var	fixUrls = __webpack_require__(167);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -26381,11 +26381,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(113);
 
-var _TestSocket = __webpack_require__(140);
-
-var _TestSocket2 = _interopRequireDefault(_TestSocket);
-
-var _LiveApp = __webpack_require__(165);
+var _LiveApp = __webpack_require__(140);
 
 var _LiveApp2 = _interopRequireDefault(_LiveApp);
 
@@ -26396,6 +26392,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 // import Login from './Login/Login'
 
 
@@ -26417,7 +26414,6 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'app' },
-          _react2.default.createElement(_TestSocket2.default, null),
           _react2.default.createElement(_LiveApp2.default, { path: '/live' })
         )
       );
@@ -29530,7 +29526,7 @@ var withRouter = function withRouter(Component) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(process) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -29546,6 +29542,24 @@ var _socket = __webpack_require__(141);
 
 var _socket2 = _interopRequireDefault(_socket);
 
+__webpack_require__(165);
+
+var _Volumes = __webpack_require__(168);
+
+var _Volumes2 = _interopRequireDefault(_Volumes);
+
+var _DollarValues = __webpack_require__(171);
+
+var _DollarValues2 = _interopRequireDefault(_DollarValues);
+
+var _BestTrade = __webpack_require__(174);
+
+var _BestTrade2 = _interopRequireDefault(_BestTrade);
+
+var _ExchangeDisplay = __webpack_require__(177);
+
+var _ExchangeDisplay2 = _interopRequireDefault(_ExchangeDisplay);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29554,79 +29568,65 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import {USER_CONNECTED, LOGOUT} from '../Events'
-// import LoginForm from './LoginForm'
+// not sure if this is correct for live app
+var socketUrl = process.env.PORT || 'http://localhost:3000/';
 
-var socketUrl = 'http://localhost:3000/';
+var LiveApp = function (_React$Component) {
+  _inherits(LiveApp, _React$Component);
 
-var TestSocket = function (_React$Component) {
-  _inherits(TestSocket, _React$Component);
+  function LiveApp(props) {
+    _classCallCheck(this, LiveApp);
 
-  function TestSocket(props) {
-    _classCallCheck(this, TestSocket);
-
-    var _this = _possibleConstructorReturn(this, (TestSocket.__proto__ || Object.getPrototypeOf(TestSocket)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (LiveApp.__proto__ || Object.getPrototypeOf(LiveApp)).call(this, props));
 
     _this.initSocket = function () {
       var socket = (0, _socket2.default)(socketUrl);
       socket.on('connect', function () {
-        // console.log('react connected', socket.id)
         _this.setState({ socket: socket });
-        socket.on('server2client', function (data) {
-          console.log('here from back end', data);
-          _this.setState({
-            data: data
-          });
-          // console.log('server2client', this.state.data)
+      });
+      socket.emit('get-data');
+      socket.on('coin-data', function (data) {
+        console.log(data);
+        _this.setState({
+          data: data
         });
       });
     };
 
     _this.state = {
+      coin_prices: {},
+      numberOfRequests: 0,
+      results: [],
       socket: null,
       data: ''
     };
-    _this.handleClick = _this.handleClick.bind(_this);
     return _this;
   }
 
-  _createClass(TestSocket, [{
+  _createClass(LiveApp, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.initSocket();
     }
   }, {
-    key: 'handleClick',
-    value: function handleClick() {
-      var socket = this.state.socket;
-      console.log('click works at least');
-      socket.emit('data2client', 'emitting stuff');
-    }
-  }, {
     key: 'render',
     value: function render() {
-      console.log(this.state.socket);
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(
-          'h2',
-          null,
-          'hey'
-        ),
-        _react2.default.createElement(
-          'button',
-          { type: 'button', onClick: this.handleClick },
-          'Testing Connection'
-        )
+        { className: 'liveApp' },
+        _react2.default.createElement(_BestTrade2.default, null),
+        _react2.default.createElement(_DollarValues2.default, null),
+        _react2.default.createElement(_ExchangeDisplay2.default, null),
+        _react2.default.createElement(_Volumes2.default, null)
       );
     }
   }]);
 
-  return TestSocket;
+  return LiveApp;
 }(_react2.default.Component);
 
-exports.default = TestSocket;
+exports.default = LiveApp;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 141 */
@@ -33267,97 +33267,8 @@ Backoff.prototype.setJitter = function(jitter){
 /* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-__webpack_require__(166);
-
-var _Volumes = __webpack_require__(169);
-
-var _Volumes2 = _interopRequireDefault(_Volumes);
-
-var _DollarValues = __webpack_require__(172);
-
-var _DollarValues2 = _interopRequireDefault(_DollarValues);
-
-var _BestTrade = __webpack_require__(175);
-
-var _BestTrade2 = _interopRequireDefault(_BestTrade);
-
-var _ExchangeDisplay = __webpack_require__(178);
-
-var _ExchangeDisplay2 = _interopRequireDefault(_ExchangeDisplay);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var LiveApp = function (_React$Component) {
-  _inherits(LiveApp, _React$Component);
-
-  function LiveApp(props) {
-    _classCallCheck(this, LiveApp);
-
-    var _this = _possibleConstructorReturn(this, (LiveApp.__proto__ || Object.getPrototypeOf(LiveApp)).call(this, props));
-
-    _this.state = {
-      coin_prices: {},
-      numberOfRequests: 0,
-      results: []
-    };
-    return _this;
-  }
-
-  _createClass(LiveApp, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      // getPoloniexData()
-      //   .then((coin_prices) => {
-      //     this.setState({
-      //       coin_prices
-      //     })
-      //   })
-      // // result.then(() => {})
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'liveApp' },
-        _react2.default.createElement(_BestTrade2.default, null),
-        _react2.default.createElement(_DollarValues2.default, null),
-        _react2.default.createElement(_ExchangeDisplay2.default, null),
-        _react2.default.createElement(_Volumes2.default, null)
-      );
-    }
-  }]);
-
-  return LiveApp;
-}(_react2.default.Component);
-
-exports.default = LiveApp;
-
-/***/ }),
-/* 166 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(167);
+var content = __webpack_require__(166);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -33403,7 +33314,7 @@ if(false) {
 }
 
 /***/ }),
-/* 167 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)(false);
@@ -33417,7 +33328,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 168 */
+/* 167 */
 /***/ (function(module, exports) {
 
 
@@ -33512,7 +33423,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 169 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33528,7 +33439,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(170);
+__webpack_require__(169);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33615,11 +33526,11 @@ var Volumes = function (_React$Component) {
 exports.default = Volumes;
 
 /***/ }),
-/* 170 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(171);
+var content = __webpack_require__(170);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -33665,7 +33576,7 @@ if(false) {
 }
 
 /***/ }),
-/* 171 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)(false);
@@ -33679,7 +33590,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 172 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33695,7 +33606,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(173);
+__webpack_require__(172);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33782,11 +33693,11 @@ var DollarValues = function (_React$Component) {
 exports.default = DollarValues;
 
 /***/ }),
-/* 173 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(174);
+var content = __webpack_require__(173);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -33832,7 +33743,7 @@ if(false) {
 }
 
 /***/ }),
-/* 174 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)(false);
@@ -33846,7 +33757,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 175 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33862,7 +33773,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(176);
+__webpack_require__(175);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33916,11 +33827,11 @@ var BestTrade = function (_React$Component) {
 exports.default = BestTrade;
 
 /***/ }),
-/* 176 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(177);
+var content = __webpack_require__(176);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -33966,7 +33877,7 @@ if(false) {
 }
 
 /***/ }),
-/* 177 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)(false);
@@ -33980,7 +33891,7 @@ exports.push([module.i, "h4 {\n  color: red; }\n", ""]);
 
 
 /***/ }),
-/* 178 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33996,7 +33907,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(179);
+__webpack_require__(178);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34217,11 +34128,11 @@ var ExchangeDisplay = function (_React$Component) {
 exports.default = ExchangeDisplay;
 
 /***/ }),
-/* 179 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(180);
+var content = __webpack_require__(179);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -34267,7 +34178,7 @@ if(false) {
 }
 
 /***/ }),
-/* 180 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)(false);
