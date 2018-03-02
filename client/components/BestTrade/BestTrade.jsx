@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './bestTrade.css'
+
 class BestTrade extends React.Component {
   constructor (props) {
     super(props)
