@@ -29591,6 +29591,7 @@ var LiveApp = function (_React$Component) {
           data: data,
           count: _this.state.count + 1
         });
+        console.log(_this.state.data.name);
       });
     };
 
@@ -29599,7 +29600,7 @@ var LiveApp = function (_React$Component) {
       numberOfRequests: 0,
       results: [],
       socket: null,
-      data: '',
+      data: false,
       count: 0
     };
     return _this;
@@ -29613,6 +29614,7 @@ var LiveApp = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log(this.state.data);
       return _react2.default.createElement(
         'div',
         { className: 'liveApp' },
@@ -29620,6 +29622,11 @@ var LiveApp = function (_React$Component) {
           'h2',
           null,
           this.state.count
+        ),
+        _react2.default.createElement(
+          'h3',
+          null,
+          this.state.data && this.state.data.name
         ),
         _react2.default.createElement(_BestTrade2.default, null),
         _react2.default.createElement(_DollarValues2.default, null),

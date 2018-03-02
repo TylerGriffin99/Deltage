@@ -19,7 +19,7 @@ class LiveApp extends React.Component{
       numberOfRequests: 0,
       results: [],
       socket: null,
-      data: '',
+      data: false,
       count: 0
     }
   }
@@ -40,14 +40,17 @@ class LiveApp extends React.Component{
         data: data,
         count: this.state.count + 1
       })
+      console.log(this.state.data.name)
     })
   }
 
 
   render(){
+    console.log(this.state.data)
     return (
       <div className = 'liveApp'>
       <h2>{this.state.count}</h2>
+      <h3>{this.state.data && this.state.data.name}</h3>
         <BestTrade/>
         <DollarValues />
         <ExchangeDisplay />

@@ -1,11 +1,11 @@
-const data = {
-  btc: {
+const data = 
+  {
     last: 2,
     current: 10,
     diff: 12,
     name: 'bitcoin'
   }
-}
+
 
 
 
@@ -15,7 +15,7 @@ module.exports =function(socket) {
   socket.on('get-data', () => {
     console.log('getting data', data)
     setInterval(() => {
-      socket.emit('coin-data', {data})
+      socket.emit('coin-data', data)
     }, 3000)
   })
 
