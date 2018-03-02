@@ -1,6 +1,11 @@
 import React from 'react'
 
-class LiveApp extends React.Component {
+import Volumes from '../Volumes/Volumes.jsx'
+import DollarValues from '../DollarValues/DollarValues.jsx'
+import BestTrade from '../BestTrade/BestTrade.jsx'
+import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
+
+class LiveApp extends React.Component{
   constructor (props) {
     super(props)
     this.state = {
@@ -19,14 +24,17 @@ class LiveApp extends React.Component {
     //   })
     // // result.then(() => {})
   }
-
-  render () {
+  render(){
     return (
-      <div>
-       <p>test</p>
+      <div className = 'liveApp'>
+        <BestTrade/>
+        <DollarValues />
+        <ExchangeDisplay />
+        <Volumes />
       </div>
     )
   }
+
 }
 
 export default LiveApp
