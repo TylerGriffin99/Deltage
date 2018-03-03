@@ -8,7 +8,7 @@ class Footer extends React.Component {
             <div className='footer'>
                 <p>
                     EDA Harakeke-2018 Project by Adam, Maddie, Peter, Tim &amp; Tyler
-        </p>
+                </p>
             </div>
         )
     }

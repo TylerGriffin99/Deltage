@@ -11,7 +11,7 @@ class Volumes extends React.Component {
     return (
       <div>
         <h1>Coin Volume Graphs</h1>
-        <br/>
+        {/* <br/>
         <h4>Bitcoin</h4>
         <p>Insert Graph Here</p>
         <br/>
@@ -22,7 +22,7 @@ class Volumes extends React.Component {
         <p>Insert Graph Here</p>
         <br/>
         <h4>Pay</h4>
-        <p>Insert Graph Here</p>
+        <p>Insert Graph Here</p> */}
       </div>
     )
   }
