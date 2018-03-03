@@ -2,5 +2,4 @@ bundle.*
 node_modules
 dev.sqlite3
 .env
-bundle*
 .vscode
