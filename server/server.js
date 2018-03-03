@@ -6,17 +6,13 @@ const bodyParser = require('body-parser')
 const io = require('socket.io')(app)
 
 const authRoutes = require('./routes/auth')
-
-
 const {CONNECT} = require('../common/events')
 const socketManager = require('./socketManager')
-
-io.on('connect',  socketManager)
-
 const getMarketData = require('./api/getMarketData')
 const markets = require('./api/markets')
 
-
+// set up socket connection
+io.on(CONNECT,  socketManager)
 
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
