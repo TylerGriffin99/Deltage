@@ -1,5 +1,6 @@
 const request = require( 'superagent')
 const bodyParser = require('body-parser')
+const sort = require('../sort-test')
 //import {poloniex} from './settings.js'
 
 let coin_prices = []
@@ -21,7 +22,7 @@ let coinNames = []
                 resolve(newCoinPrices)
                 console.log(newCoinPrices)
                 console.log('sending to spread calc')
-                // if (numberOfRequests >= 1) calculateSpread(coin_prices)
+                if (numberOfRequests >= 2) sort(newCoinPrices)
               })
             } else {
               resolve(coin_prices)
@@ -30,61 +31,61 @@ let coinNames = []
     })
   }
 
-function calculateSpread (data) {
-  results = []
+// function calculateSpread (data) {
+//   results = []
 
-  function loopData () {
-    console.log('here')
-    if (numberOfRequests >= 2) {
-      for (let coin in data) {
-        if (Object.keys(data[coin]).length > 1) {
-          if(!coinNames.includes(coin)) coinNames.push(coin) 
-          let arr = []
-          for (let markets in data[coin]) {
-            arr.push([data[coin][markets], markets])
-          }
-          arr.sort(function (a, b) {
-            return a[0] - b[0]
-          })
-          for (let i = 0; i < arr.length; i++) {
-            for (let j = i + 1; j< arr.length; j++) {
-              results.push(
-                {coin: coin,
-                spread: arr[i][0] / arr[j][0],
-                market2: {
-                  name: arr[i][1],
-                  last: arr[i][0]
-                },
-                market1: {
-                name: arr[j][1],
-                last: arr[j][0]
-                },
-              },
-              {// TODO, shouldnt have to create duplicate object for same markets
-                coin: coin,
-                spread: arr[j][0] / arr[i][0],
-                market2: {
-                  name: arr[j][1],
-                  last: arr[j][0]
-                },
-                market1: {
-                  name: arr[i][1],
-                  last: arr[i][0]
-                }
+//   function loopData () {
+//     console.log('here')
+//     if (numberOfRequests >= 2) {
+//       for (let coin in data) {
+//         if (Object.keys(data[coin]).length > 1) {
+//           if(!coinNames.includes(coin)) coinNames.push(coin) 
+//           let arr = []
+//           for (let markets in data[coin]) {
+//             arr.push([data[coin][markets], markets])
+//           }
+//           arr.sort(function (a, b) {
+//             return a[0] - b[0]
+//           })
+//           for (let i = 0; i < arr.length; i++) {
+//             for (let j = i + 1; j< arr.length; j++) {
+//               results.push(
+//                 {coin: coin,
+//                 spread: arr[i][0] / arr[j][0],
+//                 market2: {
+//                   name: arr[i][1],
+//                   last: arr[i][0]
+//                 },
+//                 market1: {
+//                 name: arr[j][1],
+//                 last: arr[j][0]
+//                 },
+//               },
+//               {// TODO, shouldnt have to create duplicate object for same markets
+//                 coin: coin,
+//                 spread: arr[j][0] / arr[i][0],
+//                 market2: {
+//                   name: arr[j][1],
+//                   last: arr[j][0]
+//                 },
+//                 market1: {
+//                   name: arr[i][1],
+//                   last: arr[i][0]
+//                 }
 
-              }
-              ) // end push
-            } // end for - j
-          } // end for - i
-        } // end if obj.keys
-      } // end initial for loop
-      results.sort(function (a, b) {
-        return a.spread - b.spread
-      })
-      console.log(results)
-      console.log('finishing sort function')
-      // resolve()
-    }
-  }
-  loopData()
-}
+//               }
+//               ) // end push
+//             } // end for - j
+//           } // end for - i
+//         } // end if obj.keys
+//       } // end initial for loop
+//       results.sort(function (a, b) {
+//         return a.spread - b.spread
+//       })
+//       console.log(results)
+//       console.log('finishing sort function')
+//       // resolve()
+//     }
+//   }
+//   loopData()
+// }

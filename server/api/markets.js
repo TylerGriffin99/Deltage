@@ -18,7 +18,7 @@ const markets = [
               for (i=0; i<coinPriceData.length; i++) {
                 if (coinPriceData[i].coin == coinName) {
                  //let list = []
-                  coinPriceData[i].exchange.push({
+                  coinPriceData[i].exchanges.push({
                     name: 'poloniex',
                     lastPrice: data[obj].last,
                     highestBid: data[obj].highestBid,
@@ -29,10 +29,10 @@ const markets = [
               }
               let list = {
                 coin: '',
-                exchange: [],
+                exchanges: [],
               }
               list.coin = coinName
-              list.exchange.push({name: 'poloniex',
+              list.exchanges.push({name: 'poloniex',
                 lastPrice: data[obj].last,
                 highestBid: data[obj].highestBid,
                 lowestAsk: data[obj].lowestAsk,
@@ -64,7 +64,7 @@ const markets = [
               for (i=0; i<coinPriceData.length; i++) {
                 if (coinPriceData[i].coin == coinName) {
                  //let list = []
-                  coinPriceData[i].exchange.push({
+                  coinPriceData[i].exchanges.push({
                     name: 'bittrex',
                     lastPrice: obj.Last,
                     highestBid: obj.Bid,
@@ -75,11 +75,11 @@ const markets = [
               }
               let list = {
                 coin: '',
-                exchange: [],
+                exchanges: [],
               }
               
               list.coin = coinName
-              list.exchange.push({
+              list.exchanges.push({
                 name: 'bittrex',
                 lastPrice: obj.Last,
                 highestBid: obj.Bid,
