@@ -8,8 +8,6 @@ class ExchangeDisplay extends React.Component {
   //   super(props)
   // }
   render () {
-    console.log(this.props.receivedData)
-    console.log(this.props.tableData)
     return (
       <div className = 'exchangeContainer'>
         <h1>Exchange Container</h1>
