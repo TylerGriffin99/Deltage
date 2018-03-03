@@ -4,9 +4,7 @@ import {connect} from 'react-redux'
 import './exchangeDisplay.css'
 
 class ExchangeDisplay extends React.Component {
-  // constructor (props) {
-  //   super(props)
-  // }
+
   render () {
     return (
       <div className = 'exchangeContainer'>
