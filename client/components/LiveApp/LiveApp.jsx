@@ -1,9 +1,17 @@
 import React from 'react'
+import io from 'socket.io-client'
+import {connect} from 'react-redux'
 
+import './liveApp.css'
+import Graph from '../Graph/Graph.jsx'
 import Volumes from '../Volumes/Volumes.jsx'
-import DollarValues from '../DollarValues/DollarValues.jsx'
 import BestTrade from '../BestTrade/BestTrade.jsx'
+import DollarValues from '../DollarValues/DollarValues.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
+
+import baseUrl from '../../lib/base-url'
+import {coinData} from '../../actions' 
+const {COIN_DATA} = require('../../../common/events')
 
 class LiveApp extends React.Component{
   constructor (props) {
@@ -11,19 +19,18 @@ class LiveApp extends React.Component{
     this.state = {
       coin_prices: {},
       numberOfRequests: 0,
-      results: []
+      results: [],
     }
   }
 
-  componentDidMount () {
-    // getPoloniexData()
-    //   .then((coin_prices) => {
-    //     this.setState({
-    //       coin_prices
-    //     })
-    //   })
-    // // result.then(() => {})
+componentDidMount () {
+ const socket = io(baseUrl)
+  socket.on(COIN_DATA, (data) => {
+      this.props.dispatch(coinData(data))
+    })
   }
+
+
   render(){
     return (
       <div className = 'liveApp'>
@@ -31,10 +38,10 @@ class LiveApp extends React.Component{
         <DollarValues />
         <ExchangeDisplay />
         <Volumes />
+        <Graph />
       </div>
     )
   }
-
 }
 
-export default LiveApp
+export default connect()(LiveApp)
