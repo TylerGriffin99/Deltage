@@ -2,7 +2,7 @@ const request = require( 'superagent')
 const bodyParser = require('body-parser')
 //import {poloniex} from './settings.js'
 
-let coin_prices = {}
+let coin_prices = []
 let numberOfRequests = 0
 let results = []
 let coinNames = []
@@ -19,8 +19,9 @@ let coinNames = []
               .then((newCoinPrices) => {
                 numberOfRequests++
                 resolve(newCoinPrices)
+                console.log(newCoinPrices)
                 console.log('sending to spread calc')
-                if (numberOfRequests >= 1) calculateSpread(coin_prices)
+                // if (numberOfRequests >= 1) calculateSpread(coin_prices)
               })
             } else {
               resolve(coin_prices)
