@@ -1,4 +1,4 @@
-# ![Image](Deltage1.png)
+# ![Image](public/Deltage1.png)
 
 *A cryptocurrency tool to help find and act on arbitrage opportunities*.
 
