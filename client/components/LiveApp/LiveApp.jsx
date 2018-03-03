@@ -3,6 +3,7 @@ import React from 'react'
 import './liveApp.css'
 import Header from '../Header.jsx'
 import Graph from '../Graph/Graph.jsx'
+import Footer from '../Footer.jsx'
 import Volumes from '../Volumes/Volumes.jsx'
 import BestTrade from '../BestTrade/BestTrade.jsx'
 import DollarValues from '../DollarValues/DollarValues.jsx'
@@ -20,13 +21,16 @@ class LiveApp extends React.Component {
 
   render() {
     return (
-      <div className='liveApp'>
+      <div className='content'>
         <Header />
-        <BestTrade />
-        <DollarValues />
-        <ExchangeDisplay />
-        <Volumes />
-        <Graph />
+        <div className='liveApp'>
+          <BestTrade />
+          <DollarValues />
+          <ExchangeDisplay />
+          <Volumes />
+          <Graph />
+        </div>
+        <Footer />
       </div>
     )
   }

@@ -2,13 +2,12 @@ h1, h2, h3, h4, p, tr, th{
     font-family: 'Dosis', sans-serif;
     }
 .liveapp{
-  width:80%
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.header{
-    height: 20%;
-    background-image: linear-gradient(to bottom, #c0daf3 0%, rgb(255, 255, 255) 100%);
-    color: white;
-    text-align: center;
-    font-family: 'Dosis', sans-serif;
-  }
+.content{
+    width: 100%;
+}

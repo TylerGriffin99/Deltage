@@ -29,13 +29,16 @@ th, td {
   padding:5px;
 }
 
-.blur {
-  width:100%;
-  height:100%;
-  background-size:cover;
-  -webkit-filter: blur(4px);
-  -moz-filter: blur(4px);
-  -ms-filter: blur(4px);
-  -o-filter: blur(4px);
-  filter: blur(4px);
-  }
+
+.header{
+    height: 20%;
+    background-image: linear-gradient(to bottom, #c0daf3 0%, rgb(255, 255, 255) 100%);
+    color: white;
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+    width: 100%;
+}
+
+.footer{
+  text-align: center;
+}
