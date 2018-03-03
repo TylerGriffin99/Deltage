@@ -1,5 +1,5 @@
 const {COIN_DATA} = require('../common/events')
-  
+// REMOVE ONCE WORKING WITH REAL DATA  
 const data = 
   {
     last: 2,
@@ -9,7 +9,6 @@ const data =
   }
 
 module.exports =function(socket) {
-  console.log('socket manager', socket.id)
   setInterval(() => {
     socket.emit(COIN_DATA, data)
   }, 3000)

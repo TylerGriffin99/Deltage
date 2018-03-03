@@ -49165,7 +49165,6 @@ var LiveApp = function (_React$Component) {
 
       var socket = (0, _socket2.default)(_baseUrl2.default);
       socket.on(COIN_DATA, function (data) {
-        console.log('socket', data);
         _this2.props.dispatch((0, _actions.coinData)(data));
       });
     }
@@ -70120,7 +70119,6 @@ Object.defineProperty(exports, "__esModule", {
 var RECEIVE_DATA = exports.RECEIVE_DATA = 'RECEIVE_DATA';
 
 var coinData = exports.coinData = function coinData(data) {
-  console.log('action dispatched', data);
   return {
     type: RECEIVE_DATA,
     data: data
