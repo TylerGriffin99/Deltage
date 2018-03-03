@@ -1,21 +1,25 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 import './bestTrade.css'
 
 class BestTrade extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {}
-  }
   render () {
     return (
       <div>
         <h1>Best Trade Component</h1>
         <br/>
-        <h4>Buy: DogeCoin from Bittrex</h4><h4>Sell to: Jubi for 5% profit</h4>
+        <h4>{this.props.receivedData && this.props.bestTrade.coin}</h4><h4>Sell to: Jubi for 5% profit</h4>
       </div>
     )
   }
 }
 
-export default BestTrade
+function mapStateToProps (state) {
+  return {
+    receivedData: state.bestTrade.receivedData,
+    bestTrade: state.bestTrade.bestTrade
+  }
+}
+
+export default connect(mapStateToProps)(BestTrade)
