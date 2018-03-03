@@ -1,5 +1,6 @@
-/* eslint no-unused-vars: 0 */
-exports.seed = (knex, Promise) =>{
+const hasher = require('../../lib/crypto').getHash
+
+exports.seed = (knex, Promise) => {
   return knex('users').del()
     .then(() => {
       return knex('users').insert([
@@ -9,7 +10,7 @@ exports.seed = (knex, Promise) =>{
           firstname: 'Adam',
           lastname: 'Kuhn',
           email: 'adamk@gmail.com',
-          hash: '010203'
+          hash: hasher('adam')
         },
         {
           id: 2,
@@ -17,7 +18,7 @@ exports.seed = (knex, Promise) =>{
           firstname: 'Madeleine',
           lastname: 'Brighouse',
           email: 'madeleinebrighouse@gmail.com',
-          hash: '010203'
+          hash: hasher('madeleine')
         },
         {
           id: 3,
@@ -25,7 +26,7 @@ exports.seed = (knex, Promise) =>{
           firstname: 'Peter',
           lastname: 'Sim',
           email: 'ps.in.nz@gmail.com',
-          hash: '010203'
+          hash: hasher('peter')
         },
         {
           id: 4,
@@ -33,7 +34,7 @@ exports.seed = (knex, Promise) =>{
           firstname: 'Timothy',
           lastname: 'Tolley',
           email: 'timothytolley@gmail.com',
-          hash: '010203'
+          hash: hasher('timothy')
         },
         {
           id: 5,
@@ -41,7 +42,7 @@ exports.seed = (knex, Promise) =>{
           firstname: 'Tyler',
           lastname: 'Griffin',
           email: 'tylerg99@gmail.com',
-          hash: '010203'
+          hash: hasher('tyler')
         }
       ])
     })
