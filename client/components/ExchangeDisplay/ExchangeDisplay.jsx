@@ -18,36 +18,16 @@ class ExchangeDisplay extends React.Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>{this.props.receivedData && this.props.tableData[0].coin} </td>
-              <td> </td>
-              <td> </td>
-              <td> </td>
-            </tr>
-            <tr>
-              <td> </td>
-              <td> </td>
-              <td> </td>
-              <td> </td>
-            </tr>
-            <tr>
-              <td> </td>
-              <td> </td>
-              <td> </td>
-              <td> </td>
-            </tr>
-            <tr>
-              <td> </td>
-              <td> </td>
-              <td> </td>
-              <td> </td>
-            </tr>
-            <tr>
-              <td> </td>
-              <td> </td>
-              <td> </td>
-              <td> </td>
-            </tr>
+            {this.props.receivedData && this.props.tableData.map((data, idx) => {
+              return (
+                <tr key={idx}>
+                  <td>{data.coin}</td>
+                  <td>{data.diff}</td>
+                  <td>{data.buy.name} {data.buy.lastPrice} </td>
+                  <td>{data.sell.name} {data.sell.lastPrice} </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>
