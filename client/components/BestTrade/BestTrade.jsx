@@ -9,7 +9,8 @@ class BestTrade extends React.Component {
       <div>
         <h1>Best Trade Component</h1>
         <br/>
-        <h4>{this.props.receivedData && this.props.bestTrade.coin}</h4><h4>Sell to: Jubi for 5% profit</h4>
+        <h4>{this.props.receivedData && this.props.bestTrade.coin}</h4>
+        <h4>Sell to: Jubi for 5% profit</h4>
       </div>
     )
   }
