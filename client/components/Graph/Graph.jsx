@@ -14,7 +14,7 @@ class Graph extends React.Component {
             graphData
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getData()
         this.timerID = setInterval(
             () => this.getData(),
@@ -22,35 +22,38 @@ class Graph extends React.Component {
         )
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(this.timerID)
     }
 
-    timeString(secs){
-        return new Date(secs*1000).toLocaleTimeString()
+    timeString() {
+        return new Date().toLocaleTimeString()
     }
 
-    getData(){
-        axios.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD')
-        .then(res => {
-            let cryptos = res.data.RAW.BTC.USD
-            let {LASTUPDATE, PRICE} = cryptos
-            const graphData = {...this.state.graphData}
-            graphData.labels = [...graphData.labels, this.timeString[LASTUPDATE]]
-            graphData.datasets[0].data = [...graphData.datasets[0].data, PRICE]
-            // if (graphData.labels.length > 20){
-            //     let removed=labels.shift()
-            //     removed=data1.shift()
-            // }
-            // console.log(labels, data1)
+    getData() {
+        axios.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=bitfinex')
+            .then(res => {
+                let bitfinex = res.data
+                const graphData = { ...this.state.graphData }
+                graphData.labels = [...graphData.labels, this.timeString()]
+                graphData.datasets[0].data = [...graphData.datasets[0].data, bitfinex.USD]
             this.setState({
                 graphData
             })
         })
+        axios.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=coinbase')
+            .then(res => {
+                let coinbase = res.data
+                const graphData = { ...this.state.graphData }
+                graphData.datasets[1].data = [...graphData.datasets[1].data, coinbase.USD]
+            this.setState({
+                    graphData
+                })
+            })
+            
     }
     render() {
         console.log(this.state.graphData)
-        // data.datasets[1].data = this.state.data2
         return (
             <div className="graph">
                 <Line
