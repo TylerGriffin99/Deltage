@@ -57,8 +57,6 @@ function invalidCredentials (res) {
   })
 }
 
-// express-jwt middleware lets us use a function as the secret,
-// so we can grab from wherever...
 function getSecret (req, payload, done) {
   done(null, process.env.JWT_SECRET)
 }
