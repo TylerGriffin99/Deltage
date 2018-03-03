@@ -66,7 +66,7 @@ class Graph extends React.Component {
             <br/>
                 <Line
                     data={this.state.graphData}
-                    options={{}}
+                    options={this.state.graphData.options}
                 />
             </div>
         )

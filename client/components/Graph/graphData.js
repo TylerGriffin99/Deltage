@@ -66,7 +66,29 @@ const graphData = {
             pointHitRadius: 10,
             data: []
         }
-    ]
+    ],
+    options: {
+        scales: {
+            pointLabels: {
+                fontFamily: "Dosis"
+         },
+            yAxes: [{
+                ticks: {
+                    fontFamily: "Dosis"
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    fontFamily: "Dosis"
+                }
+            }]
+        },
+        legend: {
+            labels: {
+                fontFamily: "Dosis"              
+            }
+        }
+    }
 }
 
 export default graphData 
