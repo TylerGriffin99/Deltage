@@ -70,6 +70,8 @@
     "redux-thunk": "^2.1.0",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
+    "socket.io": "^2.0.4",
+    "socket.io-react": "^1.2.0",
     "sodium": "^2.0.3",
     "superagent": "^3.8.2",
     "webpack": "^3.10.0",
