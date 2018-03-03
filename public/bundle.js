@@ -11051,6 +11051,7 @@ Object.defineProperty(exports, "__esModule", {
 var RECEIVE_DATA = exports.RECEIVE_DATA = 'RECEIVE_DATA';
 
 var coinData = exports.coinData = function coinData(data) {
+  console.log(data);
   return {
     type: RECEIVE_DATA,
     data: data
@@ -45953,50 +45954,18 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(47);
 
-var _coinData = __webpack_require__(279);
+var _exchangeTable = __webpack_require__(494);
 
-var _coinData2 = _interopRequireDefault(_coinData);
+var _exchangeTable2 = _interopRequireDefault(_exchangeTable);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
-  coinData: _coinData2.default
+  exchangeTable: _exchangeTable2.default
 });
 
 /***/ }),
-/* 279 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _actions = __webpack_require__(81);
-
-var initialState = '';
-
-var coinData = function coinData() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _actions.RECEIVE_DATA:
-      {
-        return {
-          data: action.data
-        };
-      }
-    default:
-      return state;
-  }
-};
-
-exports.default = coinData;
-
-/***/ }),
+/* 279 */,
 /* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -70192,6 +70161,43 @@ module.exports = {
   CONNECT: 'connect',
   COIN_DATA: 'COIN_DATA'
 };
+
+/***/ }),
+/* 494 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _actions = __webpack_require__(81);
+
+var initialState = '';
+
+var exchangeTable = function exchangeTable() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _actions.RECEIVE_DATA:
+      {
+        return {
+          row1: action.data[0],
+          row2: action.data[1],
+          row3: action.data[2],
+          row4: action.data[3],
+          row5: action.data[4]
+        };
+      }
+    default:
+      return state;
+  }
+};
+
+exports.default = exchangeTable;
 
 /***/ })
 /******/ ]);

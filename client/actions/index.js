@@ -1,8 +1,9 @@
 export const RECEIVE_DATA = 'RECEIVE_DATA'
 
 export const coinData = (data) => {
-  return   {
+  console.log(data)
+  return {
     type: RECEIVE_DATA,
     data
-    }
+  }
 }
