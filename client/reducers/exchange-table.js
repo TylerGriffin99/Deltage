@@ -1,8 +1,6 @@
 import {RECEIVE_DATA} from '../actions'
 
-const initialState = {
-  receivedData: false
-}
+const initialState = {}
 
 const exchangeTable = (state = initialState, action) => {
   switch (action.type) {

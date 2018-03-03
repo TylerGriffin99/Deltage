@@ -12,28 +12,25 @@ const getMarketData = require('./api/getMarketData')
 const markets = require('./api/markets')
 
 // set up socket connection
-io.on(CONNECT,  socketManager)
+io.on(CONNECT, socketManager)
 
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
-//routes
+// routes
 server.use('/api/v1/', authRoutes)
-//wildcard
+// wildcard
 server.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
 module.exports = app
 function callMarkets () {
-  for (i = 0; i<markets.length; i++) {
+  for (let i = 0; i < markets.length; i++) {
     getMarketData(markets[i])
-    .then((res) => {
-    })
+      .then((res) => {
+      })
   }
 }
 
 callMarkets()
-
-
-

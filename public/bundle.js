@@ -45976,9 +45976,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _actions = __webpack_require__(81);
 
-var initialState = {
-  receivedData: false
-};
+var initialState = {};
 
 var exchangeTable = function exchangeTable() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
