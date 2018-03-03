@@ -3,68 +3,67 @@ import {connect} from 'react-redux'
 
 import './exchangeDisplay.css'
 
-class ExchangeDisplay extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      result: ''
-    }
-  }
-
-  render(){
-    return(
-        <div className = 'exchangeContainer'>
-          <h1>Exchange Container</h1>
-          <table className = 'exchangeTable'>
-            <thead>
-              <tr>
-                <th> Diff (%)</th>
-                <th> Buy (Exc)</th>
-                <th> Sell (Exc)</th>
-                <th> Coin </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+class ExchangeDisplay extends React.Component {
+  // constructor (props) {
+  //   super(props)
+  // }
+  render () {
+    console.log(this.props.receivedData)
+    console.log(this.props.tableData)
+    return (
+      <div className = 'exchangeContainer'>
+        <h1>Exchange Container</h1>
+        <table className = 'exchangeTable'>
+          <thead>
+            <tr>
+              <th> Coin </th>
+              <th> Diff (%)</th>
+              <th> Buy (Exc)</th>
+              <th> Sell (Exc)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{this.props.receivedData && this.props.tableData[0].coin} </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     )
   }
 }
 
-mapStateToProps (state) {
+function mapStateToProps (state) {
   return {
-    result: state.exchangeTable
+    receivedData: state.exchangeTable.receivedData,
+    tableData: state.exchangeTable.exchangeTable
   }
 }
 
