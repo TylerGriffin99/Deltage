@@ -1,29 +1,22 @@
 import React from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
 
-import Login from './Login'
-import Volumes from './Volumes'
-import BestTrade from './BestTrade'
-import DollarValues from './DollarValues'
-import ExchangeDisplay from './ExchangeDisplay'
 
-class App extends React.Component{
-  constructor(props){
-    super(props)
-  }
 
-  render(){
+// import Login from './Login/Login'
+import LiveApp from './LiveApp/LiveApp'
+
+class App extends React.Component {
+  render () {
     return (
       <Router>
         <div className = 'app'>
-          <BestTrade/>
-          <DollarValues />
-          <ExchangeDisplay />
+          {/* <Login path='/login'/> */}
+          <LiveApp path='/live'/>
         </div>
       </Router>
     )
   }
-
 }
 
 export default App
