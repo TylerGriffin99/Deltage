@@ -16,11 +16,11 @@ const graphData = {
             pointBorderColor: 'rgba(75,192,192,1)',
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
-            pointHoverRadius: 5,
+            pointHoverRadius: 4,
             pointHoverBackgroundColor: 'rgba(75,192,192,1)',
             pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 5,
-            pointRadius: 4,
+            pointHoverBorderWidth: 4,
+            pointRadius: 3,
             pointHitRadius: 10,
             data: []
         },
@@ -37,11 +37,11 @@ const graphData = {
             pointBorderColor: 'rgba(153,102,153,1)',
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
-            pointHoverRadius: 5,
+            pointHoverRadius: 4,
             pointHoverBackgroundColor: 'rgba(153,102,153,1)',
             pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 5,
-            pointRadius: 4,
+            pointHoverBorderWidth: 4,
+            pointRadius: 3,
             pointHitRadius: 10,
             data: []
         },
@@ -58,11 +58,11 @@ const graphData = {
             pointBorderColor: 'rgba(204,153,51,1)',
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
-            pointHoverRadius: 5,
+            pointHoverRadius: 4,
             pointHoverBackgroundColor: 'rgba(204,153,51,1)',
             pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 5,
-            pointRadius: 4,
+            pointHoverBorderWidth: 4,
+            pointRadius: 3,
             pointHitRadius: 10,
             data: []
         }
@@ -70,3 +70,8 @@ const graphData = {
 }
 
 export default graphData 
+
+
+// colour way for future line on the graph
+// #cc3399 (204, 51, 153) pink 
+// #3366cc (51, 102, 204) blue
