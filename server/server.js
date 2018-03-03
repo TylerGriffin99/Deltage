@@ -1,15 +1,16 @@
 const path = require('path')
 const express = require('express')
-const server = express()
-const app = require('http').Server(server)
 const bodyParser = require('body-parser')
-const io = require('socket.io')(app)
 
+const markets = require('./api/markets')
 const authRoutes = require('./routes/auth')
 const {CONNECT} = require('../common/events')
 const socketManager = require('./socketManager')
 const getMarketData = require('./api/getMarketData')
-const markets = require('./api/markets')
+
+const server = express()
+const app = require('http').Server(server)
+const io = require('socket.io')(app)
 
 // set up socket connection
 io.on(CONNECT, socketManager)
@@ -24,7 +25,6 @@ server.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
-module.exports = app
 function callMarkets () {
   for (let i = 0; i < markets.length; i++) {
     getMarketData(markets[i])
@@ -34,3 +34,5 @@ function callMarkets () {
 }
 
 callMarkets()
+
+module.exports = app

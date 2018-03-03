@@ -4,9 +4,9 @@ const markets = [
     URL: 'https://poloniex.com/public?command=returnTicker',
     toBTCURL: false,
     pairURL: '',
-  
+
     last: function (data, coinPriceData) { // Where to find the last price of coin in JSON data
-      return new Promise(function (res, rej) {
+      return new Promise(function (resolve, reject) {
         try {
           // loop over incoming exchange data
           for (var obj in data) {
@@ -15,9 +15,9 @@ const markets = [
               // replace pair name to just the coin name
               let coinName = obj.replace('BTC_', '')
 
-              for (i=0; i<coinPriceData.length; i++) {
-                if (coinPriceData[i].coin == coinName) {
-                 //let list = []
+              for (let i = 0; i < coinPriceData.length; i++) {
+                if (coinPriceData[i].coin === coinName) {
+                  // let list = []
                   coinPriceData[i].exchanges.push({
                     name: 'poloniex',
                     lastPrice: data[obj].last,
@@ -25,11 +25,11 @@ const markets = [
                     lowestAsk: data[obj].lowestAsk,
                     volume: data[obj].quoteVolume
                   })
-                } 
+                }
               }
               let list = {
                 coin: '',
-                exchanges: [],
+                exchanges: []
               }
               list.coin = coinName
               list.exchanges.push({name: 'poloniex',
@@ -41,14 +41,14 @@ const markets = [
               coinPriceData.push(list)
             }
           }
-          res(coinPriceData)
-              } catch (err) {
-          console.log(err)
-                  rej(err)
-              }
+          resolve(coinPriceData)
+        } catch (err) {
+          // console.log(err)
+          reject(err)
+        }
       })
     }
-  
+
   },
   {
     marketName: 'bittrex',
@@ -56,14 +56,14 @@ const markets = [
     toBTCURL: false,
     pairURL: '',
     last: function (data, coinPriceData) { // Where to find the last price of coin in JSON data
-      return new Promise(function (res, rej) {
+      return new Promise(function (resolve, reject) {
         try {
           for (let obj of data.result) {
             if (obj['MarketName'].includes('BTC-')) {
               let coinName = obj['MarketName'].replace('BTC-', '')
-              for (i=0; i<coinPriceData.length; i++) {
-                if (coinPriceData[i].coin == coinName) {
-                 //let list = []
+              for (let i = 0; i < coinPriceData.length; i++) {
+                if (coinPriceData[i].coin === coinName) {
+                  // let list = []
                   coinPriceData[i].exchanges.push({
                     name: 'bittrex',
                     lastPrice: obj.Last,
@@ -71,13 +71,13 @@ const markets = [
                     lowestAsk: obj.Ask,
                     volume: obj.Volume
                   })
-                } 
+                }
               }
               let list = {
                 coin: '',
-                exchanges: [],
+                exchanges: []
               }
-              
+
               list.coin = coinName
               list.exchanges.push({
                 name: 'bittrex',
@@ -85,19 +85,19 @@ const markets = [
                 highestBid: obj.Bid,
                 lowestAsk: obj.Ask,
                 volume: obj.Volume
-                })
-              coinPriceData.push(list)      
+              })
+              coinPriceData.push(list)
             }
           }
-          res(coinPriceData)
-              } catch (err) {
-          console.log(err)
-                  rej(err)
-              }
+          resolve(coinPriceData)
+        } catch (err) {
+          // console.log(err)
+          reject(err)
+        }
       })
     }
-  
+
   }
-  ]
+]
 
 module.exports = markets
