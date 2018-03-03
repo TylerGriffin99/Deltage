@@ -31,11 +31,11 @@ function loginError () {
 
 // thunk function which dispatches the actions which authenicate
 // gets the token for the User
-export function loginUser (creds) {
+export function loginUser (creds, onSuccess) {
   return dispatch => {
     dispatch(requestLogin(creds))
     // api request to signin route where creds are checked
-    return request('post', '/api/v1/signin', creds)
+    return request('post', '/signin', creds)
       .then((response) => {
         if (!response.ok) {
           // runs error dispatches
@@ -45,6 +45,7 @@ export function loginUser (creds) {
           // sets a token within the user's local storage
           const userInfo = saveUserToken(response.body.token)
           dispatch(receiveLogin(userInfo))
+          onSuccess()
         }
       }).catch(err => dispatch(loginError(err.response.body.message)))
   }

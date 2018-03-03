@@ -28,8 +28,10 @@ class Login extends React.Component {
       username: username.trim(),
       password: password.trim()
     }
-    this.props.loginUser(creds)
+    const goToLiveApp = () => this.props.history.push('/LiveApp')
+    this.props.loginUser(creds, goToLiveApp)
   }
+
   render () {
     const {username, password} = this.state
     return (
@@ -44,8 +46,8 @@ class Login extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loginUser: creds => {
-      return dispatch(loginUser(creds))
+    loginUser: (creds, onSuccess) => {
+      return dispatch(loginUser(creds, onSuccess))
     }
   }
 }

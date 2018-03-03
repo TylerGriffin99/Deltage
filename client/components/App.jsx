@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {withRouter, Route} from 'react-router-dom'
 
 import Login from './Login/Login'
 import LiveApp from './LiveApp/LiveApp'
@@ -9,20 +9,20 @@ import {confirmToken, noToken} from '../actions/checkToken'
 class App extends React.Component {
   componentDidMount () {
     if (window.localStorage.getItem('token')) {
-      this.props.dispatch(confirmToken)
+      this.props.dispatch(confirmToken())
+      const goToLiveApp = () => this.props.history.push('/LiveApp')
+      goToLiveApp()
     } else {
-      this.props.dispatch(noToken)
+      this.props.dispatch(noToken())
     }
   }
 
   render () {
     return (
-      <Router>
-        <div className = 'app'>
-          {!this.props.showLive && <Route exact path='/' component = {Login}/>}
-          {this.props.showLive && <Route exact path='/live' component = {LiveApp}/>}
-        </div>
-      </Router>
+      <div className = 'app'>
+        {!this.props.showLive && <Route exact path='/' component = {Login}/>}
+        {this.props.showLive && <Route exact path='/LiveApp' component = {LiveApp}/>}
+      </div>
     )
   }
 }
@@ -33,4 +33,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(App)
+export default withRouter(connect(mapStateToProps)(App))
