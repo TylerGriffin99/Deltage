@@ -1,27 +1,36 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 import './header.css'
-import {removeUser} from '../../utils/auth'
+import {logoutUser} from '../../actions/logout'
 
 class Header extends React.Component {
   constructor (props) {
     super(props)
-    this.goToLogin = this.goToLogin.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
-  goToLogin () {
-    removeUser()
-    this.props.history.push('/')
+  handleClick (e) {
+    const goToLogin = () => this.props.history.push('/')
+    this.props.logoutUser(goToLogin)
   }
+
   render () {
     return (
       <div className = 'Header'>
         <h1>Deltage</h1>
         <p>Deltage LOGO ETC</p>
-        <button onClick={this.goToLogin}>Logout</button>
+        <button onClick={this.handleClick}>Logout</button>
       </div>
     )
   }
 }
 
-export default connect()(Header)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logoutUser: (redir) => {
+      return dispatch(logoutUser(redir))
+    }
+  }
+}
+export default withRouter(connect(null, mapDispatchToProps)(Header))

@@ -21,10 +21,11 @@ function receiveLogout () {
 }
 
 // Logs the user out
-export function logoutUser () {
+export function logoutUser (redir) {
   return dispatch => {
     dispatch(requestLogout())
     removeUser()
     dispatch(receiveLogout())
+    redir()
   }
 }

@@ -14,6 +14,8 @@ class App extends React.Component {
       goToLiveApp()
     } else {
       this.props.dispatch(noToken())
+      const goToLogin = () => this.props.history.push('/')
+      goToLogin()
     }
   }
 
