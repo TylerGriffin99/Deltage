@@ -57,7 +57,7 @@ class ExchangeDisplay extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    receivedData: state.exchangeTable.receivedData,
+    receivedData: state.receivedData.receivedData,
     tableData: state.exchangeTable.exchangeTable
   }
 }
