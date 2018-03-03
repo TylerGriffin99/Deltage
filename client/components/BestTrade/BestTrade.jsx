@@ -18,7 +18,7 @@ class BestTrade extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    receivedData: state.bestTrade.receivedData,
+    receivedData: state.receivedData.receivedData,
     bestTrade: state.bestTrade.bestTrade
   }
 }
