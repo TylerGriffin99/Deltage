@@ -6,7 +6,6 @@ const exchangeTable = (state = initialState, action) => {
   switch (action.type) {
     case (RECEIVE_DATA): {
       return {
-        receivedData: true,
         exchangeTable: [
           action.data[0],
           action.data[1],

@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className = 'app'>
-          {/* <Login path='/login'/> */}
+          <Login path='/login'/>
           <LiveApp path='/live'/>
         </div>
       </Router>
