@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 
 import './liveApp.css'
 import Graph from '../Graph/Graph.jsx'
-import Volumes from '../Volumes/Volumes.jsx'
 import BestTrade from '../BestTrade/BestTrade.jsx'
 import DollarValues from '../DollarValues/DollarValues.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
@@ -36,7 +35,6 @@ class LiveApp extends React.Component {
         <BestTrade/>
         <DollarValues />
         <ExchangeDisplay />
-        <Volumes />
         <Graph />
       </div>
     )
