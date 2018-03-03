@@ -12,28 +12,27 @@ import DollarValues from '../DollarValues/DollarValues.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
 import baseUrl from '../../lib/base-url'
-import {coinData} from '../../actions' 
+import {coinData} from '../../actions'
 const {COIN_DATA} = require('../../../common/events')
 
-class LiveApp extends React.Component{
+class LiveApp extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       coin_prices: {},
       numberOfRequests: 0,
-      results: [],
+      results: []
     }
   }
 
-componentDidMount () {
- const socket = io(baseUrl)
-  socket.on(COIN_DATA, (data) => {
+  componentDidMount () {
+    const socket = io(baseUrl)
+    socket.on(COIN_DATA, (data) => {
       this.props.dispatch(coinData(data))
     })
   }
 
-
-  render(){
+  render () {
     return (
       <div className='content'>
         <Header />

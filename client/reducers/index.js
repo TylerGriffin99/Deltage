@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 
-import coinData from './coin-data'
+import exchangeTable from './exchange-table'
 
 export default combineReducers({
-  coinData
+  exchangeTable
 })
