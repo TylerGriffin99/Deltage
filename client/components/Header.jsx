@@ -6,7 +6,7 @@ class Header extends React.Component {
   render () {
     return (
         <div className='header'>
-        <h1> Delt&Delta;ge </h1>
+        <img className='logo' src="images/deltageWhite2.png" alt="Deltage Title"/>
       </div>
     )
   }

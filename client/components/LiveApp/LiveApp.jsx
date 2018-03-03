@@ -1,4 +1,6 @@
 import React from 'react'
+import io from 'socket.io-client'
+import {connect} from 'react-redux'
 
 import './liveApp.css'
 import Header from '../Header.jsx'
@@ -9,17 +11,29 @@ import BestTrade from '../BestTrade/BestTrade.jsx'
 import DollarValues from '../DollarValues/DollarValues.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
-class LiveApp extends React.Component {
-  constructor(props) {
+import baseUrl from '../../lib/base-url'
+import {coinData} from '../../actions' 
+const {COIN_DATA} = require('../../../common/events')
+
+class LiveApp extends React.Component{
+  constructor (props) {
     super(props)
     this.state = {
       coin_prices: {},
       numberOfRequests: 0,
-      results: []
+      results: [],
     }
   }
 
-  render() {
+componentDidMount () {
+ const socket = io(baseUrl)
+  socket.on(COIN_DATA, (data) => {
+      this.props.dispatch(coinData(data))
+    })
+  }
+
+
+  render(){
     return (
       <div className='content'>
         <Header />
@@ -36,4 +50,4 @@ class LiveApp extends React.Component {
   }
 }
 
-export default LiveApp
+export default connect()(LiveApp)

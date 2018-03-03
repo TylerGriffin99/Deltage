@@ -1,101 +1,145 @@
+const moment = require('moment')
+
 const btcData = [
   {
     coin: 'pay',
-    timestamp: 1111,
     exchanges: [
       {
         name: 'bitrex',
-        lastPrice: 0.01044109
+        lastPrice: 0.01044109,
+        highestBid: 0.01044109,
+        lowestAsk: 0.01044109,
+        volume: 585302212.647
       },
       {
         name: 'polinex',
-        lastPrice: 0.00094002
+        lastPrice: 0.00094002,
+        highestBid: 0.00094002,
+        lowestAsk: 0.00094002,
+        volume: 585302212.647
       },
       {
         name: 'jubi',
-        lastPrice: 0.0009
+        lastPrice: 0.0009,
+        highestBid: 0.0009,
+        lowestAsk: 0.0009,
+        volume: 585302212.647
       }
     ]
   },
   {
     coin: 'eos',
-    timestamp: 1111,
     exchanges: [
       {
         name: 'bitrex',
-        lastPrice: 0.00004624
+        lastPrice: 0.00004624,
+        highestBid: 0.00004624,
+        lowestAsk: 0.00004624,
+        volume: 585302212.647
       },
       {
         name: 'polinex',
-        lastPrice: 0.00004385
+        lastPrice: 0.00004385,
+        highestBid: 0.00004385,
+        lowestAsk: 0.00004385,
+        volume: 585302212.647
       },
       {
         name: 'jubi',
-        lastPrice: 0.00004565
+        lastPrice: 0.00004565,
+        highestBid: 0.00004565,
+        lowestAsk: 0.00004565,
+        volume: 585302212.647
       }
     ]
   },
   {
     coin: 'great',
-    timestamp: 1111,
     exchanges: [
       {
         name: 'bitrex',
-        lastPrice: 0.01044109
+        lastPrice: 0.01044109,
+        highestBid: 0.01044109,
+        lowestAsk: 0.01044109,
+        volume: 585302212.647
       },
       {
         name: 'polinex',
-        lastPrice: 0.01094002
+        lastPrice: 0.01094002,
+        highestBid: 0.01094002,
+        lowestAsk: 0.01094002,
+        volume: 585302212.647
       },
       {
         name: 'jubi',
-        lastPrice: 0.0019
+        lastPrice: 0.0019,
+        highestBid: 0.0019,
+        lowestAsk: 0.0019,
+        volume: 585302212.647
       }
     ]
   },
   {
     coin: 'doge',
-    timestamp: 1111,
     exchanges: [
       {
         name: 'bitrex',
-        lastPrice: 550
+        lastPrice: 550,
+        highestBid: 550,
+        lowestAsk: 550,
+        volume: 585302212.647
       }
     ]
   },
   {
     coin: 'fun',
-    timestamp: 1111,
     exchanges: [
       {
         name: 'bitrex',
-        lastPrice: 0.00204624
+        lastPrice: 0.00204624,
+        highestBid: 0.00204624,
+        lowestAsk: 0.00204624,
+        volume: 585302212.647
       },
       {
         name: 'polinex',
-        lastPrice: 0.00104385
+        lastPrice: 0.00104385,
+        highestBid: 0.00104385,
+        lowestAsk: 0.00104385,
+        volume: 585302212.647
       },
       {
         name: 'jubi',
-        lastPrice: 0.00204565
+        lastPrice: 0.00204565,
+        highestBid: 0.00204565,
+        lowestAsk: 0.00204565,
+        volume: 585302212.647
       }
     ]
   },
   {
     coin: 'woohoo',
-    timestamp: 1111,
     exchanges: [
       {
         name: 'bitrex',
-        lastPrice: 0.10204624
+        lastPrice: 0.10204624,
+        highestBid: 0.10204624,
+        lowestAsk: 0.10204624,
+        volume: 585302212.647
       },
       {
         name: 'polinex',
-        lastPrice: 0.30104385
+        lastPrice: 0.30104385,
+        highestBid: 0.30104385,
+        lowestAsk: 0.30104385,
+        volume: 585302212.647
       },
       {
         name: 'jubi',
-        lastPrice: 0.20204565
+        lastPrice: 0.20204565,
+        highestBid: 0.20204565,
+        lowestAsk: 0.20204565,
+        volume: 585302212.647
       }
     ]
   }
@@ -107,7 +151,7 @@ function sort (data) {
   const allPairs = validPairs.map(coinData => {
     const sortedCoin = {
       coin: coinData.coin,
-      timestamp: coinData.timestamp
+      timestamp: moment()
     }
     const sortedExch = coinData.exchanges.sort((a, b) => {
       return b.lastPrice - a.lastPrice

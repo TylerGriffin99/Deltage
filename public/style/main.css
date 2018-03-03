@@ -38,6 +38,9 @@ th, td {
     font-family: 'Dosis', sans-serif;
     width: 100%;
 }
+.logo{
+  width: 40%;
+}
 
 .footer{
   text-align: center;
