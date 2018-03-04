@@ -51,7 +51,7 @@ class LiveApp extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    loaded: state.receivedData.receivedData
+    loaded: state.receivedData
   }
 }
 
