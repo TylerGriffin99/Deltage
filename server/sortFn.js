@@ -26,12 +26,8 @@ module.exports = function sort (data) {
 
   if (sortedPairs.length > 4) {
     const topFive = [sortedPairs[0], sortedPairs[1], sortedPairs[2], sortedPairs[3], sortedPairs[4]]
-    // console.log('this is top five')
-    console.log(topFive)
     return topFive
   } else {
-    // console.log('this is sorted pairs:')
-    // console.log(sortedPairs)
     return sortedPairs
   }
 }
