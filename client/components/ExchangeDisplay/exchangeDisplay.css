@@ -1,0 +1,12 @@
+.exchangeTable, th, td{
+    border: 1px solid#e5e5e5;
+    border-width: 1px;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+    white-space: nowrap;
+    white-space: pre-line;
+    word-wrap: break-word;
+}

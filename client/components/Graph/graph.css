@@ -1,0 +1,10 @@
+.graph{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    width: 50%;
+    font-family: 'Dosis', sans-serif;
+}
+
