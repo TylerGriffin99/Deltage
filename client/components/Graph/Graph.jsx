@@ -1,26 +1,72 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
+import axios from 'axios'
+
+import './graph.css'
 import graphData from './graphData'
 
 class Graph extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            labels: ['11:11:10', '11:11:20', '11:11:30', '11:11:40', '11:11:50', '11:12:00', '11:12:10'],
-            data1: [0.0130, 0.0121, 1.1, 1.2, 0.0110, 0.0210, 0.0260],
-            data2: [0.0100, 0.0120, 1, 1.1, 0.0100, 0.0200, 0.0250]
+            graphData
         }
     }
+    componentDidMount() {
+        this.getData()
+        this.timerID = setInterval(
+            () => this.getData(),
+            10000
+        )
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID)
+    }
+
+    timeString() {
+        return new Date().toLocaleTimeString()
+    }
+
+    getData() {
+        axios.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=bittrex')
+            .then(res => {
+                let bittrex = res.data
+                const graphData = { ...this.state.graphData }
+                graphData.labels = [...graphData.labels, this.timeString()]
+                graphData.datasets[0].data = [...graphData.datasets[0].data, bittrex.USD]
+                this.setState({
+                    graphData
+                })
+            })
+        axios.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=poloniex')
+            .then(res => {
+                let poloniex = res.data
+                const graphData = { ...this.state.graphData }
+                graphData.datasets[1].data = [...graphData.datasets[1].data, poloniex.USD]
+                this.setState({
+                    graphData
+                })
+            })
+            axios.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=kraken')
+            .then(res => {
+                let kraken = res.data
+                const graphData = { ...this.state.graphData }
+                graphData.datasets[2].data = [...graphData.datasets[2].data, kraken.USD]
+                this.setState({
+                    graphData
+                })
+            })
+    }
+
     render() {
-        const data = graphData
-        data.labels = this.state.labels
-        data.datasets[0].data = this.state.data1
-        data.datasets[1].data = this.state.data2
         return (
             <div className="graph">
+            <h2>Bitcoin $USD</h2>
+            <br/>
                 <Line
-                    data={data}
-                    options={{}}
+                    data={this.state.graphData}
+                    options={this.state.graphData.options}
                 />
             </div>
         )

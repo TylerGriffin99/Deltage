@@ -3,14 +3,16 @@ import io from 'socket.io-client'
 import {connect} from 'react-redux'
 
 import './liveApp.css'
+import Footer from '../Footer/Footer.jsx'
 import Graph from '../Graph/Graph.jsx'
-import Volumes from '../Volumes/Volumes.jsx'
+import {coinData} from '../../actions'
+import baseUrl from '../../lib/base-url'
+import Header from '../Header/Header'
 import BestTrade from '../BestTrade/BestTrade.jsx'
 import DollarValues from '../DollarValues/DollarValues.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
-import baseUrl from '../../lib/base-url'
-import {coinData} from '../../actions'
+// TODO: should we be using a server file on the clientside?
 const {COIN_DATA} = require('../../../common/events')
 
 class LiveApp extends React.Component {
@@ -32,12 +34,15 @@ class LiveApp extends React.Component {
 
   render () {
     return (
-      <div className = 'liveApp'>
-        <BestTrade/>
-        <DollarValues />
-        <ExchangeDisplay />
-        <Volumes />
-        <Graph />
+      <div className='content'>
+        <Header />
+        <div className='liveApp'>
+          <BestTrade />
+          <DollarValues />
+          <ExchangeDisplay />
+          <Graph />
+        </div>
+        <Footer />
       </div>
     )
   }

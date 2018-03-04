@@ -1,4 +1,4 @@
-import {RECEIVE_DATA} from '../actions'
+import {RECEIVE_DATA} from '../actions/index'
 
 const initialState = {}
 
