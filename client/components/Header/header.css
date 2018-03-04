@@ -1,5 +1,5 @@
 .header{
-    height: 20%;
+    height: 250px;
     background-image: linear-gradient(to bottom, #c0daf3 0%, rgb(255, 255, 255) 100%);
     color: white;
     text-align: center;
@@ -7,9 +7,13 @@
     width: 100%;
 }
 .logo{
-  width: 40%;
+  max-width: 550px;
   margin-top: 15px;
-  /* width: 100%; */
+}
+@media screen and (min-width: 120px){
+.logo{
+  width: 100%;
+}
 }
 .header > button {
   width: 100px;
