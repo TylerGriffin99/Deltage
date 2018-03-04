@@ -52090,7 +52090,26 @@ Object.defineProperty(exports, "__esModule", {
 
 var _index = __webpack_require__(36);
 
-var initialState = {};
+var initialState = {
+  coin: '',
+  allExchanges: {},
+  buy: {
+    name: '',
+    lastPrice: 0,
+    highestBid: 0,
+    lowestAsk: 0,
+    volume: 0
+  },
+  sell: {
+    name: '',
+    lastPrice: 0,
+    highestBid: 0,
+    lowestAsk: 0,
+    volume: 0
+  },
+  diff: 0,
+  timestamp: ''
+};
 
 var bestTrade = function bestTrade() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -52099,10 +52118,7 @@ var bestTrade = function bestTrade() {
   switch (action.type) {
     case _index.RECEIVE_DATA:
       {
-        return {
-          receivedData: true,
-          bestTrade: action.data[0]
-        };
+        return action.data[0];
       }
     default:
       return state;
@@ -73990,16 +74006,85 @@ var BestTrade = function (_React$Component) {
           null,
           'Best Trade Component'
         ),
-        _react2.default.createElement('br', null),
         _react2.default.createElement(
-          'h4',
-          null,
-          this.props.receivedData && this.props.bestTrade.coin
-        ),
-        _react2.default.createElement(
-          'h4',
-          null,
-          'Sell to: Jubi for 5% profit'
+          'table',
+          { className: 'exchangeTable' },
+          _react2.default.createElement(
+            'thead',
+            null,
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'th',
+                null,
+                ' Coin '
+              ),
+              _react2.default.createElement(
+                'th',
+                null,
+                ' Diff (%)'
+              ),
+              _react2.default.createElement(
+                'th',
+                null,
+                ' Buy (Exc)'
+              ),
+              _react2.default.createElement(
+                'th',
+                null,
+                ' Sell (Exc)'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'tbody',
+            null,
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                null,
+                this.props.bestTrade.coin
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                this.props.bestTrade.diff
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                'Name: ',
+                this.props.bestTrade.buy.name,
+                ' ',
+                _react2.default.createElement('br', null),
+                'Price (BTC): ',
+                this.props.bestTrade.buy.lastPrice,
+                ' ',
+                _react2.default.createElement('br', null),
+                'Volume: ',
+                this.props.bestTrade.buy.volume,
+                ' '
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                'Name: ',
+                this.props.bestTrade.sell.name,
+                ' ',
+                _react2.default.createElement('br', null),
+                'Price (BTC): ',
+                this.props.bestTrade.sell.lastPrice,
+                ' ',
+                _react2.default.createElement('br', null),
+                'Volume: ',
+                this.props.bestTrade.sell.volume,
+                ' '
+              )
+            )
+          )
         )
       );
     }
@@ -74011,7 +74096,8 @@ var BestTrade = function (_React$Component) {
 function mapStateToProps(state) {
   return {
     receivedData: state.receivedData.receivedData,
-    bestTrade: state.bestTrade.bestTrade
+    bestTrade: state.bestTrade
+
   };
 }
 

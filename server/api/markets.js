@@ -44,10 +44,10 @@ const markets = [
               }
             }
           }
-          resolve(coinPriceData)
+          return resolve(coinPriceData)
         } catch (err) {
           // console.log(err)
-          reject(err)
+          return reject(err)
         }
       })
     }
@@ -96,10 +96,10 @@ const markets = [
               }
             }
           }
-          resolve(coinPriceData)
+          return resolve(coinPriceData)
         } catch (err) {
           // console.log(err)
-          reject(err)
+          return reject(err)
         }
       })
     }
@@ -155,10 +155,10 @@ const markets = [
               coinPriceData.push(list)
             }
           } // end initial for loop
-          resolve(coinPriceData)
+          return resolve(coinPriceData)
         } catch (err) {
           console.log(err)
-          reject(err)
+          return reject(err)
         }
       })
     }
