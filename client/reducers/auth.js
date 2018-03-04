@@ -31,7 +31,7 @@ export default function auth (state = initialState, action) {
         ...state,
         isFetching: false,
         isAuthenticated: false,
-        errorMessage: action.message
+        errorMessage: 'Incorrect Username, or Password.'
       }
     case LOGOUT_SUCCESS:
       return {

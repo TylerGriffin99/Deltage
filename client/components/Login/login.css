@@ -33,3 +33,7 @@
 .login > img {
     width: 300px;
 }
+
+p {
+    color: red;
+}
