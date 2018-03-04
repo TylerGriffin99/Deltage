@@ -7210,12 +7210,12 @@ var _jwtDecode = __webpack_require__(320);
 
 var _jwtDecode2 = _interopRequireDefault(_jwtDecode);
 
-var _localstorage = __webpack_require__(95);
+var _localStorage = __webpack_require__(95);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function isAuthenticated() {
-  var token = (0, _localstorage.get)('token');
+  var token = (0, _localStorage.get)('token');
 
   if (token) {
     var payload = (0, _jwtDecode2.default)(token);
@@ -7232,17 +7232,17 @@ function isAuthenticated() {
 }
 
 function saveUserToken(token) {
-  (0, _localstorage.set)('token', token);
+  (0, _localStorage.set)('token', token);
   return (0, _jwtDecode2.default)(token);
 }
 
 function getUserTokenInfo() {
-  var token = (0, _localstorage.get)('token');
+  var token = (0, _localStorage.get)('token');
   return token ? (0, _jwtDecode2.default)(token) : null;
 }
 
 function removeUser() {
-  (0, _localstorage.set)('token', null);
+  (0, _localStorage.set)('token', null);
 }
 
 /***/ }),
@@ -12116,7 +12116,7 @@ var _superagent = __webpack_require__(324);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
-var _localstorage = __webpack_require__(95);
+var _localStorage = __webpack_require__(95);
 
 var _auth = __webpack_require__(27);
 
@@ -12130,7 +12130,7 @@ function consume() {
   var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
   var dataMethod = method.toLowerCase() === 'get' ? 'query' : 'send';
-  var token = (0, _localstorage.get)('token');
+  var token = (0, _localStorage.get)('token');
   var headers = {
     Accept: 'application/json'
   };
@@ -52641,9 +52641,8 @@ var LiveApp = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'liveApp' },
-          _react2.default.createElement(_BestTrade2.default, null),
-          _react2.default.createElement(_DollarValues2.default, null),
           _react2.default.createElement(_ExchangeDisplay2.default, null),
+          _react2.default.createElement(_BestTrade2.default, null),
           _react2.default.createElement(_Graph2.default, null)
         ),
         _react2.default.createElement(_Footer2.default, null)
@@ -56438,7 +56437,7 @@ var Graph = function (_React$Component) {
                 'div',
                 { className: 'graph' },
                 _react2.default.createElement(
-                    'h2',
+                    'h1',
                     null,
                     'Bitcoin $USD'
                 ),
@@ -74420,7 +74419,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, ".exchangeContainer {\n  width: 50%;\n  margin: 10px; }\n\n.exchangeTable {\n  width: 100%; }\n\n.exchangeTable, th, td {\n  border: 1px solid #e5e5e5;\n  border-collapse: collapse; }\n\nth, td {\n  padding: 15px;\n  text-align: left;\n  white-space: nowrap;\n  white-space: pre-line;\n  word-wrap: break-word; }\n", ""]);
+exports.push([module.i, ".exchangeContainer {\n  width: 50%;\n  margin: 10px; }\n\n.exchangeTable {\n  width: 100%; }\n\n.exchangeTable, th, td {\n  border: 1px solid #e5e5e5;\n  border-collapse: collapse; }\n\nth, td {\n  padding: 15px;\n  text-align: left;\n  white-space: nowrap;\n  white-space: pre-line;\n  word-wrap: break-word; }\n\n.exchangeContainer > h1 {\n  text-align: center; }\n", ""]);
 
 // exports
 

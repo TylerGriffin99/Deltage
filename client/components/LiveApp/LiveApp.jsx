@@ -37,9 +37,8 @@ class LiveApp extends React.Component {
       <div className='content'>
         <Header />
         <div className='liveApp'>
-          <BestTrade />
-          <DollarValues />
           <ExchangeDisplay />
+          <BestTrade />
           <Graph />
         </div>
         <Footer />

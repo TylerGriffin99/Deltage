@@ -62,7 +62,7 @@ class Graph extends React.Component {
     render() {
         return (
             <div className="graph">
-            <h2>Bitcoin $USD</h2>
+            <h1>Bitcoin $USD</h1>
             <br/>
                 <Line
                     data={this.state.graphData}
