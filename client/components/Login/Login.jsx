@@ -53,8 +53,15 @@ class Login extends React.Component {
           autoComplete='off' value={password} />
         <br />
         <button className='loginButton' onClick={this.handleClick}> Login </button>
+        <p>{this.props.failed}</p>
       </div>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    failed: state.auth.errorMessage
   }
 }
 
@@ -66,4 +73,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

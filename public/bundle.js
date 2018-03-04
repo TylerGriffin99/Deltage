@@ -50112,7 +50112,7 @@ function auth() {
       return _extends({}, state, {
         isFetching: false,
         isAuthenticated: false,
-        errorMessage: action.message
+        errorMessage: 'incorrect username, or password'
       });
     case _logout.LOGOUT_SUCCESS:
       return _extends({}, state, {
@@ -52531,6 +52531,11 @@ var Login = function (_React$Component) {
           'button',
           { className: 'loginButton', onClick: this.handleClick },
           ' Login '
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          this.props.failed
         )
       );
     }
@@ -52538,6 +52543,12 @@ var Login = function (_React$Component) {
 
   return Login;
 }(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    failed: state.auth.errorMessage
+  };
+};
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
@@ -52547,7 +52558,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(Login);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Login);
 
 /***/ }),
 /* 336 */
