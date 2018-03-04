@@ -73666,7 +73666,7 @@ exports = module.exports = __webpack_require__(17)(false);
 
 
 // module
-exports.push([module.i, ".graph {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  margin: 10px;\n  width: 50%;\n  font-family: 'Dosis', sans-serif; }\n", ""]);
+exports.push([module.i, ".graph {\n  margin: 10px;\n  width: 700px;\n  font-family: 'Dosis', sans-serif;\n  position: relative; }\n\nh1 {\n  text-align: center; }\n\n@media screen and (max-width: 700px) {\n  .graph {\n    width: 100%; } }\n", ""]);
 
 // exports
 
@@ -73936,7 +73936,7 @@ exports = module.exports = __webpack_require__(17)(false);
 
 
 // module
-exports.push([module.i, ".header {\n  height: 20%;\n  background-image: linear-gradient(to bottom, #c0daf3 0%, white 100%);\n  color: white;\n  text-align: center;\n  font-family: 'Dosis', sans-serif;\n  width: 100%; }\n\n.logo {\n  width: 40%;\n  margin-top: 15px;\n  /* width: 100%; */ }\n\n.header > button {\n  width: 100px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: Transparent;\n  color: #777777;\n  border: 1px solid #e7e7e7;\n  font-size: 100%;\n  font-family: 'Dosis', sans-serif;\n  margin-top: 5px;\n  margin-right: 10px;\n  position: absolute;\n  top: 0;\n  right: 0; }\n\n.header > button:hover {\n  background-color: #e7e7e7; }\n", ""]);
+exports.push([module.i, ".header {\n  height: 250px;\n  background-image: linear-gradient(to bottom, #c0daf3 0%, white 100%);\n  color: white;\n  text-align: center;\n  font-family: 'Dosis', sans-serif;\n  width: 100%; }\n\n.logo {\n  max-width: 550px;\n  margin-top: 15px; }\n\n@media screen and (min-width: 120px) {\n  .logo {\n    width: 100%; } }\n\n.header > button {\n  width: 100px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: Transparent;\n  color: #fff;\n  border: 1px solid #ffffff;\n  font-size: 100%;\n  font-family: 'Dosis', sans-serif;\n  margin-top: 5px;\n  margin-right: 10px;\n  position: relative;\n  top: 0px;\n  right: 0px; }\n\n.header > button:hover {\n  background-color: #e7e7e7; }\n", ""]);
 
 // exports
 
@@ -74138,7 +74138,7 @@ var ExchangeDisplay = function (_React$Component) {
             null,
             _react2.default.createElement(
               'tr',
-              null,
+              { className: 'bolder' },
               _react2.default.createElement(
                 'th',
                 null,
@@ -74273,7 +74273,7 @@ exports = module.exports = __webpack_require__(17)(false);
 
 
 // module
-exports.push([module.i, ".exchangeContainer {\n  width: 50%;\n  margin: 10px; }\n\n.exchangeTable {\n  width: 100%; }\n\n.exchangeTable, th, td {\n  border: 1px solid #e5e5e5;\n  border-collapse: collapse; }\n\nth, td {\n  padding: 15px;\n  text-align: left;\n  white-space: nowrap;\n  white-space: pre-line;\n  word-wrap: break-word; }\n\n.exchangeContainer > h1 {\n  text-align: center; }\n", ""]);
+exports.push([module.i, ".exchangeContainer {\n  width: 60%;\n  margin: 10px; }\n\n.exchangeTable {\n  width: 100%; }\n\n.exchangeTable {\n  border: 1px solid #e5e5e5;\n  border-collapse: collapse; }\n\nth, td {\n  padding: 15px;\n  text-align: left;\n  white-space: nowrap;\n  white-space: pre-line;\n  word-wrap: break-word;\n  border-bottom: 1px solid #e5e5e5;\n  font-family: 'Dosis', sans-serif;\n  font-weight: 200; }\n\n.exchangeContainer > h1 {\n  text-align: center; }\n\n.bolder > th {\n  font-family: 'Dosis', sans-serif;\n  font-weight: 300; }\n", ""]);
 
 // exports
 
