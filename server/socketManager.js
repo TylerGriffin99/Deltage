@@ -16,6 +16,10 @@ function callMarkets (socket) {
       }
       exchanges.map(data => socket.emit(COIN_DATA, sort(coinPrices)))
     })
+    .catch(err => {
+      // eslint-disable-next-line no-console
+      console.error(err.message)
+    })
 }
 
 module.exports = function (socket) {
