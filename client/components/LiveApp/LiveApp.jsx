@@ -10,7 +10,6 @@ import MainPairs from '../MainPairs/MainPairs'
 import baseUrl from '../../lib/base-url'
 import Header from '../Header/Header'
 import BestTrade from '../BestTrade/BestTrade.jsx'
-import DollarValues from '../DollarValues/DollarValues.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
 // TODO: should we be using a server file on the clientside?
@@ -38,9 +37,8 @@ class LiveApp extends React.Component {
       <div className='content'>
         <Header />
         <div className='liveApp'>
-          <BestTrade />
-          <DollarValues />
           <ExchangeDisplay />
+          <BestTrade />
           <Graph />
           <MainPairs />
         </div>

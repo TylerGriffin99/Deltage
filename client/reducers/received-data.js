@@ -1,6 +1,6 @@
 import {RECEIVE_DATA} from '../actions/index'
 
-const initialState = {}
+const initialState = false
 
 const receivedData = (state = initialState, action) => {
   switch (action.type) {

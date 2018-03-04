@@ -6,9 +6,9 @@ import './mainPairs.css'
 class MainPairs extends React.Component {
   render () {
     return (
-      <div className = 'exchangeContainer'>
+      <div className = 'main-pairs-container'>
         <h1>Exchange Container</h1>
-        <table className = 'exchangeTable'>
+        <table className = 'main-pairs-table'>
           <thead>
             <tr>
               <th> Pair </th>
