@@ -1,10 +1,15 @@
 .graph{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: 10px;
-    width: 50%;
+    width: 700px;
     font-family: 'Dosis', sans-serif;
+    position: relative;
+    
 }
-
+h1{
+    text-align: center;
+}
+@media screen and (max-width: 700px){
+    .graph{
+      width: 100%;
+    }
+}
