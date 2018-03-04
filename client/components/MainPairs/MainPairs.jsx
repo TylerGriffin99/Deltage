@@ -7,48 +7,55 @@ class MainPairs extends React.Component {
   render () {
     return (
       <div className = 'main-pairs-container'>
-        <h1>Exchange Container</h1>
+        <h1>Main Pairs</h1>
         <table className = 'main-pairs-table'>
           <thead>
             <tr>
               <th> Pair </th>
-              <th> Bitrex</th>
+              <th> Bittrex</th>
               <th> Polinex</th>
               <th> Kraken</th>
             </tr>
           </thead>
-          {/* <tbody>
+          <tbody>
             {this.props.receivedData && this.props.tableData.map((data, idx) => {
-              if (data.coin === 'PAY' || data.coin === 'EOS' || data.coin === 'ETH' || data.coin === 'XVC' || data.coin === 'VRC') {
-                return (
-                  <tr key={idx}>
-                    <td>BTC - {data.coin}</td>
-                    <td>
-                      {data.allExchanges[0].name}
-                      <br/>
-                      {data.allExchanges[0].volume}
-                      <br/>
-                      {data.allExchanges[0].lastPrice}
-                    </td>
-                    <td>
-                      {data.allExchanges[1].name}
-                      <br/>
-                      {data.allExchanges[1].volume}
-                      <br/>
-                      {data.allExchanges[1].lastPrice}
-                    </td>
-                    <td>
-                      {data.allExchanges[2].name}
-                      <br/>
-                      {data.allExchanges[2].volume}
-                      <br/>
-                      {data.allExchanges[2].lastPrice}
-                    </td>
-                  </tr>
-                )
-              }
-            })}
-          </tbody> */}
+              return (
+                <tr key={idx}>
+                  <td>
+                    BTC - {data.coin}
+                  </td>
+                  <td>
+                    Volume: {data.bittrex.volume}
+                    <br/>
+                    Last Price: {data.bittrex.lastPrice}
+                    <br/>
+                    Highest Bid: {data.bittrex.highestBid}
+                    <br/>
+                    Lowest Ask: {data.bittrex.lowestAsk}
+                  </td>
+                  <td>
+                    Volume: {data.poloniex.volume}
+                    <br/>
+                    Last Price: {data.poloniex.lastPrice}
+                    <br/>
+                    Highest Bid: {data.poloniex.highestBid}
+                    <br/>
+                    Lowest Ask: {data.poloniex.lowestAsk}
+                  </td>
+                  <td>
+                    Volume: {data.kraken.volume}
+                    <br/>
+                    Last Price: {data.kraken.lastPrice}
+                    <br/>
+                    Highest Bid: {data.kraken.highestBid}
+                    <br/>
+                    Lowest Ask: {data.kraken.lowestAsk}
+                  </td>
+                </tr>
+              )
+            }
+            )}
+          </tbody>
         </table>
       </div>
     )
@@ -58,7 +65,7 @@ class MainPairs extends React.Component {
 function mapStateToProps (state) {
   return {
     receivedData: state.receivedData,
-    tableData: state.allExchange
+    tableData: state.mainPairs
   }
 }
 
