@@ -15,8 +15,9 @@ module.exports = function sort (data) {
     const low = sortedExch[sortedExch.length - 1]
     sortedCoin.buy = low
     sortedCoin.sell = high
+    console.log(sortedExch.map(exch => exch))
     sortedCoin.allExchanges = sortedExch.map(exch => exch)
-    sortedCoin.diff = (high.lastPrice - low.lastPrice) / high.lastPrice * 100 
+    sortedCoin.diff = (high.lastPrice - low.lastPrice) / high.lastPrice * 100
 
     return sortedCoin
   })

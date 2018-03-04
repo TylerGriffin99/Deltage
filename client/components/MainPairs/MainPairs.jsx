@@ -17,18 +17,38 @@ class MainPairs extends React.Component {
               <th> Kraken</th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {this.props.receivedData && this.props.tableData.map((data, idx) => {
-              return (
-                <tr key={idx}>
-                  <td>{data.coin}</td>
-                  <td>{data.diff}</td>
-                  <td>{data.buy.name} {data.buy.lastPrice} </td>
-                  <td>{data.sell.name} {data.sell.lastPrice} </td>
-                </tr>
-              )
+              if (data.coin === 'PAY' || data.coin === 'EOS' || data.coin === 'ETH' || data.coin === 'XVC' || data.coin === 'VRC') {
+                return (
+                  <tr key={idx}>
+                    <td>BTC - {data.coin}</td>
+                    <td>
+                      {data.allExchanges[0].name}
+                      <br/>
+                      {data.allExchanges[0].volume}
+                      <br/>
+                      {data.allExchanges[0].lastPrice}
+                    </td>
+                    <td>
+                      {data.allExchanges[1].name}
+                      <br/>
+                      {data.allExchanges[1].volume}
+                      <br/>
+                      {data.allExchanges[1].lastPrice}
+                    </td>
+                    <td>
+                      {data.allExchanges[2].name}
+                      <br/>
+                      {data.allExchanges[2].volume}
+                      <br/>
+                      {data.allExchanges[2].lastPrice}
+                    </td>
+                  </tr>
+                )
+              }
             })}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     )
@@ -37,8 +57,8 @@ class MainPairs extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    receivedData: state.receivedData.receivedData,
-    tableData: state.exchangeTable.exchangeTable
+    receivedData: state.receivedData,
+    tableData: state.allExchange
   }
 }
 

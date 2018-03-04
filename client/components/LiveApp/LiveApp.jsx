@@ -6,6 +6,7 @@ import './liveApp.css'
 import Footer from '../Footer/Footer.jsx'
 import Graph from '../Graph/Graph.jsx'
 import {coinData} from '../../actions'
+import MainPairs from '../MainPairs/MainPairs'
 import baseUrl from '../../lib/base-url'
 import Header from '../Header/Header'
 import BestTrade from '../BestTrade/BestTrade.jsx'
@@ -41,6 +42,7 @@ class LiveApp extends React.Component {
           <DollarValues />
           <ExchangeDisplay />
           <Graph />
+          <MainPairs />
         </div>
         <Footer />
       </div>
