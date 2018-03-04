@@ -36,8 +36,12 @@ class Login extends React.Component {
     const {username, password} = this.state
     return (
       <div className = 'login'>
-        <input id='username' name='username' className='input' placeholder='username' onChange={this.handleChange} value={username}/>
-        <input id='password' name='password' className='input' placeholder='password' onChange={this.handleChange} value={password}/>
+        <input id='username' name='username' className='input'
+          placeholder='username' onChange={this.handleChange}
+          autoComplete='off' value={username}/>
+        <input id='password' name='password' className='input'
+          placeholder='password' type='password' onChange={this.handleChange}
+          autoComplete='off' value={password}/>
         <button onClick = {this.handleClick}> Login </button>
       </div>
     )
