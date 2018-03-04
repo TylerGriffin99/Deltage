@@ -29,26 +29,6 @@ th, td {
   padding:5px;
 }
 
-
-.header{
-    height: 20%;
-    background-image: linear-gradient(to bottom, #c0daf3 0%, rgb(255, 255, 255) 100%);
-    color: white;
-    text-align: center;
-    font-family: 'Dosis', sans-serif;
-    width: 100%;
-}
-.logo{
-  width: 40%;
-  margin-top: 15px;
-  /* width: 100%; */
-}
-
-.footer{
-  text-align: center;
-  margin: 20px;
-}
-
 .loader {
   margin-top: 5rem;
   width: 5rem;

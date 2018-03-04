@@ -3,9 +3,8 @@ import io from 'socket.io-client'
 import {connect} from 'react-redux'
 
 import './liveApp.css'
+import Footer from '../Footer/Footer.jsx'
 import Graph from '../Graph/Graph.jsx'
-import Footer from '../Footer.jsx'
-import Volumes from '../Volumes/Volumes.jsx'
 import {coinData} from '../../actions'
 import baseUrl from '../../lib/base-url'
 import Header from '../Header/Header'
@@ -41,7 +40,6 @@ class LiveApp extends React.Component {
           <BestTrade />
           <DollarValues />
           <ExchangeDisplay />
-          <Volumes />
           <Graph />
         </div>
         <Footer />
