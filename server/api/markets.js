@@ -155,7 +155,7 @@ const markets = [
               coinPriceData.push(list)
             }
           } // end initial for loop
-          return resolve(coinPriceData)
+          resolve(coinPriceData)
         } catch (err) {
           console.log(err)
           reject(err)
