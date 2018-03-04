@@ -36,9 +36,12 @@ class Login extends React.Component {
     const {username, password} = this.state
     return (
       <div className = 'login'>
-        <input id='username' name='username' className='input' placeholder='username' onChange={this.handleChange} value={username}/>
-        <input id='password' name='password' className='input' placeholder='password' onChange={this.handleChange} value={password}/>
-        <button onClick = {this.handleClick}> Login </button>
+        <img src='./images/deltageBlackName.png' alt=""/>
+        <br/>
+        <input id='username' name='username' className='input' placeholder='Username' onChange={this.handleChange} value={username}/>
+        <input id='password' name='password' className='input' placeholder='Password' onChange={this.handleChange} value={password}/>
+        <br/>
+        <button className='loginButton' onClick = {this.handleClick}> Login </button>
       </div>
     )
   }

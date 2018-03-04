@@ -11,3 +11,21 @@
   margin-top: 15px;
   /* width: 100%; */
 }
+.header > button {
+  width: 100px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: Transparent;
+  color: #777777;
+  border: 1px solid #e7e7e7;
+  font-size: 100%;
+  font-family: 'Dosis', sans-serif;
+  margin-top: 5px;
+  margin-right: 10px;
+  position:absolute;
+  top:0;
+  right:0;
+}
+.header > button:hover {
+  background-color: #e7e7e7;
+}
