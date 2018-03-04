@@ -20,16 +20,17 @@ font-weight: 300;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.loader {
-  margin-top: 5rem;
-  width: 5rem;
-  height: 5rem;
-  -webkit-animation:spin 3s linear infinite;
-  -moz-animation:spin 3s linear infinite;
-  animation:spin 3s linear infinite;
+  width:100%
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+#app {
+  width: 100%
+}
+
+table, th, td {
+  border: 0.5px solid black;
+}
+
+th, td {
+  padding:5px;
+}
