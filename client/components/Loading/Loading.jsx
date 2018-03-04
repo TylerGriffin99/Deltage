@@ -6,7 +6,9 @@ import './loading.css'
 class Loading extends React.Component {
   render () {
     return (
-      <img className="loader" src="./images/loaderBlack.png" alt=""/>
+      <div className='container'>
+        <img className="loader" src="./images/loaderBlack.png" alt=""/>
+      </div>
     )
   }
 }
