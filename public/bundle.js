@@ -5523,6 +5523,212 @@ module.exports = emptyFunction;
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {};
+module.exports.Arc = __webpack_require__(378);
+module.exports.Line = __webpack_require__(379);
+module.exports.Point = __webpack_require__(380);
+module.exports.Rectangle = __webpack_require__(381);
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.connect = exports.Provider = undefined;
+
+var _Provider = __webpack_require__(266);
+
+var _Provider2 = _interopRequireDefault(_Provider);
+
+var _connect = __webpack_require__(269);
+
+var _connect2 = _interopRequireDefault(_connect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+exports.Provider = _Provider2["default"];
+exports.connect = _connect2["default"];
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/**
+ * Expose `Emitter`.
+ */
+
+if (true) {
+  module.exports = Emitter;
+}
+
+/**
+ * Initialize a new `Emitter`.
+ *
+ * @api public
+ */
+
+function Emitter(obj) {
+  if (obj) return mixin(obj);
+};
+
+/**
+ * Mixin the emitter properties.
+ *
+ * @param {Object} obj
+ * @return {Object}
+ * @api private
+ */
+
+function mixin(obj) {
+  for (var key in Emitter.prototype) {
+    obj[key] = Emitter.prototype[key];
+  }
+  return obj;
+}
+
+/**
+ * Listen on the given `event` with `fn`.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.on =
+Emitter.prototype.addEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
+    .push(fn);
+  return this;
+};
+
+/**
+ * Adds an `event` listener that will be invoked a single
+ * time then automatically removed.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.once = function(event, fn){
+  function on() {
+    this.off(event, on);
+    fn.apply(this, arguments);
+  }
+
+  on.fn = fn;
+  this.on(event, on);
+  return this;
+};
+
+/**
+ * Remove the given callback for `event` or all
+ * registered callbacks.
+ *
+ * @param {String} event
+ * @param {Function} fn
+ * @return {Emitter}
+ * @api public
+ */
+
+Emitter.prototype.off =
+Emitter.prototype.removeListener =
+Emitter.prototype.removeAllListeners =
+Emitter.prototype.removeEventListener = function(event, fn){
+  this._callbacks = this._callbacks || {};
+
+  // all
+  if (0 == arguments.length) {
+    this._callbacks = {};
+    return this;
+  }
+
+  // specific event
+  var callbacks = this._callbacks['$' + event];
+  if (!callbacks) return this;
+
+  // remove all handlers
+  if (1 == arguments.length) {
+    delete this._callbacks['$' + event];
+    return this;
+  }
+
+  // remove specific handler
+  var cb;
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i];
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1);
+      break;
+    }
+  }
+  return this;
+};
+
+/**
+ * Emit `event` with the given args.
+ *
+ * @param {String} event
+ * @param {Mixed} ...
+ * @return {Emitter}
+ */
+
+Emitter.prototype.emit = function(event){
+  this._callbacks = this._callbacks || {};
+  var args = [].slice.call(arguments, 1)
+    , callbacks = this._callbacks['$' + event];
+
+  if (callbacks) {
+    callbacks = callbacks.slice(0);
+    for (var i = 0, len = callbacks.length; i < len; ++i) {
+      callbacks[i].apply(this, args);
+    }
+  }
+
+  return this;
+};
+
+/**
+ * Return array of callbacks for `event`.
+ *
+ * @param {String} event
+ * @return {Array}
+ * @api public
+ */
+
+Emitter.prototype.listeners = function(event){
+  this._callbacks = this._callbacks || {};
+  return this._callbacks['$' + event] || [];
+};
+
+/**
+ * Check if this emitter has `event` handlers.
+ *
+ * @param {String} event
+ * @return {Boolean}
+ * @api public
+ */
+
+Emitter.prototype.hasListeners = function(event){
+  return !! this.listeners(event).length;
+};
+
+
+/***/ }),
+/* 17 */
 /***/ (function(module, exports) {
 
 /*
@@ -5604,7 +5810,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -5983,212 +6189,6 @@ function updateLink (link, options, obj) {
 
 	if(oldSrc) URL.revokeObjectURL(oldSrc);
 }
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = {};
-module.exports.Arc = __webpack_require__(378);
-module.exports.Line = __webpack_require__(379);
-module.exports.Point = __webpack_require__(380);
-module.exports.Rectangle = __webpack_require__(381);
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.connect = exports.Provider = undefined;
-
-var _Provider = __webpack_require__(266);
-
-var _Provider2 = _interopRequireDefault(_Provider);
-
-var _connect = __webpack_require__(269);
-
-var _connect2 = _interopRequireDefault(_connect);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-exports.Provider = _Provider2["default"];
-exports.connect = _connect2["default"];
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/**
- * Expose `Emitter`.
- */
-
-if (true) {
-  module.exports = Emitter;
-}
-
-/**
- * Initialize a new `Emitter`.
- *
- * @api public
- */
-
-function Emitter(obj) {
-  if (obj) return mixin(obj);
-};
-
-/**
- * Mixin the emitter properties.
- *
- * @param {Object} obj
- * @return {Object}
- * @api private
- */
-
-function mixin(obj) {
-  for (var key in Emitter.prototype) {
-    obj[key] = Emitter.prototype[key];
-  }
-  return obj;
-}
-
-/**
- * Listen on the given `event` with `fn`.
- *
- * @param {String} event
- * @param {Function} fn
- * @return {Emitter}
- * @api public
- */
-
-Emitter.prototype.on =
-Emitter.prototype.addEventListener = function(event, fn){
-  this._callbacks = this._callbacks || {};
-  (this._callbacks['$' + event] = this._callbacks['$' + event] || [])
-    .push(fn);
-  return this;
-};
-
-/**
- * Adds an `event` listener that will be invoked a single
- * time then automatically removed.
- *
- * @param {String} event
- * @param {Function} fn
- * @return {Emitter}
- * @api public
- */
-
-Emitter.prototype.once = function(event, fn){
-  function on() {
-    this.off(event, on);
-    fn.apply(this, arguments);
-  }
-
-  on.fn = fn;
-  this.on(event, on);
-  return this;
-};
-
-/**
- * Remove the given callback for `event` or all
- * registered callbacks.
- *
- * @param {String} event
- * @param {Function} fn
- * @return {Emitter}
- * @api public
- */
-
-Emitter.prototype.off =
-Emitter.prototype.removeListener =
-Emitter.prototype.removeAllListeners =
-Emitter.prototype.removeEventListener = function(event, fn){
-  this._callbacks = this._callbacks || {};
-
-  // all
-  if (0 == arguments.length) {
-    this._callbacks = {};
-    return this;
-  }
-
-  // specific event
-  var callbacks = this._callbacks['$' + event];
-  if (!callbacks) return this;
-
-  // remove all handlers
-  if (1 == arguments.length) {
-    delete this._callbacks['$' + event];
-    return this;
-  }
-
-  // remove specific handler
-  var cb;
-  for (var i = 0; i < callbacks.length; i++) {
-    cb = callbacks[i];
-    if (cb === fn || cb.fn === fn) {
-      callbacks.splice(i, 1);
-      break;
-    }
-  }
-  return this;
-};
-
-/**
- * Emit `event` with the given args.
- *
- * @param {String} event
- * @param {Mixed} ...
- * @return {Emitter}
- */
-
-Emitter.prototype.emit = function(event){
-  this._callbacks = this._callbacks || {};
-  var args = [].slice.call(arguments, 1)
-    , callbacks = this._callbacks['$' + event];
-
-  if (callbacks) {
-    callbacks = callbacks.slice(0);
-    for (var i = 0, len = callbacks.length; i < len; ++i) {
-      callbacks[i].apply(this, args);
-    }
-  }
-
-  return this;
-};
-
-/**
- * Return array of callbacks for `event`.
- *
- * @param {String} event
- * @return {Array}
- * @api public
- */
-
-Emitter.prototype.listeners = function(event){
-  this._callbacks = this._callbacks || {};
-  return this._callbacks['$' + event] || [];
-};
-
-/**
- * Check if this emitter has `event` handlers.
- *
- * @param {String} event
- * @return {Boolean}
- * @api public
- */
-
-Emitter.prototype.hasListeners = function(event){
-  return !! this.listeners(event).length;
-};
 
 
 /***/ }),
@@ -9790,7 +9790,7 @@ function logoutUser(redir) {
  */
 
 var debug = __webpack_require__(28)('socket.io-parser');
-var Emitter = __webpack_require__(18);
+var Emitter = __webpack_require__(16);
 var hasBin = __webpack_require__(100);
 var binary = __webpack_require__(345);
 var isArray = __webpack_require__(62);
@@ -10258,7 +10258,7 @@ module.exports = function (opts) {
  */
 
 var parser = __webpack_require__(22);
-var Emitter = __webpack_require__(18);
+var Emitter = __webpack_require__(16);
 
 /**
  * Module exports.
@@ -12340,7 +12340,7 @@ function isBuf(obj) {
 
 var eio = __webpack_require__(346);
 var Socket = __webpack_require__(107);
-var Emitter = __webpack_require__(18);
+var Emitter = __webpack_require__(16);
 var parser = __webpack_require__(61);
 var on = __webpack_require__(108);
 var bind = __webpack_require__(109);
@@ -13319,7 +13319,7 @@ module.exports = function(arr, obj){
  */
 
 var parser = __webpack_require__(61);
-var Emitter = __webpack_require__(18);
+var Emitter = __webpack_require__(16);
 var toArray = __webpack_require__(359);
 var on = __webpack_require__(108);
 var bind = __webpack_require__(109);
@@ -27540,7 +27540,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(257);
 
-var _reactRedux = __webpack_require__(17);
+var _reactRedux = __webpack_require__(15);
 
 var _reactRouterDom = __webpack_require__(53);
 
@@ -50180,7 +50180,7 @@ if (typeof window !== 'undefined') { // Browser window
   root = this;
 }
 
-var Emitter = __webpack_require__(18);
+var Emitter = __webpack_require__(16);
 var RequestBase = __webpack_require__(325);
 var isObject = __webpack_require__(97);
 var ResponseBase = __webpack_require__(326);
@@ -52194,7 +52194,7 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(17);
+var _reactRedux = __webpack_require__(15);
 
 var _reactRouterDom = __webpack_require__(53);
 
@@ -52286,7 +52286,7 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(17);
+var _reactRedux = __webpack_require__(15);
 
 __webpack_require__(335);
 
@@ -52316,6 +52316,7 @@ var Login = function (_React$Component) {
     };
     _this.handleChange = _this.handleChange.bind(_this);
     _this.handleClick = _this.handleClick.bind(_this);
+    _this.handleKeyUp = _this.handleKeyUp.bind(_this);
     return _this;
   }
 
@@ -52326,7 +52327,7 @@ var Login = function (_React$Component) {
     }
   }, {
     key: 'handleClick',
-    value: function handleClick(e) {
+    value: function handleClick() {
       var _this2 = this;
 
       var _state = this.state,
@@ -52343,19 +52344,43 @@ var Login = function (_React$Component) {
       this.props.loginUser(creds, goToLiveApp);
     }
   }, {
+    key: 'handleKeyUp',
+    value: function handleKeyUp(e) {
+      var _this3 = this;
+
+      if (e.keyCode === 13) {
+        var _state2 = this.state,
+            username = _state2.username,
+            password = _state2.password;
+
+        var creds = {
+          username: username.trim(),
+          password: password.trim()
+        };
+        var goToLiveApp = function goToLiveApp() {
+          return _this3.props.history.push('/LiveApp');
+        };
+        this.props.loginUser(creds, goToLiveApp);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var _state2 = this.state,
-          username = _state2.username,
-          password = _state2.password;
+      var _state3 = this.state,
+          username = _state3.username,
+          password = _state3.password;
 
       return _react2.default.createElement(
         'div',
-        { className: 'login' },
+        { className: 'login', onKeyUp: this.handleKeyUp },
         _react2.default.createElement('img', { src: './images/deltageBlackName.png', alt: '' }),
         _react2.default.createElement('br', null),
-        _react2.default.createElement('input', { id: 'username', name: 'username', className: 'input', placeholder: 'Username', onChange: this.handleChange, value: username }),
-        _react2.default.createElement('input', { id: 'password', name: 'password', className: 'input', placeholder: 'Password', onChange: this.handleChange, value: password }),
+        _react2.default.createElement('input', { id: 'username', name: 'username', className: 'input',
+          placeholder: 'Username', onChange: this.handleChange,
+          autoComplete: 'off', value: username }),
+        _react2.default.createElement('input', { id: 'password', name: 'password', className: 'input',
+          placeholder: 'Password', type: 'password', onChange: this.handleChange,
+          autoComplete: 'off', value: password }),
         _react2.default.createElement('br', null),
         _react2.default.createElement(
           'button',
@@ -52398,7 +52423,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(15)(content, options);
+var update = __webpack_require__(18)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -52433,7 +52458,7 @@ if(false) {
 /* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(14)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -52559,7 +52584,7 @@ var _socket = __webpack_require__(339);
 
 var _socket2 = _interopRequireDefault(_socket);
 
-var _reactRedux = __webpack_require__(17);
+var _reactRedux = __webpack_require__(15);
 
 __webpack_require__(361);
 
@@ -52585,11 +52610,7 @@ var _BestTrade = __webpack_require__(536);
 
 var _BestTrade2 = _interopRequireDefault(_BestTrade);
 
-var _DollarValues = __webpack_require__(539);
-
-var _DollarValues2 = _interopRequireDefault(_DollarValues);
-
-var _ExchangeDisplay = __webpack_require__(542);
+var _ExchangeDisplay = __webpack_require__(539);
 
 var _ExchangeDisplay2 = _interopRequireDefault(_ExchangeDisplay);
 
@@ -52602,7 +52623,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 // TODO: should we be using a server file on the clientside?
-var _require = __webpack_require__(545),
+var _require = __webpack_require__(542),
     COIN_DATA = _require.COIN_DATA;
 
 var LiveApp = function (_React$Component) {
@@ -53765,7 +53786,7 @@ module.exports.parser = __webpack_require__(22);
  */
 
 var transports = __webpack_require__(103);
-var Emitter = __webpack_require__(18);
+var Emitter = __webpack_require__(16);
 var debug = __webpack_require__(28)('engine.io-client:socket');
 var index = __webpack_require__(106);
 var parser = __webpack_require__(22);
@@ -54539,7 +54560,7 @@ try {
 
 var XMLHttpRequest = __webpack_require__(63);
 var Polling = __webpack_require__(104);
-var Emitter = __webpack_require__(18);
+var Emitter = __webpack_require__(16);
 var inherit = __webpack_require__(40);
 var debug = __webpack_require__(28)('engine.io-client:polling-xhr');
 
@@ -56153,7 +56174,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(15)(content, options);
+var update = __webpack_require__(18)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -56188,7 +56209,7 @@ if(false) {
 /* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(14)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -56279,7 +56300,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(15)(content, options);
+var update = __webpack_require__(18)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -56314,7 +56335,7 @@ if(false) {
 /* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(14)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -56986,7 +57007,7 @@ __webpack_require__(373)(Chart);
 
 Chart.defaults = __webpack_require__(3);
 Chart.Element = __webpack_require__(10);
-Chart.elements = __webpack_require__(16);
+Chart.elements = __webpack_require__(14);
 Chart.Interaction = __webpack_require__(111);
 Chart.layouts = __webpack_require__(29);
 Chart.platform = __webpack_require__(112);
@@ -66480,7 +66501,7 @@ webpackContext.id = 396;
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(16);
+var elements = __webpack_require__(14);
 var helpers = __webpack_require__(1);
 
 defaults._set('bar', {
@@ -66991,7 +67012,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(16);
+var elements = __webpack_require__(14);
 var helpers = __webpack_require__(1);
 
 defaults._set('bubble', {
@@ -67178,7 +67199,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(16);
+var elements = __webpack_require__(14);
 var helpers = __webpack_require__(1);
 
 defaults._set('doughnut', {
@@ -67484,7 +67505,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(16);
+var elements = __webpack_require__(14);
 var helpers = __webpack_require__(1);
 
 defaults._set('line', {
@@ -67824,7 +67845,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(16);
+var elements = __webpack_require__(14);
 var helpers = __webpack_require__(1);
 
 defaults._set('polarArea', {
@@ -68053,7 +68074,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(16);
+var elements = __webpack_require__(14);
 var helpers = __webpack_require__(1);
 
 defaults._set('radar', {
@@ -68418,7 +68439,7 @@ module.exports.title = __webpack_require__(414);
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(16);
+var elements = __webpack_require__(14);
 var helpers = __webpack_require__(1);
 
 defaults._set('global', {
@@ -73605,7 +73626,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(15)(content, options);
+var update = __webpack_require__(18)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -73640,7 +73661,7 @@ if(false) {
 /* 530 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(14)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -73790,7 +73811,7 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(17);
+var _reactRedux = __webpack_require__(15);
 
 var _reactRouterDom = __webpack_require__(53);
 
@@ -73875,7 +73896,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(15)(content, options);
+var update = __webpack_require__(18)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -73910,7 +73931,7 @@ if(false) {
 /* 535 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(14)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -73937,7 +73958,7 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(17);
+var _reactRedux = __webpack_require__(15);
 
 __webpack_require__(537);
 
@@ -74015,7 +74036,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(15)(content, options);
+var update = __webpack_require__(18)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -74050,7 +74071,7 @@ if(false) {
 /* 538 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(14)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -74077,176 +74098,9 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = __webpack_require__(15);
+
 __webpack_require__(540);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var DollarValues = function (_React$Component) {
-  _inherits(DollarValues, _React$Component);
-
-  function DollarValues(props) {
-    _classCallCheck(this, DollarValues);
-
-    var _this = _possibleConstructorReturn(this, (DollarValues.__proto__ || Object.getPrototypeOf(DollarValues)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(DollarValues, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Dollar Value Component'
-        ),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement(
-          'h4',
-          null,
-          'Bitcoin'
-        ),
-        _react2.default.createElement(
-          'h4',
-          null,
-          '$10,408.60'
-        ),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement(
-          'h4',
-          null,
-          'Ethereum'
-        ),
-        _react2.default.createElement(
-          'h4',
-          null,
-          '$859.06'
-        ),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement(
-          'h4',
-          null,
-          'Tether'
-        ),
-        _react2.default.createElement(
-          'h4',
-          null,
-          '$1.00'
-        ),
-        _react2.default.createElement('br', null),
-        _react2.default.createElement(
-          'h4',
-          null,
-          'DogeCoin'
-        ),
-        _react2.default.createElement(
-          'h4',
-          null,
-          '$0.006048'
-        )
-      );
-    }
-  }]);
-
-  return DollarValues;
-}(_react2.default.Component);
-
-exports.default = DollarValues;
-
-/***/ }),
-/* 540 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(541);
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(15)(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {
-	module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./dollarValues.css", function() {
-		var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./dollarValues.css");
-
-		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	});
-
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 541 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(14)(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/***/ }),
-/* 542 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(17);
-
-__webpack_require__(543);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -74361,11 +74215,11 @@ function mapStateToProps(state) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(ExchangeDisplay);
 
 /***/ }),
-/* 543 */
+/* 540 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(544);
+var content = __webpack_require__(541);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -74379,7 +74233,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(15)(content, options);
+var update = __webpack_require__(18)(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -74411,10 +74265,10 @@ if(false) {
 }
 
 /***/ }),
-/* 544 */
+/* 541 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(14)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
@@ -74425,7 +74279,7 @@ exports.push([module.i, ".exchangeContainer {\n  width: 50%;\n  margin: 10px; }\
 
 
 /***/ }),
-/* 545 */
+/* 542 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

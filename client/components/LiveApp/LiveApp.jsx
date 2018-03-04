@@ -9,7 +9,6 @@ import {coinData} from '../../actions'
 import baseUrl from '../../lib/base-url'
 import Header from '../Header/Header'
 import BestTrade from '../BestTrade/BestTrade.jsx'
-import DollarValues from '../DollarValues/DollarValues.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
 // TODO: should we be using a server file on the clientside?
