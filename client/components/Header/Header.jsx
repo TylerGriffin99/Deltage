@@ -18,7 +18,10 @@ class Header extends React.Component {
   render() {
     return (
       <div className='header'>
-        <img className='logo' src="images/deltageWhite2.png" alt="Deltage Title" />
+        <div className='imageLogo'>
+          <img className='logo' src="images/loaderBlack.png" alt="Deltage Title" />
+          <img className='words' src="images/deltageWordsBlack.png" alt="Deltage Title" />
+        </div>
         <button onClick={this.handleClick}>Logout</button>
       </div>
     )
