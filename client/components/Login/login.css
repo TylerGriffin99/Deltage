@@ -1,0 +1,35 @@
+.login{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.input
+{
+    width: 170px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: white;
+    color: #777777;
+    border: 1px solid #e7e7e7;
+    font-size:100%;;
+    font-family: 'Dosis', sans-serif;
+    margin: 2px;
+}
+.loginButton {
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: white;
+    color: #777777;
+    border: 1px solid #e7e7e7;
+    font-size:100%;;
+    font-family: 'Dosis', sans-serif;
+}
+.loginButton:hover {
+    background-color: #e7e7e7;
+}
+.login > img {
+    width: 300px;
+}
