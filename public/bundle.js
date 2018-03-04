@@ -56244,7 +56244,13 @@ var Footer = function (_React$Component) {
                 _react2.default.createElement(
                     'p',
                     null,
-                    'EDA Harakeke-2018 Project by Adam, Maddie, Peter, Tim & Tyler'
+                    'EDA Harakeke-2018 Project by'
+                ),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'Adam, Maddie, Peter, Tim & Tyler'
                 )
             );
         }
@@ -74414,7 +74420,7 @@ exports = module.exports = __webpack_require__(14)(false);
 
 
 // module
-exports.push([module.i, ".exchangeTable, th, td {\n  border: 1px solid #e5e5e5;\n  border-width: 1px;\n  border-collapse: collapse; }\n\nth, td {\n  padding: 15px;\n  text-align: left;\n  white-space: nowrap;\n  white-space: pre-line;\n  word-wrap: break-word; }\n", ""]);
+exports.push([module.i, ".exchangeContainer {\n  width: 50%;\n  margin: 10px; }\n\n.exchangeTable {\n  width: 100%; }\n\n.exchangeTable, th, td {\n  border: 1px solid #e5e5e5;\n  border-collapse: collapse; }\n\nth, td {\n  padding: 15px;\n  text-align: left;\n  white-space: nowrap;\n  white-space: pre-line;\n  word-wrap: break-word; }\n", ""]);
 
 // exports
 

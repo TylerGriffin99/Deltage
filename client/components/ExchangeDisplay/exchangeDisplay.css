@@ -1,6 +1,12 @@
+.exchangeContainer{
+    width: 50%;
+ margin: 10px;
+}
+.exchangeTable{
+    width: 100%;
+}
 .exchangeTable, th, td{
     border: 1px solid#e5e5e5;
-    border-width: 1px;
     border-collapse: collapse;
 }
 th, td {
