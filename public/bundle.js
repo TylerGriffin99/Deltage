@@ -73879,7 +73879,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, ".graph {\n  margin: 10px;\n  width: 700px;\n  font-family: 'Dosis', sans-serif;\n  position: relative; }\n\nh1 {\n  text-align: center; }\n\n@media screen and (max-width: 700px) {\n  .graph {\n    width: 100%; } }\n", ""]);
+exports.push([module.i, ".graph {\n  margin: 10px;\n  width: 700px;\n  font-family: 'Dosis', sans-serif;\n  text-align: center;\n  position: relative; }\n\nh1 {\n  text-align: center; }\n\n@media screen and (max-width: 700px) {\n  .graph {\n    width: 100%;\n    padding: 5px; } }\n", ""]);
 
 // exports
 
@@ -73915,12 +73915,12 @@ var graphData = {
         borderJoinStyle: 'miter',
         pointBorderColor: 'rgba(75,192,192,1)',
         pointBackgroundColor: '#fff',
-        pointBorderWidth: 1,
-        pointHoverRadius: 4,
+        pointBorderWidth: .5,
+        pointHoverRadius: 2,
         pointHoverBackgroundColor: 'rgba(75,192,192,1)',
         pointHoverBorderColor: 'rgba(220,220,220,1)',
-        pointHoverBorderWidth: 4,
-        pointRadius: 3,
+        pointHoverBorderWidth: 2,
+        pointRadius: 1.5,
         pointHitRadius: 10,
         data: []
     }, {
@@ -73935,12 +73935,12 @@ var graphData = {
         borderJoinStyle: 'miter',
         pointBorderColor: 'rgba(153,102,153,1)',
         pointBackgroundColor: '#fff',
-        pointBorderWidth: 1,
-        pointHoverRadius: 4,
+        pointBorderWidth: .5,
+        pointHoverRadius: 2,
         pointHoverBackgroundColor: 'rgba(153,102,153,1)',
         pointHoverBorderColor: 'rgba(220,220,220,1)',
-        pointHoverBorderWidth: 4,
-        pointRadius: 3,
+        pointHoverBorderWidth: 2,
+        pointRadius: 1.5,
         pointHitRadius: 10,
         data: []
     }, {
@@ -73955,12 +73955,12 @@ var graphData = {
         borderJoinStyle: 'miter',
         pointBorderColor: 'rgba(204,153,51,1)',
         pointBackgroundColor: '#fff',
-        pointBorderWidth: 1,
-        pointHoverRadius: 4,
+        pointBorderWidth: .5,
+        pointHoverRadius: 2,
         pointHoverBackgroundColor: 'rgba(204,153,51,1)',
         pointHoverBorderColor: 'rgba(220,220,220,1)',
-        pointHoverBorderWidth: 4,
-        pointRadius: 3,
+        pointHoverBorderWidth: 2,
+        pointRadius: 1.5,
         pointHitRadius: 10,
         data: []
     }],
