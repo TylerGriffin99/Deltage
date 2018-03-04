@@ -2,38 +2,62 @@
     height: 250px;
     background-image: linear-gradient(to bottom, #c0daf3 0%, rgb(255, 255, 255) 100%);
     color: white;
+    display:inherit;
     text-align: center;
     font-family: 'Dosis', sans-serif;
     width: 100%;
 }
 .logo{
-  max-width: 550px;
+  max-width: 225px;
   margin-top: 15px;
 }
-@media screen and (min-width: 120px){
+.words{
+  max-width: 225px;
+  vertical-align: top;
+	padding-top: 80px;
+}
+@media screen and (max-width: 520px){
+  .header{
+    margin-bottom: 60px;
+  }
 .logo{
   width: 100%;
 }
+.imageLogo{
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+.words{
+  padding-top: 0;
+}
+}
+
+
 .header > button {
   width: 100px;
   height: 40px;
   border-radius: 4px;
   background-color: Transparent;
-  color: #fff;
-  border: 1px solid #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
   font-size: 100%;
   font-family: 'Dosis', sans-serif;
   margin-top: 5px;
   margin-right: 10px;
-  position: relative;
+  position: absolute;
   top:0px;
   right:0px;
   
 }
 .header > button:hover {
-  background-color: #e7e7e7;
+  background-color: rgba(255, 255, 255, 0.315);
 }
-@media screen and (min-width: 120px){
-  
+@media screen and (max-width: 520px){
+ .header > button{
+   position: absolute;
+    top: 270px;
+    right: 35%;
+ }
 }
