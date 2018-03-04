@@ -52532,7 +52532,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, ".login {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  margin-top: 50px; }\n\n.input {\n  width: 170px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: white;\n  color: #777777;\n  border: 1px solid #e7e7e7;\n  font-size: 100%;\n  font-family: 'Dosis', sans-serif;\n  margin: 2px; }\n\n.loginButton {\n  width: 100px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: white;\n  color: #777777;\n  border: 1px solid #e7e7e7;\n  font-size: 100%;\n  font-family: 'Dosis', sans-serif; }\n\n.loginButton:hover {\n  background-color: #e7e7e7; }\n\n.login > img {\n  width: 300px; }\n\np {\n  color: red; }\n", ""]);
+exports.push([module.i, ".login {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  margin-top: 50px; }\n\n.input {\n  width: 170px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: white;\n  color: #777777;\n  border: 1px solid #e7e7e7;\n  font-size: 100%;\n  font-family: 'Dosis', sans-serif;\n  margin: 2px; }\n\n.loginButton {\n  width: 100px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: white;\n  color: #777777;\n  border: 1px solid #e7e7e7;\n  font-size: 100%;\n  font-family: 'Dosis', sans-serif; }\n\n.loginButton:hover {\n  background-color: #e7e7e7; }\n\n.login > img {\n  width: 300px; }\n\n.login > p {\n  color: red; }\n", ""]);
 
 // exports
 
@@ -56424,7 +56424,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, ".footer {\n  text-align: center;\n  margin: 20px;\n  font-family: 'Dosis', sans-serif; }\n", ""]);
+exports.push([module.i, ".footer {\n  text-align: center;\n  margin: 20px;\n  font-family: 'Dosis', sans-serif;\n  color: black; }\n", ""]);
 
 // exports
 
