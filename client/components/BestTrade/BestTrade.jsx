@@ -8,9 +8,24 @@ class BestTrade extends React.Component {
     return (
       <div>
         <h1>Best Trade Component</h1>
-        <br/>
-        <h4>{this.props.receivedData && this.props.bestTrade.coin}</h4>
-        <h4>Sell to: Jubi for 5% profit</h4>
+        <table className = 'exchangeTable'>
+          <thead>
+            <tr>
+              <th> Coin </th>
+              <th> Diff (%)</th>
+              <th> Buy (Exc)</th>
+              <th> Sell (Exc)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{this.props.bestTrade.coin}</td>
+              <td>{this.props.bestTrade.diff}</td>
+              <td>Name: {this.props.bestTrade.buy.name} <br />Price (BTC): {this.props.bestTrade.buy.lastPrice} <br />Volume: {this.props.bestTrade.buy.volume} </td>
+              <td>Name: {this.props.bestTrade.sell.name} <br />Price (BTC): {this.props.bestTrade.sell.lastPrice} <br />Volume: {this.props.bestTrade.sell.volume} </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     )
   }
@@ -19,7 +34,8 @@ class BestTrade extends React.Component {
 function mapStateToProps (state) {
   return {
     receivedData: state.receivedData.receivedData,
-    bestTrade: state.bestTrade.bestTrade
+    bestTrade: state.bestTrade
+
   }
 }
 

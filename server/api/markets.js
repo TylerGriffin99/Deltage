@@ -46,7 +46,6 @@ const markets = [
           }
           return resolve(coinPriceData)
         } catch (err) {
-          // console.log(err)
           return reject(err)
         }
       })
@@ -98,7 +97,6 @@ const markets = [
           }
           return resolve(coinPriceData)
         } catch (err) {
-          // console.log(err)
           return reject(err)
         }
       })
