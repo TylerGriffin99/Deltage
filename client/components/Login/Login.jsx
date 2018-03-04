@@ -47,7 +47,7 @@ class Login extends React.Component {
         <br />
         <input id='username' name='username' className='input'
           placeholder='Username' onChange={this.handleChange}
-          autoComplete='off' value={username} />;
+          autoComplete='off' value={username} />
         <input id='password' name='password' className='input'
           placeholder='Password' type='password' onChange={this.handleChange}
           autoComplete='off' value={password} />
