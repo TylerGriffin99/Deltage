@@ -35,13 +35,7 @@ class Login extends React.Component {
 
   handleKeyUp (e) {
     if (e.keyCode === 13) {
-      const {username, password} = this.state
-      const creds = {
-        username: username.trim(),
-        password: password.trim()
-      }
-      const goToLiveApp = () => this.props.history.push('/LiveApp')
-      this.props.loginUser(creds, goToLiveApp)
+      this.handleClick()
     }
   }
 

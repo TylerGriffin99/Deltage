@@ -52504,29 +52504,16 @@ var Login = function (_React$Component) {
   }, {
     key: 'handleKeyUp',
     value: function handleKeyUp(e) {
-      var _this3 = this;
-
       if (e.keyCode === 13) {
-        var _state2 = this.state,
-            username = _state2.username,
-            password = _state2.password;
-
-        var creds = {
-          username: username.trim(),
-          password: password.trim()
-        };
-        var goToLiveApp = function goToLiveApp() {
-          return _this3.props.history.push('/LiveApp');
-        };
-        this.props.loginUser(creds, goToLiveApp);
+        this.handleClick();
       }
     }
   }, {
     key: 'render',
     value: function render() {
-      var _state3 = this.state,
-          username = _state3.username,
-          password = _state3.password;
+      var _state2 = this.state,
+          username = _state2.username,
+          password = _state2.password;
 
       return _react2.default.createElement(
         'div',
