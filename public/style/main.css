@@ -4,14 +4,15 @@
   box-sizing: border-box;
 }
 
-html, body {
+body {
  height:100%;
  background-repeat: no-repeat;
  background-attachment: fixed; 
 }
 
-h2, p{
+h1, h2, p{
 font-family: 'Dosis', sans-serif;
+font-weight: 300;
 }
 
 .app{ 
