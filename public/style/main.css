@@ -19,6 +19,11 @@ font-family: 'Dosis', sans-serif;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width:100%
+}
+
+#app {
+  width: 100%
 }
 
 table, th, td {
