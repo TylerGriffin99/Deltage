@@ -13,6 +13,7 @@ class Login extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.handleKeyUp = this.handleKeyUp.bind(this)
   }
 
   handleChange (e) {
@@ -22,7 +23,7 @@ class Login extends React.Component {
     })
   }
 
-  handleClick (e) {
+  handleClick () {
     const {username, password} = this.state
     const creds = {
       username: username.trim(),
@@ -32,15 +33,27 @@ class Login extends React.Component {
     this.props.loginUser(creds, goToLiveApp)
   }
 
+  handleKeyUp (e) {
+    if (e.keyCode === 13) {
+      const {username, password} = this.state
+      const creds = {
+        username: username.trim(),
+        password: password.trim()
+      }
+      const goToLiveApp = () => this.props.history.push('/LiveApp')
+      this.props.loginUser(creds, goToLiveApp)
+    }
+  }
+
   render () {
     const {username, password} = this.state
     return (
-      <div className = 'login'>
+      <div className = 'login' onKeyUp={this.handleKeyUp}>
         <input id='username' name='username' className='input'
           placeholder='username' onChange={this.handleChange}
           autoComplete='off' value={username}/>
         <input id='password' name='password' className='input'
-          placeholder='password' type='password' onChange={this.handleChange}
+          placeholder='password' type='password' onChange={this.handleChange}  
           autoComplete='off' value={password}/>
         <button onClick = {this.handleClick}> Login </button>
       </div>
