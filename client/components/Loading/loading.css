@@ -6,6 +6,26 @@
 }
 
 .loader {
-  width: 200px;
-  height: 200px;
+  margin-top: 200px;
+  animation-name: stretch;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running; 
+}
+
+@keyframes stretch {
+  0% {
+    height: 200px;
+    width: 200px;
+    padding: 50px;
+}
+  100% {
+    padding: 50px;
+    width: 250px;
+    height: 250px
+      }
 }
