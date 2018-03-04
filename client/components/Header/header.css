@@ -26,11 +26,14 @@
   font-family: 'Dosis', sans-serif;
   margin-top: 5px;
   margin-right: 10px;
-  position: absolute;
+  position: relative;
   top:0px;
   right:0px;
   
 }
 .header > button:hover {
   background-color: #e7e7e7;
+}
+@media screen and (min-width: 120px){
+  
 }
