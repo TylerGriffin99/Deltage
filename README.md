@@ -45,3 +45,12 @@ The incoming data is reformatted to show arbitrage opportunities which are deliv
 2. As a user I can see a live graph with current prices and history for a particular cryptocurrency.
 3. As a user I can select the exchanges I want to participate in.
 4. As a user I can make a trade.
+
+
+## Usage
+1. Clone down this repo.
+2. Change to the cloned repo folder. `cd Deltage`
+3. Use `npm install` or `yarn` to pull down the dependencies.
+4. Rename the `.env.example` file to `.env`.
+5. `npm start` or `yarn start`.
+6. In your browser go to: [localhost:3000](http://localhost:3000/ "We use Port 3000"). 
