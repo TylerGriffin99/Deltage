@@ -10,7 +10,7 @@ class ExchangeDisplay extends React.Component {
         <h1>Exchange Container</h1>
         <table className = 'exchangeTable'>
           <thead>
-            <tr>
+            <tr className='bolder'>
               <th> Coin </th>
               <th> Diff (%)</th>
               <th> Buy (Exc)</th>
@@ -37,8 +37,8 @@ class ExchangeDisplay extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    receivedData: state.receivedData.receivedData,
-    tableData: state.exchangeTable.exchangeTable
+    receivedData: state.receivedData,
+    tableData: state.exchangeTable
   }
 }
 

@@ -4,14 +4,15 @@ import {connect} from 'react-redux'
 
 import './liveApp.css'
 import Footer from '../Footer/Footer.jsx'
+import Loading from '../Loading/Loading.jsx'
 import Graph from '../Graph/Graph.jsx'
 import {coinData} from '../../actions'
+import MainPairs from '../MainPairs/MainPairs'
 import baseUrl from '../../lib/base-url'
 import Header from '../Header/Header'
 import BestTrade from '../BestTrade/BestTrade.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
-// TODO: should we be using a server file on the clientside?
 const {COIN_DATA} = require('../../../common/events')
 
 class LiveApp extends React.Component {
@@ -34,16 +35,24 @@ class LiveApp extends React.Component {
   render () {
     return (
       <div className='content'>
-        <Header />
+        {!this.props.loaded && <Loading />}
+        {this.props.loaded && <Header />}
         <div className='liveApp'>
-          <ExchangeDisplay />
-          <BestTrade />
-          <Graph />
+          {this.props.loaded && <ExchangeDisplay />}
+          {this.props.loaded && <BestTrade />}
+          {this.props.loaded && <Graph />}
+          {this.props.loaded && <MainPairs />}
         </div>
-        <Footer />
+        {this.props.loaded && <Footer />}
       </div>
     )
   }
 }
 
-export default connect()(LiveApp)
+function mapStateToProps (state) {
+  return {
+    loaded: state.receivedData
+  }
+}
+
+export default connect(mapStateToProps)(LiveApp)
