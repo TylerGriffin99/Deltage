@@ -10,14 +10,14 @@ module.exports = function getMarketData (options) {
       .get(options.URL)
       .then((res) => {
         let data = res.body
-        console.log('Success', options.marketName)
+        // console.log('Success', options.marketName)
         if (options.marketName) {
           options.last(data, coinPrices)
             .then((newCoinPrices) => {
               numberOfRequests++
               resolve(newCoinPrices)
-              console.log(newCoinPrices)
-              console.log('sending to spread calc')
+              // console.log(newCoinPrices)
+              // console.log('sending to spread calc')
               if (numberOfRequests >= 2) sort(newCoinPrices)
             })
         } else {

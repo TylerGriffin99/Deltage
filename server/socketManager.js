@@ -1,4 +1,5 @@
 const {COIN_DATA} = require('../common/events')
+
 // REMOVE ONCE WORKING WITH REAL DATA
 const data =
 [ {coin: 'pay',

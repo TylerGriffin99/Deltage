@@ -2,11 +2,9 @@ const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 
-const markets = require('./api/markets')
 const authRoutes = require('./routes/auth')
 const {CONNECT} = require('../common/events')
 const socketManager = require('./socketManager')
-const getMarketData = require('./api/getMarketData')
 
 const server = express()
 const app = require('http').Server(server)
@@ -24,15 +22,5 @@ server.use('/api/v1/', authRoutes)
 server.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
-
-function callMarkets () {
-  for (let i = 0; i < markets.length; i++) {
-    getMarketData(markets[i])
-      .then((res) => {
-      })
-  }
-}
-
-callMarkets()
 
 module.exports = app
