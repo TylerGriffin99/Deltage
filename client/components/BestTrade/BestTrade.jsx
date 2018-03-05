@@ -7,8 +7,8 @@ class BestTrade extends React.Component {
   render () {
     return (
       <div>
-        <h1>Best Trade Component</h1>
-        <table className = 'exchangeTable'>
+        <h1>Best Trade</h1>
+        <table className = 'bestTrade'>
           <thead>
             <tr>
               <th> Coin </th>
@@ -20,9 +20,21 @@ class BestTrade extends React.Component {
           <tbody>
             <tr>
               <td>{this.props.bestTrade.coin}</td>
-              <td>{this.props.bestTrade.diff}</td>
-              <td>Name: {this.props.bestTrade.buy.name} <br />Price (BTC): {this.props.bestTrade.buy.lastPrice} <br />Volume: {this.props.bestTrade.buy.volume} </td>
-              <td>Name: {this.props.bestTrade.sell.name} <br />Price (BTC): {this.props.bestTrade.sell.lastPrice} <br />Volume: {this.props.bestTrade.sell.volume} </td>
+              <td>{this.props.bestTrade.diff.toFixed(2)}</td>
+              <td>
+                Name: {this.props.bestTrade.buy.name}
+                <br/>
+                Price (BTC): {Number(this.props.bestTrade.buy.lastPrice).toFixed(6)}
+                <br/>
+                Volume: {Number(this.props.bestTrade.buy.volume).toFixed(2)}
+              </td>
+              <td>
+                Name: {this.props.bestTrade.sell.name}
+                <br/>
+                Price (BTC): {Number(this.props.bestTrade.sell.lastPrice).toFixed(6)}
+                <br/>
+                Volume: {Number(this.props.bestTrade.sell.volume).toFixed(2)}
+              </td>
             </tr>
           </tbody>
         </table>
