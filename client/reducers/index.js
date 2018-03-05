@@ -1,6 +1,5 @@
 import {combineReducers} from 'redux'
-import io from 'socket.io-client'
-import baseUrl from '../lib/base-url'
+
 import auth from './auth'
 import showLive from './showLive'
 import bestTrade from './best-trade'
@@ -10,8 +9,6 @@ import receivedData from './received-data'
 import receivedGraph from './received-graph'
 import exchangeTable from './exchange-table'
 
-const socket = io(baseUrl)
-
 export default combineReducers({
   auth,
   showLive,
@@ -20,6 +17,5 @@ export default combineReducers({
   graphData,
   receivedData,
   receivedGraph,
-  exchangeTable,
-  socket: state => socket
+  exchangeTable
 })

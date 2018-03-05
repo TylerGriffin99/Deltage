@@ -3,14 +3,11 @@ import {Line} from 'react-chartjs-2'
 import {connect} from 'react-redux'
 
 import './graph.css'
-import {graphData} from '../../actions'
-const {GRAPH_DATA} = require('../../../common/events')
+import {getGraphData} from '../../actions'
 
 class Graph extends React.Component {
   componentDidMount () {
-    this.props.socket.on(GRAPH_DATA, (data) => {
-      this.props.dispatch(graphData(data))
-    })
+    this.props.dispatch(getGraphData())
   }
 
   render () {
