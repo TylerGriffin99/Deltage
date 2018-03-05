@@ -18,8 +18,8 @@ function processBitfinex (data, coinPriceData) {
             name: 'bitfinex',
             lastPrice: coinPairData[7],
             highestBid: coinPairData[1],
-            lowestAsk: coinPairData[4],
-            volume: coinPairData[9]
+            lowestAsk: coinPairData[3],
+            volume: coinPairData[8]
           })
           added = true
         }
@@ -34,8 +34,8 @@ function processBitfinex (data, coinPriceData) {
           name: 'bitfinex',
           lastPrice: coinPairData[7],
           highestBid: coinPairData[1],
-          lowestAsk: coinPairData[4],
-          volume: coinPairData[9]
+          lowestAsk: coinPairData[3],
+          volume: coinPairData[8]
         })
         coinPriceData.push(list)
       }

@@ -43,8 +43,8 @@ test('Process bitfinex with an empty coin data array', () => {
       name: 'bitfinex',
       lastPrice: 11600,
       highestBid: 11599,
-      lowestAsk: 264.478915,
-      volume: 11623
+      lowestAsk: 11600,
+      volume: 29666.64808884
     }]
   }]
 
@@ -59,8 +59,8 @@ test('Process bitfinex with an full coin data array', () => {
       name: 'poloneix',
       lastPrice: 11600,
       highestBid: 11599,
-      lowestAsk: 264.478915,
-      volume: 11623
+      lowestAsk: 11600,
+      volume: 29666.64808884
     }]
   }]
   bitfinex.processBitfinex(apiData, coinData)
@@ -71,14 +71,14 @@ test('Process bitfinex with an full coin data array', () => {
       name: 'poloneix',
       lastPrice: 11600,
       highestBid: 11599,
-      lowestAsk: 264.478915,
-      volume: 11623
+      lowestAsk: 11600,
+      volume: 29666.64808884
     }, {
       name: 'bitfinex',
       lastPrice: 11600,
       highestBid: 11599,
-      lowestAsk: 264.478915,
-      volume: 11623
+      lowestAsk: 11600,
+      volume: 29666.64808884
     }]
   }]
 
