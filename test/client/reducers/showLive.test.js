@@ -2,13 +2,31 @@ import {LOGIN_SUCCESS} from '../../../client/actions/login'
 import {LOGOUT_SUCCESS} from '../../../client/actions/logout'
 import {TOKEN_SUCCESS} from '../../../client/actions/checkToken'
 
-test('userDetails returns user details during RECEIVE_USER_DETAILS', () => {
-    const initialState = false
-    const action = {
-      type: RECEIVE_USER_DETAILS,
-      userDetails: {name: 'test name'}
-    }
-    const newState = userDetails(currentState, action)
-    expect(newState).toBe(action.userDetails)
-  })
-  
+import showLive from '../../../client/reducers/showLive'
+
+test('showLive returns True on TOKEN_SUCCESS', () => {
+  const initialState = false
+  const action = {
+    type: TOKEN_SUCCESS
+  }
+  const newState = showLive(initialState, action)
+  expect(newState).toBe(true)
+})
+
+test('showLive returns True on LOGIN_SUCCESS', () => {
+  const initialState = false
+  const action = {
+    type: LOGIN_SUCCESS
+  }
+  const newState = showLive(initialState, action)
+  expect(newState).toBe(true)
+})
+
+test('showLive returns True on LOGOUT_SUCCESS', () => {
+  const initialState = false
+  const action = {
+    type: LOGOUT_SUCCESS
+  }
+  const newState = showLive(initialState, action)
+  expect(newState).toBe(false)
+})
