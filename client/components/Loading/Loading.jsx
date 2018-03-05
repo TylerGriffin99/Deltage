@@ -10,6 +10,7 @@ class Loading extends React.Component {
         <div className='header'></div>
         <div className='container'>
           <img className="loader" src="./images/loaderBlack.png" alt=""/>
+          <h2>Retrieving Trades ...</h2>
         </div>
       </div>
     )

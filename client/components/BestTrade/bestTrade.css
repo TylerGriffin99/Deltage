@@ -1,3 +1,82 @@
-h4{
-  color:red
+.bestTrade{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+	padding-top: 30px;
+  padding-bottom: 30px;
+}
+.bestTradeContainer{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width:700px){
+  .bestTadeContainer{
+    flex-wrap: wrap;
+  }
+
+}
+.bestTrade > h1{
+  padding: 5px;
+}
+.round {
+  -webkit-border-top-left-radius: 1px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 4px;
+
+  -moz-border-radius-topleft: 1px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 4px;
+
+  border-top-left-radius: 1px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 4px;
+}
+ .inner{
+	width: 150px;
+	height: 150px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  margin: 5px;
+}
+.coin > h3{
+  padding-top: 45px;
+	text-align: center;
+	font-size: 250%;
+}
+.diff > h3{
+  font-size: 250%;
+  padding-top: 45px;
+  text-align: center;
+}
+.buy > div > img{
+  width: 90px;
+  margin:auto;
+  display: block;
+  padding-top: 40px;
+}
+.buy > div > p{
+  padding-left: 10px;
+}
+
+.sell > div > img{
+  width: 90px;
+  margin:auto;
+  display: block;
+  padding-top: 40px;
+}
+.sell > div > p{
+  padding-left: 10px;
+}
+
+
+h2{
+  text-align: center;
 }

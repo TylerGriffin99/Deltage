@@ -18,9 +18,6 @@
     font-family: 'Dosis', sans-serif;
     margin: 2px;
 }
-/* :focus {
-    outline: 1px solid #777777;
-} */
 .input:focus{
     border: 1px solid #777777; 
 }
