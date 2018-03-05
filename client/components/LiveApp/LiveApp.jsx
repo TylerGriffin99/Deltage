@@ -14,19 +14,14 @@ import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 const {COIN_DATA} = require('../../../common/events')
 
 class LiveApp extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      coin_prices: {},
-      numberOfRequests: 0,
-      results: []
-    }
-  }
-
   componentDidMount () {
     this.props.socket.on(COIN_DATA, (data) => {
       this.props.dispatch(coinData(data))
     })
+  }
+
+  componentWillUnmount () {
+    this.socket.close()
   }
 
   render () {
