@@ -5,6 +5,7 @@ import auth from './auth'
 import showLive from './showLive'
 import bestTrade from './best-trade'
 import mainPairs from './main-pairs'
+import graphData from './graph-data'
 import receivedData from './received-data'
 import exchangeTable from './exchange-table'
 
@@ -15,6 +16,7 @@ export default combineReducers({
   showLive,
   bestTrade,
   mainPairs,
+  graphData,
   receivedData,
   exchangeTable,
   socket: state => socket

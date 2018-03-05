@@ -32,7 +32,7 @@ setInterval(() => {
   if (sockets.length) {
     getGraphData(sockets)
   }
-}, 500)
+}, 10000)
 
 setInterval(() => {
   if (sockets.length) {

@@ -3,7 +3,7 @@ import {Line} from 'react-chartjs-2'
 import {connect} from 'react-redux'
 
 import './graph.css'
-
+import {graphData} from '../../actions'
 const {GRAPH_DATA} = require('../../../common/events')
 
 class Graph extends React.Component {
@@ -15,6 +15,7 @@ class Graph extends React.Component {
   componentDidMount () {
     this.props.socket.on(GRAPH_DATA, (data) => {
       console.log(data)
+      this.props.dispatch(graphData(data))
     })
   }
 
@@ -27,17 +28,19 @@ class Graph extends React.Component {
       <div className="graph">
         <h2>Bitcoin $USD</h2>
         <br/>
-        {/* <Line
-          data={this.state.graphData}
-          options={this.state.graphData.options}
-        /> */}
+        <Line
+          data={this.props.graph}
+          // options={this.props.graph.options}
+        />
       </div>
     )
   }
 }
 function mapStateToProps (state) {
   return {
-    socket: state.socket
+    socket: state.socket,
+    graph: state.graphData.graph
+
   }
 }
 
