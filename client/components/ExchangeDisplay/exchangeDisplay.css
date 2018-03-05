@@ -1,13 +1,13 @@
 .exchangeContainer{
-    width: 60%;
     margin: 10px;
+    width: 700px;
 }
 .exchangeTable{
+    border-collapse: collapse;
     width: 100%;
 }
-.exchangeTable{
-    border: 1px solid#e5e5e5;
-    border-collapse: collapse;
+.exchangeContainer > h1{
+    text-align: center;
 }
 th, td {
     padding: 15px;
@@ -19,10 +19,20 @@ th, td {
     font-family: 'Dosis', sans-serif;
     font-weight: 200;
 }
-.exchangeContainer > h1{
-    text-align: center;
-}
+
 .bolder > th{
     font-family: 'Dosis', sans-serif;
     font-weight: 300;  
+}
+@media screen and (max-width: 700px){
+    .exchangeContainer{
+      width: 100%;
+      padding: 10px;
+    }
+}
+@media screen and (max-width: 458px){
+    th, td{
+        padding: 0;
+        font-size: 100%;
+    }
 }

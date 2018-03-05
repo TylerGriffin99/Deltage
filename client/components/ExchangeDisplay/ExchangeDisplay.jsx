@@ -1,5 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {coinData} from '../../actions/index'
+import {filterMainTopFive} from '../../actions/filterMainTopFive'
 
 import './exchangeDisplay.css'
 
@@ -16,14 +18,19 @@ class ExchangeDisplay extends React.Component {
   }
 
   handleInputChange (e) {
-    // filter exchange results here
-
-
-    
-    this.setState({
-      checked: !this.state.checked
-    })
-  } 
+    // filter exchang reslts here
+    // const filtersBro = this.props.filters
+    // const key = e.target.name
+    // for (let i = 0; i < filtersBro; i++) {
+    //   if (filtersBro[i] === key) {
+    //     filtersBro.splice(i, 1)
+    //   }
+    // }
+    // this.props.dispatch(coinData(['kraken', 'bittrex']))
+    // this.setState({
+    //   checked: !this.state.biitrex
+    // })
+  }
 
   render () {
     console.log(this.props.receivedData)
@@ -38,7 +45,7 @@ class ExchangeDisplay extends React.Component {
               <input
                 name="bittrex"
                 type="checkbox"
-                checked={this.state.checked}
+                checked={this.state.bittrex}
                 onChange={this.handleInputChange} />
             </label>
             <br />
@@ -47,7 +54,7 @@ class ExchangeDisplay extends React.Component {
               <input
                 name="poloniex"
                 type="checkbox"
-                checked={this.state.poloniexChecked}
+                checked={this.state.poloniex}
                 onChange={this.handleInputChange} />
             </label>
             <label>
@@ -55,12 +62,13 @@ class ExchangeDisplay extends React.Component {
               <input
                 name="kraken"
                 type="checkbox"
-                checked={this.state.krakenChecked}
+                checked={this.state.kraken}
                 onChange={this.handleInputChange} />
             </label>
           </form>
         </div>
         <h1>Exchange Container</h1>
+        <h1>Top Trades</h1>
         <table className = 'exchangeTable'>
           <thead>
             <tr className='bolder'>
@@ -72,12 +80,13 @@ class ExchangeDisplay extends React.Component {
           </thead>
           <tbody>
             {this.props.receivedData && this.props.tableData.map((data, idx) => {
+              let lastCoin = data.allExchanges.length - 1
               return (
                 <tr key={idx}>
                   <td>{data.coin}</td>
                   <td>{data.diff}</td>
-                  <td>{data.buy.name} {data.buy.lastPrice} </td>
-                  <td>{data.sell.name} {data.sell.lastPrice} </td>
+                  <td>{data.allExchanges[lastCoin].name} {data.allExchanges[lastCoin].lastPrice} </td>
+                  <td>{data.allExchanges[0].name} {data.allExchanges[0].lastPrice} </td>
                 </tr>
               )
             })}
@@ -91,7 +100,8 @@ class ExchangeDisplay extends React.Component {
 function mapStateToProps (state) {
   return {
     receivedData: state.receivedData,
-    tableData: state.exchangeTable
+    tableData: state.exchangeTable.data,
+    filters: state.exchangeTable.filters
   }
 }
 

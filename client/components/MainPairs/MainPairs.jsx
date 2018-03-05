@@ -25,31 +25,31 @@ class MainPairs extends React.Component {
                     BTC - {data.coin}
                   </td>
                   <td>
-                    Volume: {data.bittrex.volume}
+                    Volume: {data.bittrex.volume.toFixed(2)}
                     <br/>
-                    Last Price: {data.bittrex.lastPrice}
+                    Last Price: {data.bittrex.lastPrice.toFixed(6)}
                     <br/>
-                    Highest Bid: {data.bittrex.highestBid}
+                    Highest Bid: {data.bittrex.highestBid.toFixed(6)}
                     <br/>
-                    Lowest Ask: {data.bittrex.lowestAsk}
+                    Lowest Ask: {data.bittrex.lowestAsk.toFixed(6)}
                   </td>
                   <td>
-                    Volume: {data.poloniex.volume}
+                    Volume: {Number(data.poloniex.volume).toFixed(2)}
                     <br/>
-                    Last Price: {data.poloniex.lastPrice}
+                    Last Price: {Number(data.poloniex.lastPrice).toFixed(6)}
                     <br/>
-                    Highest Bid: {data.poloniex.highestBid}
+                    Highest Bid: {Number(data.poloniex.highestBid).toFixed(6)}
                     <br/>
-                    Lowest Ask: {data.poloniex.lowestAsk}
+                    Lowest Ask: {Number(data.poloniex.lowestAsk).toFixed(6)}
                   </td>
                   <td>
-                    Volume: {data.kraken.volume}
+                    Volume: {Number(data.kraken.volume).toFixed(2)}
                     <br/>
-                    Last Price: {data.kraken.lastPrice}
+                    Last Price: {Number(data.kraken.lastPrice).toFixed(6)}
                     <br/>
-                    Highest Bid: {data.kraken.highestBid}
+                    Highest Bid: {Number(data.kraken.highestBid).toFixed(6)}
                     <br/>
-                    Lowest Ask: {data.kraken.lowestAsk}
+                    Lowest Ask: {Number(data.kraken.lowestAsk).toFixed(6)}
                   </td>
                 </tr>
               )
