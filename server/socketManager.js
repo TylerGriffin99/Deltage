@@ -3,6 +3,7 @@ const {COIN_DATA} = require('../common/events')
 const getMarketData = require('./api/getMarketData')
 const markets = require('./api/markets')
 const sort = require('./sortFn')
+const getGraphData = require('./api/getGraphData').getData
 
 function callMarkets (socket) {
   const marketData = markets.map(market => {
@@ -25,5 +26,8 @@ function callMarkets (socket) {
 module.exports = function (socket) {
   setInterval(() => {
     callMarkets(socket)
+  }, 3000)
+  setInterval(() => {
+    getGraphData(socket)
   }, 3000)
 }

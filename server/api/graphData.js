@@ -1,5 +1,3 @@
-import moment from 'moment'
-
 const graphData = {
   labels: [],
   datasets: [
@@ -91,7 +89,7 @@ const graphData = {
   }
 }
 
-export default graphData
+module.exports = graphData
 
 // colour way for future line on the graph
 // #cc3399 (204, 51, 153) pink
