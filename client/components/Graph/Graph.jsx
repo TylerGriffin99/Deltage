@@ -7,20 +7,10 @@ import {graphData} from '../../actions'
 const {GRAPH_DATA} = require('../../../common/events')
 
 class Graph extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-    }
-  }
   componentDidMount () {
     this.props.socket.on(GRAPH_DATA, (data) => {
-      console.log(data)
       this.props.dispatch(graphData(data))
     })
-  }
-
-  componentWillUnmount () {
-    clearInterval(this.timerID)
   }
 
   render () {
@@ -28,10 +18,11 @@ class Graph extends React.Component {
       <div className="graph">
         <h2>Bitcoin $USD</h2>
         <br/>
+        {this.props.display &&
         <Line
           data={this.props.graph}
-          // options={this.props.graph.options}
-        />
+          options={this.props.graph.options}
+        />}
       </div>
     )
   }
@@ -39,6 +30,7 @@ class Graph extends React.Component {
 function mapStateToProps (state) {
   return {
     socket: state.socket,
+    display: state.receivedGraph,
     graph: state.graphData.graph
 
   }
