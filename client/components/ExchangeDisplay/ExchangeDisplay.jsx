@@ -7,7 +7,7 @@ class ExchangeDisplay extends React.Component {
   render () {
     return (
       <div className = 'exchangeContainer'>
-        <h1>Exchange Container</h1>
+        <h1>Top Trades</h1>
         <table className = 'exchangeTable'>
           <thead>
             <tr className='bolder'>
