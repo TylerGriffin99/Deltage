@@ -8,7 +8,7 @@ class GraphLoading extends React.Component {
     return (
       <div>
         <div className='container'>
-          <img className="loader" src="./images/loaderBlack.png" alt=""/>
+          <img className="graph-loader" src="./images/loaderBlack.png" alt=""/>
           <h2>Retrieving Graph ...</h2>
         </div>
       </div>
