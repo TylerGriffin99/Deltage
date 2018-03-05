@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.container > h2{
+  margin-top: -40px;
+}
+
 .loader {
   margin-top: -50px;
   animation-name: stretch;
@@ -28,4 +32,10 @@
     width: 250px;
     height: 250px
       }
+}
+
+@media screen and (max-width: 380px){
+  .loader{
+   margin-top: -120px;
+  }
 }

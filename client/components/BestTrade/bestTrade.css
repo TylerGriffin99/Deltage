@@ -1,5 +1,4 @@
 .bestTrade{
-  width: 700px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -9,7 +8,6 @@
   padding-bottom: 30px;
 }
 .bestTradeContainer{
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -46,6 +44,7 @@
 	height: 150px;
   border: 1px solid #000;
   border-radius: 50%;
+  margin: 5px;
 }
 .coin > h3{
   padding-top: 45px;
