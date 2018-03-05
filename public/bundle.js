@@ -52265,6 +52265,17 @@ var initialState = {
   data: [],
   filters: ['bittrex', 'kraken']
 };
+function getAllExchanges(coinType, filters) {
+  return coinType.allExchanges.filter(function (exchange) {
+    return filters.includes(exchange.name);
+  });
+}
+
+function getFilteredDiff(coinType, filters) {
+  var exchanges = getAllExchanges(coinType, filters);
+  var diff = (exchanges[0].lastPrice - exchanges[exchanges.length - 1].lastPrice) / exchanges[0].lastPrice * 100;
+  return diff;
+}
 
 var exchangeTable = function exchangeTable() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -52276,13 +52287,12 @@ var exchangeTable = function exchangeTable() {
         return {
           data: action.data.map(function (coinType) {
             return _extends({}, coinType, {
-              allExchanges: coinType.allExchanges.filter(function (exchange) {
-                return state.filters.includes(exchange.name);
-              })
+              allExchanges: getAllExchanges(coinType, state.filters),
+              filteredDiff: getFilteredDiff(coinType, state.filters)
             });
           }),
           filters: state.filters
-          // [0],
+          // action.data[0],
           // action.data[1],
           // action.data[2],
           // action.data[3],
