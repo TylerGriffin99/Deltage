@@ -5,6 +5,13 @@ import './mainPairs.css'
 
 class MainPairs extends React.Component {
   render () {
+    function setToNumber (data, dp) {
+      if (isNaN(Number(data))) {
+        return 'Not Available'
+      } else {
+        return Number(data).toFixed(dp)
+      }
+    }
     return (
       <div className = 'main-pairs-container'>
         <h1>Main Pairs</h1>
@@ -12,9 +19,10 @@ class MainPairs extends React.Component {
           <thead>
             <tr>
               <th> Pair </th>
-              <th> Bittrex</th>
-              <th> Polinex</th>
-              <th> Kraken</th>
+              <th> Bittrex </th>
+              <th> Polinex </th>
+              <th> Kraken </th>
+              <th> Bitfinex </th>
             </tr>
           </thead>
           <tbody>
@@ -34,22 +42,31 @@ class MainPairs extends React.Component {
                     Lowest Ask: {data.bittrex.lowestAsk.toFixed(6)}
                   </td>
                   <td>
-                    Volume: {Number(data.poloniex.volume).toFixed(2)}
+                    Volume: {setToNumber(data.poloniex.volume, 2)}
                     <br/>
-                    Last Price: {Number(data.poloniex.lastPrice).toFixed(6)}
+                    Last Price: {setToNumber(data.poloniex.lastPrice, 6)}
                     <br/>
-                    Highest Bid: {Number(data.poloniex.highestBid).toFixed(6)}
+                    Highest Bid: {setToNumber(data.poloniex.highestBid, 6)}
                     <br/>
-                    Lowest Ask: {Number(data.poloniex.lowestAsk).toFixed(6)}
+                    Lowest Ask: {setToNumber(data.poloniex.lowestAsk, 6)}
                   </td>
                   <td>
-                    Volume: {Number(data.kraken.volume).toFixed(2)}
+                    Volume: {setToNumber(data.kraken.volume, 2)}
                     <br/>
-                    Last Price: {Number(data.kraken.lastPrice).toFixed(6)}
+                    Last Price: {setToNumber(data.kraken.lastPrice, 6)}
                     <br/>
-                    Highest Bid: {Number(data.kraken.highestBid).toFixed(6)}
+                    Highest Bid: {setToNumber(data.kraken.highestBid, 6)}
                     <br/>
-                    Lowest Ask: {Number(data.kraken.lowestAsk).toFixed(6)}
+                    Lowest Ask: {setToNumber(data.kraken.lowestAsk, 6)}
+                  </td>
+                  <td>
+                    Volume: {setToNumber(data.bitfinex.volume, 2)}
+                    <br/>
+                    Last Price: {setToNumber(data.bitfinex.lastPrice, 6)}
+                    <br/>
+                    Highest Bid: {setToNumber(data.bitfinex.highestBid, 6)}
+                    <br/>
+                    Lowest Ask: {setToNumber(data.bitfinex.lowestAsk, 6)}
                   </td>
                 </tr>
               )

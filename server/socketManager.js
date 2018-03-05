@@ -25,5 +25,5 @@ function callMarkets (socket) {
 module.exports = function (socket) {
   setInterval(() => {
     callMarkets(socket)
-  }, 3000)
+  }, 13000)
 }

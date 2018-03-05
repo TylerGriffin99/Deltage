@@ -1,3 +1,5 @@
+const processMarkets = require('./markets/bitfinex')
+
 const markets = [
   {
     marketName: 'poloniex',
@@ -105,7 +107,7 @@ const markets = [
   },
   {
 
-    marketName: 'kraken', // kraken has no one size fits all market summery so each pair has to be entered as param in GET - will need to add new coins as they are added to exchange
+    marketName: 'kraken', // kraken has no one size fits all market summery so each pair has to be entered as param in GET
     URL: 'https://api.kraken.com/0/public/Ticker?pair=BCHXBT,DASHXBT,EOSXBT,GNOXBT,ETCXBT,ETHXBT,ICNXBT,LTCXBT,MLNXBT,REPXBT,XDGXBT,XLMXBT,XMRXBT,XRPXBT,ZECXBT', // URL To Fetch API From.
     toBTCURL: false, // URL, if needed for an external bitcoin price api.
     pairURL: '',
@@ -159,6 +161,11 @@ const markets = [
         }
       })
     }
+  },
+  {
+    marketName: 'bitfinex',
+    URL: 'https://api.bitfinex.com/v2/tickers?symbols=tEOSBTC,tLTCBTC,tETHBTC,tETCBTC,tXMRBTC,tDSHBTC,tSANBTC,tBCHBTC,tNEOBTC,tETPBTC,tQTMBTC,tAVTBTC,tEDOBTC,tBTGBTC,tDATBTC,tQSHBTC,tYYWBTC,tGNTBTC,tSNTBTC,tBATBTC,tMNABTC,tFUNBTC,tZRXBTC,tTNBBTC,tSPKBTC,tTRXBTC,tRCNBTC,tRLCBTC,tAIDBTC,tSNGBTC,tREPBTC,tELFBTC,tRRTBTC,tZECBTC',
+    last: processMarkets.processBitfinex
   }
 ]
 
