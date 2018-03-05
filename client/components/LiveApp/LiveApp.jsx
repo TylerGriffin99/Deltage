@@ -23,13 +23,18 @@ class LiveApp extends React.Component {
       numberOfRequests: 0,
       results: []
     }
+    this.socket = io(baseUrl)
   }
 
   componentDidMount () {
-    const socket = io(baseUrl)
-    socket.on(COIN_DATA, (data) => {
+    // const socket = io(baseUrl)
+    this.socket.on(COIN_DATA, (data) => {
       this.props.dispatch(coinData(data))
     })
+  }
+
+  componentWillUnmount () {
+    this.socket.close()
   }
 
   render () {
