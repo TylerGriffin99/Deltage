@@ -27,16 +27,17 @@ The incoming data is reformatted to show arbitrage opportunities which are deliv
 ## MVP&mdash;Minimum Viable Product
 
 * Three cryptocurrency exchanges
-* Display the best five trades in a table
+* Display the best three trades in a table
 * Graphs for user understanding
 * Login to see live app
 * Live update results using web socket
 * **Components**
  * Login
  * Live app
-   * Tables
+   * Exchange table
    * Best trade
-   * Dollar values
+   * Main pairs
+   * Bitcoin price graph
 
 
 ## User Stories
