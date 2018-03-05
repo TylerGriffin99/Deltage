@@ -9,8 +9,6 @@ import receivedData from './received-data'
 import receivedGraph from './received-graph'
 import exchangeTable from './exchange-table'
 
-
-
 export default combineReducers({
   auth,
   showLive,
