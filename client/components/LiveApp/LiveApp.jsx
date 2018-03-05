@@ -5,6 +5,7 @@ import './liveApp.css'
 import Footer from '../Footer/Footer.jsx'
 import Loading from '../Loading/Loading.jsx'
 import Graph from '../Graph/Graph.jsx'
+import History from '../Graph/History.jsx'
 import {coinData} from '../../actions'
 import MainPairs from '../MainPairs/MainPairs'
 import Header from '../Header/Header'
@@ -34,6 +35,7 @@ class LiveApp extends React.Component {
           {this.props.loaded && <BestTrade />}
           {this.props.loaded && <Graph />}
           {this.props.loaded && <MainPairs />}
+          {this.props.loaded && <History />}
         </div>
         {this.props.loaded && <Footer />}
       </div>
