@@ -1,61 +1,56 @@
 const request = require('superagent')
 
 const graphData = require('./graphData')
+const {GRAPH_DATA} = require('../../common/events')
 
 function timeString () {
   return new Date().toLocaleTimeString()
 }
-// time labels
-const labels = []
-// USD value
-const dataBittrex = []
-const dataPoloniex = []
-const dataKraken = []
-function getData (socket) {
+
+function getData (sockets) {
   // if statement for too many dots first
-  request
+  const bittrex = request
     .get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=bittrex')
     .then(res => {
-      const bittrex = res.body.USD
-      dataBittrex.push(bittrex)
-      labels.push(timeString())
-      graphData.labels = labels
-      graphData.datasets[0].data = dataBittrex
-      return socket.emit('graph_coin', graphData)
+      return res.body.USD
     })
-  request
+
+  const poloniex = request
     .get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=poloniex')
     .then(res => {
-      const poloniex = res.body.USD
-      dataPoloniex.push(poloniex)
-      graphData.datasets[1].data = dataPoloniex
-      return socket.emit('graph_coin', graphData)
+      return res.body.USD
     })
-  request
+
+  const kraken = request
     .get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=kraken')
     .then(res => {
-      const kraken = res.body.USD
-      dataKraken.push(kraken)
-      graphData.datasets[2].data = dataKraken
-      return socket.emit('graph_coin', graphData)
+      return res.body.USD
     })
-
-  //   .then(res => {
-  //     let poloniex = res.data
-  //     graphData.datasets[1].data = [graphData.datasets[1].data, poloniex.USD]
-  //     // this.setState({
-  //     //   graphData
-  //     // })
-  //     axios.get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=kraken')
-  //       .then(res => {
-  //         let kraken = res.data
-  //         graphData.datasets[2].data = [graphData.datasets[2].data, kraken.USD]
-  //         return graphData
-  //       })
-  //   })
-
+  Promise.all([bittrex, poloniex, kraken])
+    .then((results) => {
+      if (graphData.labels.length === 100) {
+        for (let i = 0; i < results.length; i++) {
+          graphData.datasets[i].data.shift()
+          graphData.datasets[i].data.push(results[i])
+        }
+        graphData.labels.shift()
+        graphData.labels.push(timeString())
+        sockets.forEach(socket => {
+          socket.emit(GRAPH_DATA, graphData)
+        })
+      } else {
+        for (let i = 0; i < results.length; i++) {
+          graphData.datasets[i].data.push(results[i])
+        }
+        graphData.labels.push(timeString())
+        sockets.forEach(socket => {
+          socket.emit(GRAPH_DATA, graphData)
+        })
+      }
+    })
     .catch(err => {
-      return console.log(err.message)
+      // eslint-disable-next-line no-console
+      return console.error(err.message)
     })
 }
 

@@ -1,21 +1,19 @@
 const {COIN_DATA} = require('../common/events')
-
 const getMarketData = require('./api/getMarketData')
 const markets = require('./api/markets')
 const sort = require('./sortFn')
-const getGraphData = require('./api/getGraphData').getData
 
-function callMarkets (socket) {
+function callMarkets (sockets) {
   const marketData = markets.map(market => {
     return getMarketData(market)
   })
   return Promise.all(marketData)
-    .then(exchanges => {
+    .then(marketResults => {
       let coinPrices = []
       for (let i = 0; i < markets.length; i++) {
-        markets[i].last(exchanges[i], coinPrices)
+        markets[i].last(marketResults[i], coinPrices)
       }
-      exchanges.map(data => socket.emit(COIN_DATA, sort(coinPrices)))
+      sockets.forEach((socket) => socket.emit(COIN_DATA, sort(coinPrices)))
     })
     .catch(err => {
       // eslint-disable-next-line no-console
@@ -23,11 +21,4 @@ function callMarkets (socket) {
     })
 }
 
-module.exports = function (socket) {
-  setInterval(() => {
-    callMarkets(socket)
-  }, 3000)
-  setInterval(() => {
-    getGraphData(socket)
-  }, 3000)
-}
+module.exports = callMarkets

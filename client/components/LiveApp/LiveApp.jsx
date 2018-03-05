@@ -1,5 +1,4 @@
 import React from 'react'
-import io from 'socket.io-client'
 import {connect} from 'react-redux'
 
 import './liveApp.css'
@@ -8,7 +7,6 @@ import Loading from '../Loading/Loading.jsx'
 import Graph from '../Graph/Graph.jsx'
 import {coinData} from '../../actions'
 import MainPairs from '../MainPairs/MainPairs'
-import baseUrl from '../../lib/base-url'
 import Header from '../Header/Header'
 import BestTrade from '../BestTrade/BestTrade.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
@@ -26,8 +24,7 @@ class LiveApp extends React.Component {
   }
 
   componentDidMount () {
-    const socket = io(baseUrl)
-    socket.on(COIN_DATA, (data) => {
+    this.props.socket.on(COIN_DATA, (data) => {
       this.props.dispatch(coinData(data))
     })
   }
@@ -51,7 +48,8 @@ class LiveApp extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    loaded: state.receivedData
+    loaded: state.receivedData,
+    socket: state.socket
   }
 }
 

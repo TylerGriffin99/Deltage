@@ -1,9 +1,10 @@
 import React from 'react'
 import {Line} from 'react-chartjs-2'
-import io from 'socket.io-client'
+import {connect} from 'react-redux'
 
 import './graph.css'
-import baseUrl from '../../lib/base-url'
+
+const {GRAPH_DATA} = require('../../../common/events')
 
 class Graph extends React.Component {
   constructor (props) {
@@ -12,8 +13,7 @@ class Graph extends React.Component {
     }
   }
   componentDidMount () {
-    const socket = io(baseUrl)
-    socket.on('graph_coin', (data) => {
+    this.props.socket.on(GRAPH_DATA, (data) => {
       console.log(data)
     })
   }
@@ -35,5 +35,10 @@ class Graph extends React.Component {
     )
   }
 }
+function mapStateToProps (state) {
+  return {
+    socket: state.socket
+  }
+}
 
-export default Graph
+export default connect(mapStateToProps)(Graph)
