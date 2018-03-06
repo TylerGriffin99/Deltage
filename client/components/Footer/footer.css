@@ -3,4 +3,35 @@
     margin: 20px;
     font-family: 'Dosis', sans-serif;
     color: black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .hr-footer{ 
+    height: 160px;
+    width: 1px;
+    margin: 10px; 
+    color: #e5e5e5; 
+    border: none;  
+  }
+
+  .credits{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+  .credits > a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .cryto-logo{
+    width: 100px;
+  }
+  .news-logo{
+    width: 100px;
   }

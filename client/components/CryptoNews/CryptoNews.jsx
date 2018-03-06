@@ -35,7 +35,7 @@ class CryptoNews extends React.Component {
           {this.state.articles.map((article, idx) => {
             return (
               <div key={idx} className='article-container'>
-                <a href={`${article.url}`} className='article-link'>
+                <a target="_blank" href={`${article.url}`} className='article-link'>
                   <h4 className='article-header'>{article.title}</h4>
                   <p> -{article.source.name} </p>
                 </a>
