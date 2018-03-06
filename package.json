@@ -31,10 +31,10 @@
   "scripts": {
     "test": "jest --watch",
     "eslint": "eslint server/. test/. --config .eslintrc.json",
-    "start": "node server/",
+    "start": "node server/index.js",
     "dev": "nodemon --watch server & yarn build --watch",
     "build": "webpack --config ./client/webpack.config.js",
-    "postinstall": "webpack && knex migrate:latest"
+    "postinstall": "webpack && knex migrate:latest && knex seed:run"
   },
   "babel": {
     "presets": [
@@ -77,17 +77,17 @@
     "sodium": "^2.0.3",
     "superagent": "^3.8.2",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^2.11.1",
+    "css-loader": "^0.28.10",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2"
   },
   "devDependencies": {
-    "css-loader": "^0.28.10",
     "enzyme": "^2.8.2",
     "jest": "^22.3.0",
-    "node-sass": "^4.7.2",
     "nodemon": "^1.17.1",
-    "sass-loader": "^6.0.6",
     "sqlite3": "^3.1.13",
-    "style-loader": "^0.20.2",
     "webpack-livereload-plugin": "^1.0.0"
   }
 }
