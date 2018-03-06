@@ -1,10 +1,10 @@
 import {CHANGE_DOL} from '../actions/currency'
 
-initialState = {
+const initialState = {
   dollar: 'USD'
 }
 
-export default currency = (initialState = state, action) => {
+export default function currency (state = initialState, action) {
   switch (action.type) {
     case (CHANGE_DOL): {
       return {

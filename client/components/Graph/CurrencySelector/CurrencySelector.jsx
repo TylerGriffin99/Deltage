@@ -9,16 +9,15 @@ class CurrencySelctor extends React.Component {
     this.selectCurrency = this.selectCurrency.bind(this)
   }
 
-  selectCurrency(evt) {
+  selectCurrency (evt) {
     const currency = evt.target.value
     this.props.dispatch(changeCurrency(currency))
   }
 
-
   render () {
     return (
       <div className='currency'>
-        <select onChage={this.selectCurrency}>
+        <select onChange={this.selectCurrency}>
           <option value='USD'>USD</option>
           <option value='AUD'>AUD</option>
           <option value='BGN'>BGN</option>

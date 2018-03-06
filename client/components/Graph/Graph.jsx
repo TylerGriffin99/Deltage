@@ -16,7 +16,7 @@ class Graph extends React.Component {
       <div>
         <CurrencySelector />
         <div className="graph">
-          <h1>Bitcoin&ndash;USD</h1>
+          <h1>Bitcoin&ndash;{this.props.dollar}</h1>
           <br/>
           {this.props.display &&
         <Line
@@ -32,7 +32,8 @@ function mapStateToProps (state) {
   return {
     socket: state.socket,
     display: state.receivedGraph,
-    graph: state.graphData.graph
+    graph: state.graphData.graph,
+    dollar: state.currency.dollar
 
   }
 }
