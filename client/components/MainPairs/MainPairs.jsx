@@ -37,22 +37,20 @@ class MainPairs extends React.Component {
       <div className = 'main-pairs-container'>
         <h1>Main Pairs</h1>
         <div className = 'display-checks'>
-          <div className = 'check-column'>
+          <div className = 'check-row'>
             <p>Volume:  </p>
             <label className = "displaySwitch" >
               <input type='checkbox' id='showVolume' className ='checkbox' defaultChecked={this.state.showVolume} onClick = {this.flipCheckbox}/>
               <span className = "slider"></span>
             </label>
-            <p>Daily Highest Bid: </p>
-            <label className = "displaySwitch" >
-              <input type='checkbox' id='showHighestBid' className ='checkbox' defaultChecked={this.state.showHighestBid} onClick = {this.flipCheckbox}/>
-              <span className = "slider"></span>
-            </label>
-          </div>
-          <div className = 'check-column'>
             <p>Current Last Price: </p>
             <label className = "displaySwitch" >
               <input type='checkbox' id='showLastPrice' className ='checkbox' defaultChecked={this.state.showLastPrice} onClick = {this.flipCheckbox}/>
+              <span className = "slider"></span>
+            </label>
+            <p>Daily Highest Bid: </p>
+            <label className = "displaySwitch" >
+              <input type='checkbox' id='showHighestBid' className ='checkbox' defaultChecked={this.state.showHighestBid} onClick = {this.flipCheckbox}/>
               <span className = "slider"></span>
             </label>
             <p>Daily Lowest Ask:</p>
