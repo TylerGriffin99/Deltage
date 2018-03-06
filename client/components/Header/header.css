@@ -1,6 +1,6 @@
 .header{
     height: 250px;
-    background-image: linear-gradient(to bottom, #c0daf3 0%, rgb(255, 255, 255) 100%);
+    background-image: linear-gradient(to bottom, #dfe9f3 0%, white 100%);
     color: white;
     display:inherit;
     text-align: center;
@@ -53,6 +53,7 @@
 }
 .header > button:hover {
   background-color: rgba(255, 255, 255, 0.315);
+  
 }
 @media screen and (max-width: 520px){
  .header > button{

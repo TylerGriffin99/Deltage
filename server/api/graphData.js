@@ -72,8 +72,11 @@ const graphData = {
       },
       yAxes: [{
         ticks: {
-          fontFamily: 'Dosis'
-        }
+          fontFamily: 'Dosis',
+            callback: (label, index, labels) => {
+              return '$' + label.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 5})
+            },
+          }
       }],
       xAxes: [{
         ticks: {
