@@ -1,10 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import './bestTrade.css'
 
 class BestTrade extends React.Component {
-  render() {
+  render () {
     return (
       <div className='bestTrade'>
         <h1>Best Trade</h1>
@@ -43,7 +43,7 @@ class BestTrade extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     receivedData: state.receivedData.receivedData,
     bestTrade: state.bestTrade

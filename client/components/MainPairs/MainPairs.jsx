@@ -66,10 +66,21 @@ class MainPairs extends React.Component {
           <thead>
             <tr>
               <th> Pair </th>
-              <th> Bittrex </th>
-              <th> Polinex </th>
-              <th> Kraken </th>
-              <th> Bitfinex </th>
+              <th>
+                <img src={`/images/exch-imgs/bittrex.png`} className = 'exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/poloniex.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/kraken.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/bitfinex.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/livecoin.png`} className = 'main-exch-img' />
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -181,6 +192,32 @@ class MainPairs extends React.Component {
                         <strong> Lowest Ask:  </strong>
                       </p>
                       {setToNumber(data.bitfinex.lowestAsk, 6)}
+                    </span>
+                  </td>
+                  <td>
+                    <span style={{display: displayVolume}}>
+                      <p>
+                        <strong> Volume: </strong>
+                      </p>
+                      {setToNumber(data.livecoin.volume, 2)}
+                    </span>
+                    <span style={{display: displayLastPrice}}>
+                      <p>
+                        <strong> Last Price: </strong>
+                      </p>
+                      {setToNumber(data.livecoin.lastPrice, 6)}
+                    </span>
+                    <span style={{display: displayHighestBid}}>
+                      <p>
+                        <strong> Highest Bid: </strong>
+                      </p>
+                      {setToNumber(data.livecoin.highestBid, 6)}
+                    </span>
+                    <span style={{display: displayLowestAsk}}>
+                      <p>
+                        <strong> Lowest Ask:  </strong>
+                      </p>
+                      {setToNumber(data.livecoin.lowestAsk, 6)}
                     </span>
                   </td>
                 </tr>
