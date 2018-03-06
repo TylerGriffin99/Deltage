@@ -105,7 +105,7 @@ class History extends Component {
   render () {
     return (
       <div className="graph" >
-        <select value={this.state.coin} onChange={this.handleCoinChange}>
+        <select value={this.state.coin} onChange={this.handleCoinChange} className='dropDown'>
           <option value='BTC'>Bitcoin</option>
           <option value='BCH'>Bitcoin Cash</option>
           <option value='CLAM'>CLAMS</option>
@@ -126,7 +126,7 @@ class History extends Component {
           <option value='TRX'>Tronix</option>
           <option value='XVC'>Vcash</option>
         </select>&nbsp;
-        <select value={this.state.period} onChange={this.handleTimeChange}>
+        <select value={this.state.period} onChange={this.handleTimeChange} className='dropDown'>
           <option value='0'>Hour</option>
           <option value='1'>Day</option>
           <option value='2'>Week</option>

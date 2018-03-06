@@ -37,22 +37,20 @@ class MainPairs extends React.Component {
       <div className = 'main-pairs-container'>
         <h1>Main Pairs</h1>
         <div className = 'display-checks'>
-          <div className = 'check-column'>
+          <div className = 'check-row'>
             <p>Volume:  </p>
             <label className = "displaySwitch" >
               <input type='checkbox' id='showVolume' className ='checkbox' defaultChecked={this.state.showVolume} onClick = {this.flipCheckbox}/>
               <span className = "slider"></span>
             </label>
-            <p>Daily Highest Bid: </p>
-            <label className = "displaySwitch" >
-              <input type='checkbox' id='showHighestBid' className ='checkbox' defaultChecked={this.state.showHighestBid} onClick = {this.flipCheckbox}/>
-              <span className = "slider"></span>
-            </label>
-          </div>
-          <div className = 'check-column'>
             <p>Current Last Price: </p>
             <label className = "displaySwitch" >
               <input type='checkbox' id='showLastPrice' className ='checkbox' defaultChecked={this.state.showLastPrice} onClick = {this.flipCheckbox}/>
+              <span className = "slider"></span>
+            </label>
+            <p>Daily Highest Bid: </p>
+            <label className = "displaySwitch" >
+              <input type='checkbox' id='showHighestBid' className ='checkbox' defaultChecked={this.state.showHighestBid} onClick = {this.flipCheckbox}/>
               <span className = "slider"></span>
             </label>
             <p>Daily Lowest Ask:</p>
@@ -66,10 +64,21 @@ class MainPairs extends React.Component {
           <thead>
             <tr>
               <th> Pair </th>
-              <th> Bittrex </th>
-              <th> Polinex </th>
-              <th> Kraken </th>
-              <th> Bitfinex </th>
+              <th>
+                <img src={`/images/exch-imgs/bittrex.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/poloniex.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/kraken.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/bitfinex.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/livecoin.png`} className = 'main-exch-img' />
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -181,6 +190,32 @@ class MainPairs extends React.Component {
                         <strong> Lowest Ask:  </strong>
                       </p>
                       {setToNumber(data.bitfinex.lowestAsk, 6)}
+                    </span>
+                  </td>
+                  <td>
+                    <span style={{display: displayVolume}}>
+                      <p>
+                        <strong> Volume: </strong>
+                      </p>
+                      {setToNumber(data.livecoin.volume, 2)}
+                    </span>
+                    <span style={{display: displayLastPrice}}>
+                      <p>
+                        <strong> Last Price: </strong>
+                      </p>
+                      {setToNumber(data.livecoin.lastPrice, 6)}
+                    </span>
+                    <span style={{display: displayHighestBid}}>
+                      <p>
+                        <strong> Highest Bid: </strong>
+                      </p>
+                      {setToNumber(data.livecoin.highestBid, 6)}
+                    </span>
+                    <span style={{display: displayLowestAsk}}>
+                      <p>
+                        <strong> Lowest Ask:  </strong>
+                      </p>
+                      {setToNumber(data.livecoin.lowestAsk, 6)}
                     </span>
                   </td>
                 </tr>

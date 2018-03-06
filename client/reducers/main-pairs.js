@@ -23,7 +23,8 @@ const mainPairs = (state = initialState, action) => {
           bittrex: coin.allExchanges.find(exch => exch.name === 'bittrex') || notAvailable,
           poloniex: coin.allExchanges.find(exch => exch.name === 'poloniex') || notAvailable,
           kraken: coin.allExchanges.find(exch => exch.name === 'kraken') || notAvailable,
-          bitfinex: coin.allExchanges.find(exch => exch.name === 'bitfinex') || notAvailable
+          bitfinex: coin.allExchanges.find(exch => exch.name === 'bitfinex') || notAvailable,
+          livecoin: coin.allExchanges.find(exch => exch.name === 'livecoin') || notAvailable
         }
       })
       sortedCoins = arrangedCoins.sort((a, b) => {
