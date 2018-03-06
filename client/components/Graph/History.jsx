@@ -102,16 +102,23 @@ class History extends Component {
         <select value={this.state.coin} onChange={this.handleCoinChange}>
           <option value='BTC'>Bitcoin</option>
           <option value='BCH'>Bitcoin Cash</option>
+          <option value='CLAM'>CLAMS</option>
           <option value='DASH'>DigitalCash</option>
+          <option value='DOGE'>Dogecoin</option>
           <option value='EOS'>EOS</option>
           <option value='ETH'>Ethereum</option>
           <option value='ETC'>Ethereum Classic</option>
+          <option value='FLO'>FlorinCoin</option>
+          <option value='GNO'>Gnosis</option>
           <option value='HT'>Huobi Token</option>
           <option value='LTC'>Litecoin</option>
+          <option value='MLN'>Melon</option>
           <option value='XMR'>Monero</option>
           <option value='NEO'>NEO</option>
           <option value='XRP'>Ripple</option>
+          <option value='STEEM'>Steem</option>
           <option value='TRX'>Tronix</option>
+          <option value='XVC'>Vcash</option>
         </select>&nbsp;
         <select value={this.state.period} onChange={this.handleTimeChange}>
           <option value='0'>Hour</option>
@@ -122,7 +129,14 @@ class History extends Component {
           <option value='5'>6 Months</option>
           <option value='6'>Year</option>
         </select>
-        <h1>{this.state.coin}&ndash;USD for the last {this.state.timePeriod}</h1>
+        <h1>
+          <img
+            src={`/coins/${this.state.coin}.png`}
+            alt={this.state.coin}
+            style={{width: '40px', verticalAlign: 'text-bottom'}}
+          />&nbsp;
+          {this.state.coin}&ndash;USD for the last {this.state.timePeriod}
+        </h1>
         <Bar
           data={this.state.historyGraphData}
           options={this.state.historyGraphData.options}

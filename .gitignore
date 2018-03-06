@@ -5,3 +5,4 @@ dev.sqlite3
 .vscode
 bundle.js
 bundle.js.map
+yarn-error.log
