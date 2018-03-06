@@ -1,3 +1,3 @@
 export default process.env.NODE_ENV === 'production'
-? 'deltage_fornow'
+? 'https://deltage.herokuapp.com'
 : 'http://localhost:3000/'
