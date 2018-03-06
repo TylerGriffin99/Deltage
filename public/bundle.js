@@ -55602,7 +55602,7 @@ Backoff.prototype.setJitter = function(jitter){
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = process.env.NODE_ENV === 'production' ? 'deltage_fornow' : 'http://localhost:3000/';
+exports.default = process.env.NODE_ENV === 'production' ? 'https://deltage.herokuapp.com' : 'http://localhost:3000/';
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
@@ -56581,7 +56581,7 @@ exports = module.exports = __webpack_require__(10)(false);
 
 
 // module
-exports.push([module.i, ".header {\n  height: 250px;\n  background-image: linear-gradient(to bottom, #c0daf3 0%, white 100%);\n  color: white;\n  display: inherit;\n  text-align: center;\n  font-family: 'Dosis', sans-serif;\n  width: 100%; }\n\n.logo {\n  max-width: 225px;\n  margin-top: 15px; }\n\n.words {\n  max-width: 225px;\n  vertical-align: top;\n  padding-top: 80px; }\n\n@media screen and (max-width: 520px) {\n  .header {\n    margin-bottom: 60px; }\n  .logo {\n    width: 100%; }\n  .imageLogo {\n    width: 200px;\n    display: block;\n    margin-left: auto;\n    margin-right: auto; }\n  .words {\n    padding-top: 0; } }\n\n.header > button {\n  width: 100px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: Transparent;\n  color: #000000;\n  border: 1px solid #000000;\n  font-size: 100%;\n  font-family: 'Dosis', sans-serif;\n  margin-top: 5px;\n  margin-right: 10px;\n  position: absolute;\n  top: 0px;\n  right: 0px; }\n\n.header > button:hover {\n  background-color: rgba(255, 255, 255, 0.315); }\n\n@media screen and (max-width: 520px) {\n  .header > button {\n    position: absolute;\n    top: 270px;\n    right: 35%; } }\n", ""]);
+exports.push([module.i, ".header {\n  height: 250px;\n  background-image: linear-gradient(to bottom, #b2bdc8 0%, white 100%);\n  color: white;\n  display: inherit;\n  text-align: center;\n  font-family: 'Dosis', sans-serif;\n  width: 100%; }\n\n.logo {\n  max-width: 225px;\n  margin-top: 15px; }\n\n.words {\n  max-width: 225px;\n  vertical-align: top;\n  padding-top: 80px; }\n\n@media screen and (max-width: 520px) {\n  .header {\n    margin-bottom: 60px; }\n  .logo {\n    width: 100%; }\n  .imageLogo {\n    width: 200px;\n    display: block;\n    margin-left: auto;\n    margin-right: auto; }\n  .words {\n    padding-top: 0; } }\n\n.header > button {\n  width: 100px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: Transparent;\n  color: #000000;\n  border: 1px solid #000000;\n  font-size: 100%;\n  font-family: 'Dosis', sans-serif;\n  margin-top: 5px;\n  margin-right: 10px;\n  position: absolute;\n  top: 0px;\n  right: 0px; }\n\n.header > button:hover {\n  background-color: rgba(255, 255, 255, 0.315); }\n\n@media screen and (max-width: 520px) {\n  .header > button {\n    position: absolute;\n    top: 270px;\n    right: 35%; } }\n", ""]);
 
 // exports
 
@@ -73086,6 +73086,16 @@ var historyGraphData = {
           show: true
         }
       }]
+    },
+    legend: {
+      onClick: function onClick(event, legendItem) {
+        var index = legendItem.datasetIndex;
+        var myChart = this.chart;
+        var meta = myChart.getDatasetMeta(index);
+        meta.hidden = meta.hidden === null ? !myChart.data.datasets[index].hidden : null;
+        myChart.options.scales.yAxes[index].display = !myChart.options.scales.yAxes[index].display;
+        myChart.update();
+      }
     }
   }
 };
@@ -73787,7 +73797,7 @@ exports = module.exports = __webpack_require__(10)(false);
 
 
 // module
-exports.push([module.i, ".main-pairs-container {\n  margin: 10px;\n  width: 700px; }\n\n.main-pairs-table {\n  border-collapse: collapse;\n  width: 100%; }\n\n.main-pairs-container > h1 {\n  text-align: center; }\n\nth, td {\n  padding: 15px;\n  text-align: left;\n  white-space: nowrap;\n  white-space: pre-line;\n  word-wrap: break-word;\n  border-bottom: 1px solid #e5e5e5;\n  font-family: 'Dosis', sans-serif;\n  font-weight: 200;\n  font-size: 1em; }\n\n.display-checks {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: center; }\n\n.check-row {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n  margin: 5px; }\n\n.checkbox {\n  display: none; }\n\n.displaySwitch {\n  position: relative;\n  display: inline-block;\n  width: 41px;\n  height: 22px;\n  margin: 6px; }\n\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: .4s;\n  transition: .4s; }\n\n.slider:before {\n  position: absolute;\n  content: \"\";\n  height: 20px;\n  width: 20px;\n  left: 1px;\n  bottom: 1px;\n  background-color: white;\n  -webkit-transition: .4s;\n  transition: .4s; }\n\ninput:checked + .slider {\n  background-color: #535353; }\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #535353; }\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(19px);\n  -ms-transform: translateX(19px);\n  transform: translateX(19px); }\n\n.main-exch-img {\n  width: 50px; }\n\n.bolder > th {\n  font-family: 'Dosis', sans-serif;\n  font-weight: 300; }\n\n@media screen and (max-width: 700px) {\n  .main-pairs-container {\n    width: 100%;\n    padding: 10px; } }\n\n@media screen and (max-width: 458px) {\n  th, td {\n    padding: 0;\n    font-size: 100%; } }\n", ""]);
+exports.push([module.i, ".main-pairs-container {\n  margin: 10px;\n  width: 700px; }\n\n.main-pairs-table {\n  border-collapse: collapse;\n  width: 100%; }\n\n.main-pairs-container > h1 {\n  text-align: center; }\n\nth, td {\n  padding: 15px;\n  text-align: left;\n  white-space: nowrap;\n  white-space: pre-line;\n  word-wrap: break-word;\n  border-bottom: 1px solid #e5e5e5;\n  font-family: 'Dosis', sans-serif;\n  font-weight: 200;\n  font-size: 1em; }\n\n.display-checks {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  justify-content: center; }\n\n.check-row {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: space-around;\n  margin: 5px; }\n\n.checkbox {\n  display: none; }\n\n.displaySwitch {\n  position: relative;\n  display: inline-block;\n  width: 41px;\n  height: 22px;\n  margin: 6px; }\n\n.slider {\n  position: absolute;\n  cursor: pointer;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: #ccc;\n  -webkit-transition: .4s;\n  transition: .4s;\n  border-radius: 2px; }\n\n.slider:before {\n  position: absolute;\n  content: \"\";\n  height: 20px;\n  width: 20px;\n  left: 1px;\n  bottom: 1px;\n  background-color: white;\n  -webkit-transition: .4s;\n  transition: .4s;\n  border-radius: 2px; }\n\ninput:checked + .slider {\n  background-color: #535353; }\n\ninput:focus + .slider {\n  box-shadow: 0 0 1px #535353; }\n\ninput:checked + .slider:before {\n  -webkit-transform: translateX(19px);\n  -ms-transform: translateX(19px);\n  transform: translateX(19px); }\n\n.main-exch-img {\n  width: 50px; }\n\n.bolder > th {\n  font-family: 'Dosis', sans-serif;\n  font-weight: 300; }\n\n@media screen and (max-width: 700px) {\n  .main-pairs-container {\n    width: 100%;\n    padding: 10px; } }\n\n@media screen and (max-width: 458px) {\n  th, td {\n    padding: 0;\n    font-size: 100%; } }\n\n@media screen and (max-width: 630px) {\n  .check-row {\n    width: 315px; } }\n", ""]);
 
 // exports
 

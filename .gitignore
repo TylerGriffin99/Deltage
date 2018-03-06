@@ -3,4 +3,6 @@ node_modules
 dev.sqlite3
 .env
 .vscode
+bundle.js
+bundle.js.map
 yarn-error.log
