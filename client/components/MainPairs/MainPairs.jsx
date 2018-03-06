@@ -70,6 +70,7 @@ class MainPairs extends React.Component {
               <th> Polinex </th>
               <th> Kraken </th>
               <th> Bitfinex </th>
+              <th> LiveCoin </th>
             </tr>
           </thead>
           <tbody>
@@ -181,6 +182,32 @@ class MainPairs extends React.Component {
                         <strong> Lowest Ask:  </strong>
                       </p>
                       {setToNumber(data.bitfinex.lowestAsk, 6)}
+                    </span>
+                  </td>
+                  <td>
+                    <span style={{display: displayVolume}}>
+                      <p>
+                        <strong> Volume: </strong>
+                      </p>
+                      {setToNumber(data.livecoin.volume, 2)}
+                    </span>
+                    <span style={{display: displayLastPrice}}>
+                      <p>
+                        <strong> Last Price: </strong>
+                      </p>
+                      {setToNumber(data.livecoin.lastPrice, 6)}
+                    </span>
+                    <span style={{display: displayHighestBid}}>
+                      <p>
+                        <strong> Highest Bid: </strong>
+                      </p>
+                      {setToNumber(data.livecoin.highestBid, 6)}
+                    </span>
+                    <span style={{display: displayLowestAsk}}>
+                      <p>
+                        <strong> Lowest Ask:  </strong>
+                      </p>
+                      {setToNumber(data.livecoin.lowestAsk, 6)}
                     </span>
                   </td>
                 </tr>

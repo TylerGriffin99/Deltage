@@ -1,0 +1,43 @@
+.news-full{
+  display: flex;
+  flex-direction: column;
+}
+
+.news-container{
+  display: flex;
+  flex-direction: row;
+  width:700px;
+  align-items: center;
+  justify-content: center
+}
+.article-container{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  text-justify: newspaper;
+  padding: 3px;
+}
+
+.article-link {
+  text-decoration: none;
+  color: black;
+}
+
+.news-header{
+  margin: 4px;
+}
+
+.horizontal-rule{
+  margin: 5px;
+}
+
+@media screen and (max-width: 700px){
+  .news-full{
+    width: 100%;
+    padding: 10px;
+  }
+  .news-container {
+    width: 100%;
+    padding: 10px;
+  }
+}
