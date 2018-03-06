@@ -99,6 +99,7 @@ class History extends Component {
   render () {
     return (
       <div className="graph" >
+        <img src={`coins/${this.state.coin}.png`} alt={this.state.coin} />
         <select value={this.state.coin} onChange={this.handleCoinChange}>
           <option value='BTC'>Bitcoin</option>
           <option value='BCH'>Bitcoin Cash</option>
