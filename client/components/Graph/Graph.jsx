@@ -4,20 +4,17 @@ import {connect} from 'react-redux'
 
 import './graph.css'
 import GraphLoading from '../GraphLoading/GraphLoading'
-import {graphData} from '../../actions'
-const {GRAPH_DATA} = require('../../../common/events')
+import {getGraphData} from '../../actions'
 
 class Graph extends React.Component {
   componentDidMount () {
-    this.props.socket.on(GRAPH_DATA, (data) => {
-      this.props.dispatch(graphData(data))
-    })
+    this.props.dispatch(getGraphData())
   }
 
   render () {
     return (
       <div className="graph">
-        <h1>Bitcoin-USD</h1>
+        <h1>Bitcoin&ndash;USD</h1>
         <br/>
         {!this.props.display && <GraphLoading />}
         {this.props.display &&

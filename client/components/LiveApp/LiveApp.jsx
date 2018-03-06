@@ -5,23 +5,22 @@ import './liveApp.css'
 import Footer from '../Footer/Footer.jsx'
 import Loading from '../Loading/Loading.jsx'
 import Graph from '../Graph/Graph.jsx'
-import {coinData} from '../../actions'
+import History from '../Graph/History.jsx'
 import MainPairs from '../MainPairs/MainPairs'
 import Header from '../Header/Header'
 import BestTrade from '../BestTrade/BestTrade.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
-
-const {COIN_DATA} = require('../../../common/events')
+import {getCoinData} from '../../actions'
+import {openSocket, closeSocket} from '../../lib/socket'
 
 class LiveApp extends React.Component {
   componentDidMount () {
-    this.props.socket.on(COIN_DATA, (data) => {
-      this.props.dispatch(coinData(data))
-    })
+    openSocket()
+    this.props.dispatch(getCoinData())
   }
 
   componentWillUnmount () {
-    this.socket.close()
+    closeSocket()
   }
 
   render () {
@@ -34,6 +33,7 @@ class LiveApp extends React.Component {
           {this.props.loaded && <BestTrade />}
           {this.props.loaded && <Graph />}
           {this.props.loaded && <MainPairs />}
+          {this.props.loaded && <History />}
         </div>
         {this.props.loaded && <Footer />}
       </div>
