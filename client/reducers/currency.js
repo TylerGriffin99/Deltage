@@ -12,7 +12,7 @@ export default function currency (state = initialState, action) {
       currencyCompare.unshift(action.currency)
       currencyCompare.pop()
       return {
-        ...state,   
+        ...state,
         dollar: currencyCompare
       }
     }
