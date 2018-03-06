@@ -9,21 +9,6 @@ const initialState = {
 
 function getAllExchanges (coinType, filters) {
   const filtered = coinType.allExchanges.filter((exchange) => filters.includes(exchange.name))
-  // const validPairs = filtered.filter(coinData => coinData.exchanges.length > 1)
-  // const allPairs = validPairs.map(coinData => {
-  // const sortedCoin = {
-  //     coin: coinType.coin
-  //     // timestamp: moment()
-  //   }
-  // }
-  // if (validPairs) {
-  //   validPairs.sort((a, b) => {
-  //     return b.lastPrice - a.lastPrice
-  //   })
-  // } else {
-  //   return
-  // }
-
   return filters.length > 1 ? filtered : []
 }
 

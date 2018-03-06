@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {coinData} from '../../actions/index'
 import {filterMainTopFive} from '../../actions/filterMainTopFive'
 
 import './exchangeDisplay.css'
@@ -129,9 +128,6 @@ class ExchangeDisplay extends React.Component {
                   <td>
                     {Number(data.diff).toFixed(2)}
                   </td>
-                  {/* <td>{data.filteredDiff}</td>
-                  <td>{data.allExchanges[lastCoin].name} {data.allExchanges[lastCoin].lastPrice} </td>
-                  <td>{data.allExchanges[0].name} {data.allExchanges[0].lastPrice} </td> */}
                 </tr>
               )
             })}
