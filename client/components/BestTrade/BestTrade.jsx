@@ -20,7 +20,7 @@ class BestTrade extends React.Component {
           <div className='buy'>
             <h2>Buy (Exc)</h2>
             <div className='inner'>
-              <img src={`/images/ex/${this.props.bestTrade.buy.name}.png`} alt={this.props.bestTrade.buy.name} />
+              <img src={`/images/exch-imgs/${this.props.bestTrade.buy.name}.png`} alt={this.props.bestTrade.buy.name} />
               <p>
                 Price (BTC): {Number(this.props.bestTrade.buy.lastPrice).toFixed(6)}
                 <br />
