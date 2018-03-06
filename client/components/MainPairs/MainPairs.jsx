@@ -66,11 +66,21 @@ class MainPairs extends React.Component {
           <thead>
             <tr>
               <th> Pair </th>
-              <th> Bittrex </th>
-              <th> Polinex </th>
-              <th> Kraken </th>
-              <th> Bitfinex </th>
-              <th> LiveCoin </th>
+              <th>
+                <img src={`/images/exch-imgs/bittrex.png`} className = 'exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/poloniex.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/kraken.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/bitfinex.png`} className = 'main-exch-img' />
+              </th>
+              <th>
+                <img src={`/images/exch-imgs/livecoin.png`} className = 'main-exch-img' />
+              </th>
             </tr>
           </thead>
           <tbody>
