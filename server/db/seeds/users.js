@@ -10,7 +10,7 @@ exports.seed = (knex, Promise) => {
           firstname: 'Adam',
           lastname: 'Kuhn',
           email: 'adamk@gmail.com',
-          hash: hasher('adam')
+          hash: hasher('adamdeltage')
         },
         {
           id: 2,
@@ -18,7 +18,7 @@ exports.seed = (knex, Promise) => {
           firstname: 'Madeleine',
           lastname: 'Brighouse',
           email: 'madeleinebrighouse@gmail.com',
-          hash: hasher('madeleine')
+          hash: hasher('madeleinedeltage')
         },
         {
           id: 3,
@@ -26,7 +26,7 @@ exports.seed = (knex, Promise) => {
           firstname: 'Peter',
           lastname: 'Sim',
           email: 'ps.in.nz@gmail.com',
-          hash: hasher('peter')
+          hash: hasher('peterdeltage')
         },
         {
           id: 4,
@@ -34,7 +34,7 @@ exports.seed = (knex, Promise) => {
           firstname: 'Timothy',
           lastname: 'Tolley',
           email: 'timothytolley@gmail.com',
-          hash: hasher('timothy')
+          hash: hasher('timothydeltage')
         },
         {
           id: 5,
@@ -42,7 +42,7 @@ exports.seed = (knex, Promise) => {
           firstname: 'Tyler',
           lastname: 'Griffin',
           email: 'tylerg99@gmail.com',
-          hash: hasher('tyler')
+          hash: hasher('tylerdeltage')
         },
         {
           id: 6,
