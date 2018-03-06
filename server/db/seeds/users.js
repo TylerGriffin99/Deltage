@@ -43,6 +43,14 @@ exports.seed = (knex, Promise) => {
           lastname: 'Griffin',
           email: 'tylerg99@gmail.com',
           hash: hasher('tyler')
+        },
+        {
+          id: 6,
+          username: 'deltage',
+          firstname: 'deltage',
+          lastname: 'deltage',
+          email: 'deltage.master@gmail.com',
+          hash: hasher('delta')
         }
       ])
     })

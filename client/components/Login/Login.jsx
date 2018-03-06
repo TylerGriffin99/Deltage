@@ -45,7 +45,7 @@ class Login extends React.Component {
       <div className='login' onKeyUp={this.handleKeyUp}>
         <img src='./images/deltageBlackName.png' alt="" />
         <br />
-        <input id='username' name='username' className='input'
+        <input id='username' name='username' className='input noSelect'
           placeholder='Username' onChange={this.handleChange}
           autoComplete='off' value={username} />
         <input id='password' name='password' className='input'

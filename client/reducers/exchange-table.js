@@ -4,7 +4,7 @@ import {FILTER_TOP_DATA} from '../actions/filterMainTopFive'
 const initialState = {
   data: [],
   sortedData: [],
-  filters: ['bittrex', 'poloniex', 'kraken']
+  filters: ['bittrex', 'poloniex', 'kraken', 'livecoin', 'bitfinex']
 }
 
 function getAllExchanges (coinType, filters) {
@@ -30,8 +30,12 @@ function getAllExchanges (coinType, filters) {
 function getFilteredDiff (coinType, filters) {
   if (!filters.length) return 0
   const exchanges = getAllExchanges(coinType, filters)
-  const diff = (exchanges[0].lastPrice - exchanges[exchanges.length - 1].lastPrice) / exchanges[0].lastPrice * 100
-  return diff
+  if (exchanges.length) {
+    const diff = (exchanges[0].lastPrice - exchanges[exchanges.length - 1].lastPrice) / exchanges[0].lastPrice * 100
+    return diff
+  } else {
+    return 0
+  }
 }
 
 function getCoinData (state, action) {
