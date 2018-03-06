@@ -67,7 +67,7 @@ class MainPairs extends React.Component {
             <tr>
               <th> Pair </th>
               <th>
-                <img src={`/images/exch-imgs/bittrex.png`} className = 'exch-img' />
+                <img src={`/images/exch-imgs/bittrex.png`} className = 'main-exch-img' />
               </th>
               <th>
                 <img src={`/images/exch-imgs/poloniex.png`} className = 'main-exch-img' />
