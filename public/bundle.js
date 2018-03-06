@@ -52263,18 +52263,48 @@ var _filterMainTopFive = __webpack_require__(99);
 
 var initialState = {
   data: [],
-  filters: ['bittrex', 'kraken']
+  filters: ['poloniex', 'kraken']
 };
+
 function getAllExchanges(coinType, filters) {
-  return coinType.allExchanges.filter(function (exchange) {
+  var filtered = coinType.allExchanges.filter(function (exchange) {
     return filters.includes(exchange.name);
   });
+  // const validPairs = filtered.filter(coinData => coinData.exchanges.length > 1)
+  // const allPairs = validPairs.map(coinData => {
+  // const sortedCoin = {
+  //     coin: coinType.coin
+  //     // timestamp: moment()
+  //   }
+  // }
+  // if (validPairs) {
+  //   validPairs.sort((a, b) => {
+  //     return b.lastPrice - a.lastPrice
+  //   })
+  // } else {
+  //   return
+  // }
+
+  return filters.length > 1 ? filtered : [];
 }
 
 function getFilteredDiff(coinType, filters) {
+  if (!filters.length) return 0;
   var exchanges = getAllExchanges(coinType, filters);
   var diff = (exchanges[0].lastPrice - exchanges[exchanges.length - 1].lastPrice) / exchanges[0].lastPrice * 100;
   return diff;
+}
+
+function getCoinData(state, action) {
+  var allCoinData = action.data.map(function (coinType) {
+    return _extends({}, coinType, {
+      allExchanges: getAllExchanges(coinType, state.filters),
+      filteredDiff: getFilteredDiff(coinType, state.filters)
+    });
+  });
+  return allCoinData.sort(function (a, b) {
+    return b.filteredDiff - a.filteredDiff;
+  });
 }
 
 var exchangeTable = function exchangeTable() {
@@ -52285,13 +52315,15 @@ var exchangeTable = function exchangeTable() {
     case _index.RECEIVE_DATA:
       {
         return {
-          data: action.data.map(function (coinType) {
-            return _extends({}, coinType, {
-              allExchanges: getAllExchanges(coinType, state.filters),
-              filteredDiff: getFilteredDiff(coinType, state.filters)
-            });
-          }),
-          filters: state.filters
+          // data: action.data.map((coinType) => {
+          //   return {
+          //     ...coinType,
+          //     allExchanges: getAllExchanges(coinType, state.filters),
+          //     filteredDiff: getFilteredDiff(coinType, state.filters)
+          //   }
+          // }),
+          filters: state.filters,
+          sortedData: getCoinData(state, action)
           // action.data[0],
           // action.data[1],
           // action.data[2],
@@ -74815,7 +74847,7 @@ var ExchangeDisplay = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   null,
-                  data.diff
+                  data.filteredDiff
                 ),
                 _react2.default.createElement(
                   'td',
@@ -74847,7 +74879,7 @@ var ExchangeDisplay = function (_React$Component) {
 function mapStateToProps(state) {
   return {
     receivedData: state.receivedData,
-    tableData: state.exchangeTable.data,
+    tableData: state.exchangeTable.sortedData,
     filters: state.exchangeTable.filters
   };
 }

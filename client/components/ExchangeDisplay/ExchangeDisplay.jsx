@@ -84,7 +84,7 @@ class ExchangeDisplay extends React.Component {
               return (
                 <tr key={idx}>
                   <td>{data.coin}</td>
-                  <td>{data.diff}</td>
+                  <td>{data.filteredDiff}</td>
                   <td>{data.allExchanges[lastCoin].name} {data.allExchanges[lastCoin].lastPrice} </td>
                   <td>{data.allExchanges[0].name} {data.allExchanges[0].lastPrice} </td>
                 </tr>
@@ -100,7 +100,7 @@ class ExchangeDisplay extends React.Component {
 function mapStateToProps (state) {
   return {
     receivedData: state.receivedData,
-    tableData: state.exchangeTable.data,
+    tableData: state.exchangeTable.sortedData,
     filters: state.exchangeTable.filters
   }
 }
