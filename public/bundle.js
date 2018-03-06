@@ -74742,7 +74742,7 @@ var ExchangeDisplay = function (_React$Component) {
       function filterArr(state) {
         var arr = [];
         for (var item in state) {
-          if (item) arr.push(item);
+          if (state[item] === true) arr.push(item);
         }
       }
       this.props.dispatch((0, _filterMainTopFive.filterMainTopFive)(filterArr(this.state)));

@@ -28,7 +28,7 @@ class ExchangeDisplay extends React.Component {
     function filterArr (state) {
       let arr = []
       for (let item in state) {
-        if (item) arr.push(item)
+        if (state[item] === true) arr.push(item)
       }
     }
     this.props.dispatch(filterMainTopFive(filterArr(this.state)))
