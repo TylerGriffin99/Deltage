@@ -5,6 +5,9 @@ import './exchangeDisplay.css'
 
 class ExchangeDisplay extends React.Component {
   render () {
+    function capitalise (string) {
+      return string.charAt(0).toUpperCase() + string.slice(1)
+    }
     return (
       <div className = 'exchangeContainer'>
         <h1>Top Trades</h1>
@@ -12,9 +15,9 @@ class ExchangeDisplay extends React.Component {
           <thead>
             <tr className='bolder'>
               <th> Coin </th>
+              <th> Buy (Exch)</th>
+              <th> Sell (Exch)</th>
               <th> Diff (%)</th>
-              <th> Buy (Exc)</th>
-              <th> Sell (Exc)</th>
             </tr>
           </thead>
           <tbody>
@@ -22,9 +25,21 @@ class ExchangeDisplay extends React.Component {
               return (
                 <tr key={idx}>
                   <td>{data.coin}</td>
-                  <td>{data.diff}</td>
-                  <td>{data.buy.name} {data.buy.lastPrice} </td>
-                  <td>{data.sell.name} {data.sell.lastPrice} </td>
+                  <td>
+                    {capitalise(data.buy.name)}
+                    <p>
+                      Last Price: {Number(data.buy.lastPrice).toFixed(6)}
+                    </p>
+                  </td>
+                  <td>
+                    {capitalise(data.sell.name)}
+                    <p>
+                      Last Price: {Number(data.sell.lastPrice).toFixed(6)}
+                    </p>
+                  </td>
+                  <td>
+                    {Number(data.diff).toFixed(2)}
+                  </td>
                 </tr>
               )
             })}
