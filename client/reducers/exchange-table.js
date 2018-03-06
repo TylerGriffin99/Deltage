@@ -3,7 +3,7 @@ import {FILTER_TOP_DATA} from '../actions/filterMainTopFive'
 
 const initialState = {
   data: [],
-  filters: ['poloniex', 'kraken']
+  filters: ['bittrex', 'poloniex', 'kraken']
 }
 
 function getAllExchanges (coinType, filters) {
@@ -58,7 +58,7 @@ const exchangeTable = (state = initialState, action) => {
         //   }
         // }),
         filters: state.filters,
-        sortedData: getCoinData(state, action)
+        sortedData: getCoinData(state, action).slice(0, 10)
         // action.data[0],
         // action.data[1],
         // action.data[2],

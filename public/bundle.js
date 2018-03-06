@@ -52263,7 +52263,7 @@ var _filterMainTopFive = __webpack_require__(99);
 
 var initialState = {
   data: [],
-  filters: ['poloniex', 'kraken']
+  filters: ['bittrex', 'poloniex', 'kraken']
 };
 
 function getAllExchanges(coinType, filters) {
@@ -52323,7 +52323,7 @@ var exchangeTable = function exchangeTable() {
           //   }
           // }),
           filters: state.filters,
-          sortedData: getCoinData(state, action)
+          sortedData: getCoinData(state, action).slice(0, 10)
           // action.data[0],
           // action.data[1],
           // action.data[2],
