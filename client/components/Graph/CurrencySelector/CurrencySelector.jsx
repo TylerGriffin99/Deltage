@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import request from 'superagent'
 
 import {changeCurrency} from '../../../actions/currency'
 
@@ -8,7 +9,14 @@ class CurrencySelctor extends React.Component {
     super(props)
     this.selectCurrency = this.selectCurrency.bind(this)
   }
-
+  componentDidMount () {
+    request
+      .get('https://api.fixer.io/latest?base=USD')
+      .then((res) => {
+        console.log(res.body)
+        return res.body
+      })
+  }
   selectCurrency (evt) {
     const currency = evt.target.value
     this.props.dispatch(changeCurrency(currency))

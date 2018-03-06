@@ -68,7 +68,6 @@ class History extends Component {
       .get(this.apiURL())
       .then(res => {
         let history = res.body.Data
-        console.log(history)
         historyGraphData.options.scales.xAxes[0].labels = []
         historyGraphData.datasets[0].data = []
         historyGraphData.datasets[1].data = []
