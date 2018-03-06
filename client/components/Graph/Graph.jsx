@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 
 import './graph.css'
 import CurrencySelector from './CurrencySelector/CurrencySelector'
+import GraphLoading from '../GraphLoading/GraphLoading'
 import {getGraphData} from '../../actions'
 
 class Graph extends React.Component {
@@ -12,12 +13,19 @@ class Graph extends React.Component {
   }
 
   render () {
+    if (this.props.dollar !== 'USD') {
+      const currency = this.props.rates[this.props.dollar]
+      for (let i = 0; i < this.props.graph.datasets.data.length; i++) {
+        
+      }
+    }
     return (
       <div>
         <CurrencySelector />
         <div className="graph">
           <h1>Bitcoin&ndash;{this.props.dollar}</h1>
           <br/>
+          {!this.props.display && <GraphLoading />}
           {this.props.display &&
         <Line
           data={this.props.graph}
@@ -33,7 +41,8 @@ function mapStateToProps (state) {
     socket: state.socket,
     display: state.receivedGraph,
     graph: state.graphData.graph,
-    dollar: state.currency.dollar
+    dollar: state.currency.dollar,
+    rates: state.currency.rates
 
   }
 }

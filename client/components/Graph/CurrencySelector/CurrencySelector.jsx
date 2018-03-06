@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import request from 'superagent'
 
-import {changeCurrency} from '../../../actions/currency'
+import {changeCurrency, sendRates} from '../../../actions/currency'
 
 class CurrencySelctor extends React.Component {
   constructor (props) {
@@ -13,8 +13,13 @@ class CurrencySelctor extends React.Component {
     request
       .get('https://api.fixer.io/latest?base=USD')
       .then((res) => {
-        console.log(res.body.rates)
-        return res.body
+        const rates = res.body.rates
+        console.log(rates)
+        this.props.dispatch(sendRates(rates))
+      })
+      .catch((err) => {
+      // eslint-disable-next-line no-console
+        console.error(err.message)
       })
   }
   selectCurrency (evt) {
