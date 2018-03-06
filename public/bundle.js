@@ -52263,6 +52263,7 @@ var _filterMainTopFive = __webpack_require__(99);
 
 var initialState = {
   data: [],
+  sortedData: [],
   filters: ['bittrex', 'poloniex', 'kraken']
 };
 
@@ -52312,23 +52313,20 @@ var exchangeTable = function exchangeTable() {
   var action = arguments[1];
 
   switch (action.type) {
+    case _filterMainTopFive.FILTER_TOP_DATA:
+      {
+        return {
+          filters: action.filters,
+          data: state.data,
+          sortedData: getCoinData({ filters: action.filters }, { data: state.data }).slice(0, 10)
+        };
+      }
     case _index.RECEIVE_DATA:
       {
         return {
-          // data: action.data.map((coinType) => {
-          //   return {
-          //     ...coinType,
-          //     allExchanges: getAllExchanges(coinType, state.filters),
-          //     filteredDiff: getFilteredDiff(coinType, state.filters)
-          //   }
-          // }),
           filters: state.filters,
+          data: action.data,
           sortedData: getCoinData(state, action).slice(0, 10)
-          // action.data[0],
-          // action.data[1],
-          // action.data[2],
-          // action.data[3],
-          // action.data[4]
         };
       }
     default:
@@ -74739,13 +74737,14 @@ var ExchangeDisplay = function (_React$Component) {
   }, {
     key: 'callDispatch',
     value: function callDispatch(state) {
+      var arr = [];
       function filterArr(state) {
-        var arr = [];
         for (var item in state) {
           if (state[item] === true) arr.push(item);
         }
       }
-      this.props.dispatch((0, _filterMainTopFive.filterMainTopFive)(filterArr(this.state)));
+      filterArr(state);
+      this.props.dispatch((0, _filterMainTopFive.filterMainTopFive)(arr));
     }
   }, {
     key: 'render',

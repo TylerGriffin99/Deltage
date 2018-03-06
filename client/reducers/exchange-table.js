@@ -3,6 +3,7 @@ import {FILTER_TOP_DATA} from '../actions/filterMainTopFive'
 
 const initialState = {
   data: [],
+  sortedData: [],
   filters: ['bittrex', 'poloniex', 'kraken']
 }
 
@@ -48,22 +49,18 @@ function getCoinData (state, action) {
 
 const exchangeTable = (state = initialState, action) => {
   switch (action.type) {
+    case (FILTER_TOP_DATA): {
+      return {
+        filters: action.filters,
+        data: state.data,
+        sortedData: getCoinData({filters: action.filters}, {data: state.data}).slice(0, 10)
+      }
+    }
     case (RECEIVE_DATA): {
       return {
-        // data: action.data.map((coinType) => {
-        //   return {
-        //     ...coinType,
-        //     allExchanges: getAllExchanges(coinType, state.filters),
-        //     filteredDiff: getFilteredDiff(coinType, state.filters)
-        //   }
-        // }),
         filters: state.filters,
+        data: action.data,
         sortedData: getCoinData(state, action).slice(0, 10)
-        // action.data[0],
-        // action.data[1],
-        // action.data[2],
-        // action.data[3],
-        // action.data[4]
       }
     }
     default:
