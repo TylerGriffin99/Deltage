@@ -13,24 +13,28 @@ class Graph extends React.Component {
   }
 
   render () {
-    if (this.props.display) {
-    const exchangesData = this.props.graph.datasets
-    if (this.props.dollar !== 'USD') {
-      const exchangesRate = this.props.rates[this.props.dollar]
+    if (this.props.display){
+    console.log(this.props.graph.datasets[1].data[0])
+    if (this.props.display && this.props.dollar !== 'USD') { 
+      const exchangesData = this.props.graph.datasets    
+      const exchangeRate = this.props.rates[this.props.dollar]  
+      // first convert back to USD, then to whatever currency
+      for (let i = 0; i < exchangesData.length; i++) {
+      const backToUsd = exchangesData[i].data.map(currentValue => {
+        return currentValue / exchangeRate
+      })
+      exchangesData[i].data = backToUsd 
+    }     
       for (let i = 0; i < exchangesData.length; i++) {
         const convertedRate = exchangesData[i].data.map(currentValue => {
-          return currentValue * 2
+          return currentValue * exchangeRate
         })
-        console.log('converted', convertedRate)
-        console.log('data', exchangesData[i].data)
-        this.props.graph.datasets[i].data = convertedRate  
+        this.props.graph.datasets[i].data = convertedRate 
       }
+    console.log(this.props.graph.datasets[1].data[0])
     }
-    console.log(this.props.graph.datasets)
-    }
+  }
   
-
-
     return (
       <div>
         <CurrencySelector />
@@ -53,7 +57,7 @@ function mapStateToProps (state) {
     socket: state.socket,
     display: state.receivedGraph,
     graph: state.graphData.graph,
-    dollar: state.currency.dollar,
+    dollar: state.currency.dollar[0],
     rates: state.currency.rates
 
   }
