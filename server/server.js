@@ -38,6 +38,6 @@ setInterval(() => {
   if (sockets.length) {
     callMarkets(sockets)
   }
-}, 12000)
+}, 12500)
 
 module.exports = app
