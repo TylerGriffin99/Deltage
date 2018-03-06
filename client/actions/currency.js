@@ -1,10 +1,11 @@
 export const CHANGE_DOL = 'CHANGE_DOL'
 export const RECEIVED_RATES = 'RECEIVED_RATES'
 
-export const changeCurrency = (currency) => {
+export const changeCurrency = (currency, exchangeRate) => {
   return {
     type: CHANGE_DOL,
-    currency
+    currency,
+    exchangeRate
   }
 }
 

@@ -22,8 +22,22 @@ class CurrencySelctor extends React.Component {
         console.error(err.message)
       })
   }
+
   selectCurrency (evt) {
     const currency = evt.target.value
+    // const exchangeRate = this.props.rates[currency]
+    // this.props.dispatch(changeCurrency(currency, exchangeRate))
+    //     if (this.props.dollar[0] !== 'USD') {
+    //   const currency = this.props.dollar[0] 
+    //   const exchangesData = this.props.graph.datasets    
+    //   const exchangeRate = this.props.rates[currency]    
+    //   for (let i = 0; i < exchangesData.length; i++) {
+    //     const convertedRate = exchangesData[i].data.map(currentValue => {
+    //       return currentValue * exchangeRate
+    //     })
+    //     this.props.graph.datasets[i].data = convertedRate 
+    //   }
+    // }
     this.props.dispatch(changeCurrency(currency))
   }
 
@@ -68,4 +82,12 @@ class CurrencySelctor extends React.Component {
   }
 }
 
-export default connect()(CurrencySelctor)
+function mapStateToProps (state) {
+  return {
+    rates: state.currency.rates,
+    dollar: state.currency.dollar,
+    graph: state.graphData.graph
+  }
+}
+
+export default connect(mapStateToProps)(CurrencySelctor)

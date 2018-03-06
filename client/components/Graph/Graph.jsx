@@ -12,18 +12,19 @@ class Graph extends React.Component {
     this.props.dispatch(getGraphData())
   }
 
+
   render () {
-    if (this.props.display && this.props.dollar[0] !== 'USD') {
-      const currency = this.props.dollar[0] 
-      const exchangesData = this.props.graph.datasets    
-      const exchangeRate = this.props.rates[currency]    
-      for (let i = 0; i < exchangesData.length; i++) {
-        const convertedRate = exchangesData[i].data.map(currentValue => {
-          return currentValue * exchangeRate
-        })
-        this.props.graph.datasets[i].data = convertedRate 
-      }
-    }
+    // if (this.props.display && this.props.dollar[0] !== 'USD') {
+    //   const currency = this.props.dollar[0] 
+    //   const exchangesData = this.props.graph.datasets    
+    //   const exchangeRate = this.props.rates[currency]    
+    //   for (let i = 0; i < exchangesData.length; i++) {
+    //     const convertedRate = exchangesData[i].data.map(currentValue => {
+    //       return currentValue * exchangeRate
+    //     })
+    //     this.props.graph.datasets[i].data = convertedRate 
+    //   }
+    // }
   
     return (
       <div>

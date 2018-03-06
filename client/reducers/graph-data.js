@@ -1,4 +1,4 @@
-import {RECEIVED_GRAPH} from '../actions'
+import {RECEIVED_GRAPH, CHANGE_DOL} from '../actions'
 
 const initialState = {}
 
@@ -9,6 +9,12 @@ const graphReducer = (state = initialState, action) => {
         graph: action.data
       }
     }
+    // case (CHANGE_DOL): {
+    //   console.log(state)
+    //   return {
+    //     ...state
+    //   }
+    // }
     default:
       return state
   }
