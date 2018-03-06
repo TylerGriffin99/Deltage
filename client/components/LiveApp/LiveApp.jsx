@@ -2,16 +2,17 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import './liveApp.css'
-import Footer from '../Footer/Footer.jsx'
-import Loading from '../Loading/Loading.jsx'
-import Graph from '../Graph/Graph.jsx'
-import History from '../Graph/History.jsx'
-import MainPairs from '../MainPairs/MainPairs'
 import Header from '../Header/Header'
-import BestTrade from '../BestTrade/BestTrade.jsx'
-import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
+import Graph from '../Graph/Graph.jsx'
 import {getCoinData} from '../../actions'
+import Footer from '../Footer/Footer.jsx'
+import History from '../Graph/History.jsx'
+import Loading from '../Loading/Loading.jsx'
+import MainPairs from '../MainPairs/MainPairs'
+import CryptoNews from '../CryptoNews/CryptoNews'
+import BestTrade from '../BestTrade/BestTrade.jsx'
 import {openSocket, closeSocket} from '../../lib/socket'
+import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
 
 class LiveApp extends React.Component {
   componentDidMount () {
@@ -34,6 +35,7 @@ class LiveApp extends React.Component {
           {this.props.loaded && <Graph />}
           {this.props.loaded && <MainPairs />}
           {this.props.loaded && <History />}
+          {this.props.loaded && <CryptoNews />}
         </div>
         {this.props.loaded && <Footer />}
       </div>

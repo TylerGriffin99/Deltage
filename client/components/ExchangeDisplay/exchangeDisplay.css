@@ -20,6 +20,10 @@ th, td {
     font-weight: 200;
 }
 
+.exch-img{
+     width: 50px;
+}
+
 .bolder > th{
     font-family: 'Dosis', sans-serif;
     font-weight: 300;  
