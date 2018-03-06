@@ -60,6 +60,7 @@ th, td {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+    border-radius: 2px;
   }
   
   .slider:before {
@@ -72,6 +73,7 @@ th, td {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+    border-radius: 2px;
   }
 
 input:checked + .slider {
