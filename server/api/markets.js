@@ -161,12 +161,12 @@ const markets = [
         }
       })
     }
-  },
-  {
-    marketName: 'bitfinex',
-    URL: 'https://api.bitfinex.com/v2/tickers?symbols=tEOSBTC,tLTCBTC,tETHBTC,tETCBTC,tXMRBTC,tDSHBTC,tSANBTC,tBCHBTC,tNEOBTC,tETPBTC,tQTMBTC,tAVTBTC,tEDOBTC,tBTGBTC,tDATBTC,tQSHBTC,tYYWBTC,tGNTBTC,tSNTBTC,tBATBTC,tMNABTC,tFUNBTC,tZRXBTC,tTNBBTC,tSPKBTC,tTRXBTC,tRCNBTC,tRLCBTC,tAIDBTC,tSNGBTC,tREPBTC,tELFBTC,tRRTBTC,tZECBTC',
-    last: processMarkets.processBitfinex
   }
+  // {
+  //   marketName: 'bitfinex',
+  //   URL: 'https://api.bitfinex.com/v2/tickers?symbols=tEOSBTC,tLTCBTC,tETHBTC,tETCBTC,tXMRBTC,tDSHBTC,tSANBTC,tBCHBTC,tNEOBTC,tETPBTC,tQTMBTC,tAVTBTC,tEDOBTC,tBTGBTC,tDATBTC,tQSHBTC,tYYWBTC,tGNTBTC,tSNTBTC,tBATBTC,tMNABTC,tFUNBTC,tZRXBTC,tTNBBTC,tSPKBTC,tTRXBTC,tRCNBTC,tRLCBTC,tAIDBTC,tSNGBTC,tREPBTC,tELFBTC,tRRTBTC,tZECBTC',
+  //   last: processMarkets.processBitfinex
+  // }
 ]
 
 module.exports = markets

@@ -113,5 +113,4 @@ const graphData = {
 module.exports = graphData
 
 // colour way for future line on the graph
-// #cc3399 (204, 51, 153) pink
 // #3366cc (51, 102, 204) blue
