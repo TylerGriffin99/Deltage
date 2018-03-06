@@ -13,7 +13,7 @@ class CurrencySelctor extends React.Component {
     request
       .get('https://api.fixer.io/latest?base=USD')
       .then((res) => {
-        console.log(res.body)
+        console.log(res.body.rates)
         return res.body
       })
   }
