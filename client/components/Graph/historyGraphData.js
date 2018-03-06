@@ -103,6 +103,16 @@ const historyGraphData = {
           }
         }
       ]
+    },
+    legend: {
+      onClick: function (event, legendItem) {
+        const index = legendItem.datasetIndex
+        const myChart = this.chart
+        const meta = myChart.getDatasetMeta(index)
+        meta.hidden = meta.hidden === null ? !myChart.data.datasets[index].hidden : null
+        myChart.options.scales.yAxes[index].display = !myChart.options.scales.yAxes[index].display
+        myChart.update()
+      }
     }
   }
 }
