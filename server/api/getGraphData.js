@@ -31,7 +31,12 @@ function getData (sockets) {
     .then(res => {
       return res.body.USD
     })
-  Promise.all([bittrex, poloniex, kraken, bitfinex])
+    const livecoin = request
+    .get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=livecoin')
+    .then(res => {
+      return res.body.USD
+    })
+  Promise.all([bittrex, poloniex, kraken, bitfinex, livecoin])
     .then((results) => {
       if (graphData.labels.length === 100) {
         for (let i = 0; i < results.length; i++) {
