@@ -1,10 +1,11 @@
 /* eslint no-unused-vars: 0 */
 import React, {Component} from 'react'
-import axios from 'axios'
 import {Bar} from 'react-chartjs-2'
 
 import './graph.css'
 import historyGraphData from './historyGraphData'
+
+const request = require('superagent')
 
 class History extends Component {
   constructor (props) {
@@ -63,9 +64,11 @@ class History extends Component {
   }
 
   getData () {
-    axios.get(this.apiURL())
+    const apiData = request
+      .get(this.apiURL())
       .then(res => {
-        let history = res.data.Data
+        let history = res.body.Data
+        console.log(history)
         historyGraphData.options.scales.xAxes[0].labels = []
         historyGraphData.datasets[0].data = []
         historyGraphData.datasets[1].data = []
@@ -81,6 +84,10 @@ class History extends Component {
           )
         })
         this.setState(historyGraphData)
+      })
+      .catch(err => {
+        /* eslint no-console: 0 */
+        return console.error(err.message)
       })
   }
 
