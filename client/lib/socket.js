@@ -1,7 +1,6 @@
 import io from 'socket.io-client'
-import baseUrl from './base-url'
 
-let socket = io(baseUrl)
+let socket = io('https://deltage.herokuapp.com/')
 
 export function openSocket () {
   socket = socket.open()
