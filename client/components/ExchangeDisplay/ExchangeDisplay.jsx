@@ -6,35 +6,35 @@ import {filterMainTopFive} from '../../actions/filterMainTopFive'
 import './exchangeDisplay.css'
 
 class ExchangeDisplay extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       bittrex: true,
       poloniex: true,
-      kraken: true,
-      checked: false
+      kraken: true
     }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   handleInputChange (e) {
-    // filter exchang reslts here
-    // const filtersBro = this.props.filters
-    // const key = e.target.name
-    // for (let i = 0; i < filtersBro; i++) {
-    //   if (filtersBro[i] === key) {
-    //     filtersBro.splice(i, 1)
-    //   }
-    // }
-    // this.props.dispatch(coinData(['kraken', 'bittrex']))
-    // this.setState({
-    //   checked: !this.state.biitrex
-    // })
+    this.setState({
+      [e.target.name]: e.target.checked
+    }, () => {
+      this.callDispatch(this.state)
+    })
+  }
+
+  callDispatch (state) {
+    function filterArr (state) {
+      let arr = []
+      for (let item in state) {
+        if (item) arr.push(item)
+      }
+    }
+    this.props.dispatch(filterMainTopFive(filterArr(this.state)))
   }
 
   render () {
-    console.log(this.props.receivedData)
-    console.log(this.props.tableData)
     return (
       <div className = 'exchangeContainer'>
         <div>

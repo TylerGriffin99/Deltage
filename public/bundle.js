@@ -74702,6 +74702,8 @@ __webpack_require__(548);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -74711,16 +74713,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ExchangeDisplay = function (_React$Component) {
   _inherits(ExchangeDisplay, _React$Component);
 
-  function ExchangeDisplay() {
+  function ExchangeDisplay(props) {
     _classCallCheck(this, ExchangeDisplay);
 
-    var _this = _possibleConstructorReturn(this, (ExchangeDisplay.__proto__ || Object.getPrototypeOf(ExchangeDisplay)).call(this));
+    var _this = _possibleConstructorReturn(this, (ExchangeDisplay.__proto__ || Object.getPrototypeOf(ExchangeDisplay)).call(this, props));
 
     _this.state = {
       bittrex: true,
       poloniex: true,
-      kraken: true,
-      checked: false
+      kraken: true
     };
     _this.handleInputChange = _this.handleInputChange.bind(_this);
     return _this;
@@ -74729,24 +74730,26 @@ var ExchangeDisplay = function (_React$Component) {
   _createClass(ExchangeDisplay, [{
     key: 'handleInputChange',
     value: function handleInputChange(e) {
-      // filter exchang reslts here
-      // const filtersBro = this.props.filters
-      // const key = e.target.name
-      // for (let i = 0; i < filtersBro; i++) {
-      //   if (filtersBro[i] === key) {
-      //     filtersBro.splice(i, 1)
-      //   }
-      // }
-      // this.props.dispatch(coinData(['kraken', 'bittrex']))
-      // this.setState({
-      //   checked: !this.state.biitrex
-      // })
+      var _this2 = this;
+
+      this.setState(_defineProperty({}, e.target.name, e.target.checked), function () {
+        _this2.callDispatch(_this2.state);
+      });
+    }
+  }, {
+    key: 'callDispatch',
+    value: function callDispatch(state) {
+      function filterArr(state) {
+        var arr = [];
+        for (var item in state) {
+          if (item) arr.push(item);
+        }
+      }
+      this.props.dispatch((0, _filterMainTopFive.filterMainTopFive)(filterArr(this.state)));
     }
   }, {
     key: 'render',
     value: function render() {
-      console.log(this.props.receivedData);
-      console.log(this.props.tableData);
       return _react2.default.createElement(
         'div',
         { className: 'exchangeContainer' },
