@@ -5626,6 +5626,80 @@ module.exports = root;
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports) {
+
+/**
+ * Checks if `value` is classified as an `Array` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+ * @example
+ *
+ * _.isArray([1, 2, 3]);
+ * // => true
+ *
+ * _.isArray(document.body.children);
+ * // => false
+ *
+ * _.isArray('abc');
+ * // => false
+ *
+ * _.isArray(_.noop);
+ * // => false
+ */
+var isArray = Array.isArray;
+
+module.exports = isArray;
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5675,80 +5749,6 @@ var getGraphData = exports.getGraphData = function getGraphData() {
     });
   };
 };
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-/**
- * Checks if `value` is classified as an `Array` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an array, else `false`.
- * @example
- *
- * _.isArray([1, 2, 3]);
- * // => true
- *
- * _.isArray(document.body.children);
- * // => false
- *
- * _.isArray('abc');
- * // => false
- *
- * _.isArray(_.noop);
- * // => false
- */
-var isArray = Array.isArray;
-
-module.exports = isArray;
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
 
 /***/ }),
 /* 17 */
@@ -7731,7 +7731,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -11233,7 +11233,7 @@ module.exports = isArrayLike;
 var baseMatches = __webpack_require__(477),
     baseMatchesProperty = __webpack_require__(480),
     identity = __webpack_require__(491),
-    isArray = __webpack_require__(15),
+    isArray = __webpack_require__(14),
     property = __webpack_require__(492);
 
 /**
@@ -11267,7 +11267,7 @@ module.exports = baseIteratee;
 /* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isArray = __webpack_require__(15),
+var isArray = __webpack_require__(14),
     isSymbol = __webpack_require__(47);
 
 /** Used to match property names within property paths. */
@@ -11353,7 +11353,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -28351,7 +28351,7 @@ module.exports = baseGet;
 /* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isArray = __webpack_require__(15),
+var isArray = __webpack_require__(14),
     isKey = __webpack_require__(71),
     stringToPath = __webpack_require__(482),
     toString = __webpack_require__(485);
@@ -28487,7 +28487,7 @@ document.addEventListener('DOMContentLoaded', function () {
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(23),n=__webpack_require__(31),p=__webpack_require__(16),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(23),n=__webpack_require__(31),p=__webpack_require__(15),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -28527,7 +28527,7 @@ var _assign = __webpack_require__(23);
 var emptyObject = __webpack_require__(31);
 var invariant = __webpack_require__(24);
 var warning = __webpack_require__(32);
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var checkPropTypes = __webpack_require__(49);
 
 // TODO: this is special because it gets imported during build.
@@ -29929,7 +29929,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(2),l=__webpack_require__(72),B=__webpack_require__(23),C=__webpack_require__(16),ba=__webpack_require__(73),da=__webpack_require__(74),ea=__webpack_require__(75),fa=__webpack_require__(76),ia=__webpack_require__(77),D=__webpack_require__(31);
+var aa=__webpack_require__(2),l=__webpack_require__(72),B=__webpack_require__(23),C=__webpack_require__(15),ba=__webpack_require__(73),da=__webpack_require__(74),ea=__webpack_require__(75),fa=__webpack_require__(76),ia=__webpack_require__(77),D=__webpack_require__(31);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -30231,7 +30231,7 @@ var invariant = __webpack_require__(24);
 var warning = __webpack_require__(32);
 var ExecutionEnvironment = __webpack_require__(72);
 var _assign = __webpack_require__(23);
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var EventListener = __webpack_require__(73);
 var getActiveElement = __webpack_require__(74);
 var shallowEqual = __webpack_require__(75);
@@ -45865,7 +45865,7 @@ Provider.childContextTypes = {
 
 
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var invariant = __webpack_require__(24);
 var warning = __webpack_require__(32);
 var assign = __webpack_require__(23);
@@ -46415,7 +46415,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 
-var emptyFunction = __webpack_require__(16);
+var emptyFunction = __webpack_require__(15);
 var invariant = __webpack_require__(24);
 var ReactPropTypesSecret = __webpack_require__(50);
 
@@ -52074,7 +52074,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(14);
+var _index = __webpack_require__(16);
 
 var initialState = {
   coin: '',
@@ -55629,7 +55629,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(14);
+var _index = __webpack_require__(16);
 
 var initialState = [];
 var mainCoins = [];
@@ -55697,7 +55697,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _actions = __webpack_require__(14);
+var _actions = __webpack_require__(16);
 
 var initialState = {};
 
@@ -55730,7 +55730,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(14);
+var _index = __webpack_require__(16);
 
 var initialState = false;
 
@@ -55761,7 +55761,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _index = __webpack_require__(14);
+var _index = __webpack_require__(16);
 
 var initialState = false;
 
@@ -55794,7 +55794,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _index = __webpack_require__(14);
+var _index = __webpack_require__(16);
 
 var _filterMainTopFive = __webpack_require__(110);
 
@@ -55808,21 +55808,6 @@ function getAllExchanges(coinType, filters) {
   var filtered = coinType.allExchanges.filter(function (exchange) {
     return filters.includes(exchange.name);
   });
-  // const validPairs = filtered.filter(coinData => coinData.exchanges.length > 1)
-  // const allPairs = validPairs.map(coinData => {
-  // const sortedCoin = {
-  //     coin: coinType.coin
-  //     // timestamp: moment()
-  //   }
-  // }
-  // if (validPairs) {
-  //   validPairs.sort((a, b) => {
-  //     return b.lastPrice - a.lastPrice
-  //   })
-  // } else {
-  //   return
-  // }
-
   return filters.length > 1 ? filtered : [];
 }
 
@@ -56290,7 +56275,7 @@ var _Graph = __webpack_require__(368);
 
 var _Graph2 = _interopRequireDefault(_Graph);
 
-var _actions = __webpack_require__(14);
+var _actions = __webpack_require__(16);
 
 var _Footer = __webpack_require__(515);
 
@@ -56628,7 +56613,7 @@ var _GraphLoading = __webpack_require__(512);
 
 var _GraphLoading2 = _interopRequireDefault(_GraphLoading);
 
-var _actions = __webpack_require__(14);
+var _actions = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -69338,7 +69323,7 @@ var Stack = __webpack_require__(238),
     equalByTag = __webpack_require__(449),
     equalObjects = __webpack_require__(453),
     getTag = __webpack_require__(470),
-    isArray = __webpack_require__(15),
+    isArray = __webpack_require__(14),
     isBuffer = __webpack_require__(244),
     isTypedArray = __webpack_require__(246);
 
@@ -70538,7 +70523,7 @@ module.exports = getAllKeys;
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayPush = __webpack_require__(456),
-    isArray = __webpack_require__(15);
+    isArray = __webpack_require__(14);
 
 /**
  * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
@@ -70687,7 +70672,7 @@ module.exports = stubArray;
 
 var baseTimes = __webpack_require__(461),
     isArguments = __webpack_require__(243),
-    isArray = __webpack_require__(15),
+    isArray = __webpack_require__(14),
     isBuffer = __webpack_require__(244),
     isIndex = __webpack_require__(245),
     isTypedArray = __webpack_require__(246);
@@ -71580,7 +71565,7 @@ module.exports = toString;
 
 var Symbol = __webpack_require__(33),
     arrayMap = __webpack_require__(487),
-    isArray = __webpack_require__(15),
+    isArray = __webpack_require__(14),
     isSymbol = __webpack_require__(47);
 
 /** Used as references for various `Number` constants. */
@@ -71709,7 +71694,7 @@ module.exports = baseHasIn;
 
 var castPath = __webpack_require__(250),
     isArguments = __webpack_require__(243),
-    isArray = __webpack_require__(15),
+    isArray = __webpack_require__(14),
     isIndex = __webpack_require__(245),
     isLength = __webpack_require__(68),
     toKey = __webpack_require__(48);
@@ -72205,7 +72190,7 @@ module.exports = defineProperty;
 var arrayAggregator = __webpack_require__(504),
     baseAggregator = __webpack_require__(505),
     baseIteratee = __webpack_require__(70),
-    isArray = __webpack_require__(15);
+    isArray = __webpack_require__(14);
 
 /**
  * Creates a function like `_.groupBy`.
@@ -74200,8 +74185,6 @@ var _react = __webpack_require__(2);
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(9);
-
-var _index = __webpack_require__(14);
 
 var _filterMainTopFive = __webpack_require__(110);
 
