@@ -38,7 +38,7 @@ class MainPairs extends React.Component {
         <h1>Main Pairs</h1>
         <div className = 'display-checks'>
           <div className = 'check-column'>
-            <p>Volumes:  </p>
+            <p>Volume:  </p>
             <label className = "displaySwitch" >
               <input type='checkbox' id='showVolume' className ='checkbox' defaultChecked={this.state.showVolume} onClick = {this.flipCheckbox}/>
               <span className = "slider"></span>
