@@ -1,40 +1,26 @@
 import React from 'react'
-import io from 'socket.io-client'
 import {connect} from 'react-redux'
 
 import './liveApp.css'
 import Footer from '../Footer/Footer.jsx'
 import Loading from '../Loading/Loading.jsx'
 import Graph from '../Graph/Graph.jsx'
-import {coinData} from '../../actions'
+import History from '../Graph/History.jsx'
 import MainPairs from '../MainPairs/MainPairs'
-import baseUrl from '../../lib/base-url'
 import Header from '../Header/Header'
 import BestTrade from '../BestTrade/BestTrade.jsx'
 import ExchangeDisplay from '../ExchangeDisplay/ExchangeDisplay.jsx'
-
-const {COIN_DATA} = require('../../../common/events')
+import {getCoinData} from '../../actions'
+import {openSocket, closeSocket} from '../../lib/socket'
 
 class LiveApp extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      coin_prices: {},
-      numberOfRequests: 0,
-      results: []
-    }
-    this.socket = io(baseUrl)
-  }
-
   componentDidMount () {
-    // const socket = io(baseUrl)
-    this.socket.on(COIN_DATA, (data) => {
-      this.props.dispatch(coinData(data))
-    })
+    openSocket()
+    this.props.dispatch(getCoinData())
   }
 
   componentWillUnmount () {
-    this.socket.close()
+    closeSocket()
   }
 
   render () {
@@ -47,6 +33,7 @@ class LiveApp extends React.Component {
           {this.props.loaded && <BestTrade />}
           {this.props.loaded && <Graph />}
           {this.props.loaded && <MainPairs />}
+          {this.props.loaded && <History />}
         </div>
         {this.props.loaded && <Footer />}
       </div>
@@ -56,7 +43,8 @@ class LiveApp extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    loaded: state.receivedData
+    loaded: state.receivedData,
+    socket: state.socket
   }
 }
 
