@@ -9,8 +9,8 @@ class MainPairs extends React.Component {
     this.state = {
       showVolume: true,
       showLastPrice: true,
-      showHighestBid: true,
-      showLowestAsk: true
+      showHighestBid: false,
+      showLowestAsk: false
     }
     this.flipCheckbox = this.flipCheckbox.bind(this)
   }
@@ -24,7 +24,7 @@ class MainPairs extends React.Component {
   render () {
     function setToNumber (data, dp) {
       if (isNaN(Number(data))) {
-        return 'Not Available'
+        return 'N/A'
       } else {
         return Number(data).toFixed(dp)
       }
@@ -50,14 +50,14 @@ class MainPairs extends React.Component {
             </label>
           </div>
           <div className = 'check-column'>
-            <p>Daily Lowest Ask:</p>
-            <label className = "displaySwitch" >
-              <input type='checkbox' id='showLowestAsk' className ='checkbox' defaultChecked={this.state.showLowestAsk} onClick = {this.flipCheckbox}/>
-              <span className = "slider"></span>
-            </label>
             <p>Current Last Price: </p>
             <label className = "displaySwitch" >
               <input type='checkbox' id='showLastPrice' className ='checkbox' defaultChecked={this.state.showLastPrice} onClick = {this.flipCheckbox}/>
+              <span className = "slider"></span>
+            </label>
+            <p>Daily Lowest Ask:</p>
+            <label className = "displaySwitch" >
+              <input type='checkbox' id='showLowestAsk' className ='checkbox' defaultChecked={this.state.showLowestAsk} onClick = {this.flipCheckbox}/>
               <span className = "slider"></span>
             </label>
           </div>
