@@ -72590,15 +72590,48 @@ var Footer = function (_React$Component) {
                 'div',
                 { className: 'footer' },
                 _react2.default.createElement(
-                    'p',
-                    null,
-                    'EDA Harakeke-2018 Project by'
+                    'div',
+                    { className: 'adim-credits' },
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'EDA Harakeke-2018 Project by'
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        'Adam, Maddie, Peter, Tim & Tyler'
+                    )
                 ),
-                _react2.default.createElement('br', null),
+                _react2.default.createElement('hr', { className: 'hr-footer' }),
                 _react2.default.createElement(
-                    'p',
-                    null,
-                    'Adam, Maddie, Peter, Tim & Tyler'
+                    'div',
+                    { className: 'credits' },
+                    _react2.default.createElement(
+                        'h3',
+                        null,
+                        'A Special thanks to:'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { target: '_blank', href: 'https://www.instagram.com/nina.vanlier/' },
+                        'Nina Van Lier - Graphic Designer'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'image-logo' },
+                        _react2.default.createElement(
+                            'a',
+                            { target: '_blank', href: 'https://www.cryptocompare.com/' },
+                            _react2.default.createElement('img', { target: '_blank', className: 'cryto-logo', src: '/images/cryptocompare.png', alt: 'cryptocompare logo' })
+                        ),
+                        _react2.default.createElement(
+                            'a',
+                            { target: '_blank', href: 'https://newsapi.org/' },
+                            _react2.default.createElement('img', { target: '_blank', className: 'news-logo', src: '/images/newsApi.png', alt: 'newsApi logo' })
+                        )
+                    )
                 )
             );
         }
@@ -72668,7 +72701,7 @@ exports = module.exports = __webpack_require__(10)(false);
 
 
 // module
-exports.push([module.i, ".footer {\n  text-align: center;\n  margin: 20px;\n  font-family: 'Dosis', sans-serif;\n  color: black; }\n", ""]);
+exports.push([module.i, ".footer {\n  text-align: center;\n  margin: 20px;\n  margin-top: 50px;\n  font-family: 'Dosis', sans-serif;\n  color: black;\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.image-logo {\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.hr-footer {\n  height: 100px;\n  width: 1px;\n  margin: 10px;\n  border: 0;\n  border-top: 120px solid #e5e5e5;\n  display: block; }\n\n@media screen and (max-width: 360px) {\n  .hr-footer {\n    height: 1px;\n    width: 100px;\n    margin: 10px;\n    border: 0;\n    border-top: 1px solid #e5e5e5;\n    display: block; }\n  .footer {\n    flex-direction: column; } }\n\n.credits {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center; }\n\n.credits > a {\n  text-decoration: none;\n  color: black; }\n\n.cryto-logo {\n  width: 100px; }\n\n.news-logo {\n  width: 100px; }\n", ""]);
 
 // exports
 
@@ -73879,7 +73912,7 @@ var CryptoNews = function (_React$Component) {
               { key: idx, className: 'article-container' },
               _react2.default.createElement(
                 'a',
-                { href: '' + article.url, className: 'article-link' },
+                { target: '_blank', href: '' + article.url, className: 'article-link' },
                 _react2.default.createElement(
                   'h4',
                   { className: 'article-header' },
@@ -73895,7 +73928,8 @@ var CryptoNews = function (_React$Component) {
               )
             );
           })
-        )
+        ),
+        _react2.default.createElement('hr', { className: 'horizontal-rule' })
       );
     }
   }]);
@@ -73964,7 +73998,7 @@ exports = module.exports = __webpack_require__(10)(false);
 
 
 // module
-exports.push([module.i, ".news-full {\n  display: flex;\n  flex-direction: column; }\n\n.news-container {\n  display: flex;\n  flex-direction: row;\n  width: 700px;\n  align-items: center;\n  justify-content: center; }\n\n.article-container {\n  display: flex;\n  flex-direction: column;\n  width: 200px;\n  text-justify: newspaper;\n  padding: 3px; }\n\n.article-link {\n  text-decoration: none;\n  color: black; }\n\n.news-header {\n  margin: 4px; }\n\n.horizontal-rule {\n  margin: 5px; }\n\n@media screen and (max-width: 700px) {\n  .news-full {\n    width: 100%;\n    padding: 10px; }\n  .news-container {\n    width: 100%;\n    padding: 10px; } }\n", ""]);
+exports.push([module.i, ".news-full {\n  display: flex;\n  flex-direction: column; }\n\n.news-container {\n  display: flex;\n  flex-direction: row;\n  width: 700px;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 5px; }\n\n.article-container {\n  display: flex;\n  flex-direction: column;\n  width: 200px;\n  text-justify: newspaper;\n  padding: 3px; }\n\n.article-link {\n  text-decoration: none;\n  color: black; }\n\n.news-header {\n  margin: 4px; }\n\n.horizontal-rule {\n  margin-left: 100px;\n  margin-top: 5px;\n  border-top: 1px solid #e5e5e5;\n  width: 80%;\n  margin-left: 10%;\n  align-items: center; }\n\n.verticle-rule {\n  border: none;\n  border-left: 1px solid #73848c;\n  height: 100vh;\n  width: 1px; }\n\n@media screen and (max-width: 700px) {\n  .news-full {\n    width: 100%;\n    padding: 10px; }\n  .news-container {\n    width: 100%;\n    padding: 10px; } }\n", ""]);
 
 // exports
 
@@ -74257,8 +74291,13 @@ var ExchangeDisplay = function (_React$Component) {
         'div',
         { className: 'exchangeContainer' },
         _react2.default.createElement(
-          'div',
+          'h1',
           null,
+          'Top Trades'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'checkbox-toggle-container' },
           _react2.default.createElement(
             'form',
             null,
@@ -74315,16 +74354,6 @@ var ExchangeDisplay = function (_React$Component) {
                 onChange: this.handleInputChange })
             )
           )
-        ),
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Exchange Container'
-        ),
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Top Trades'
         ),
         _react2.default.createElement(
           'table',
