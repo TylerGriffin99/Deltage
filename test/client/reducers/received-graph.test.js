@@ -1,3 +1,5 @@
+/* global test expect */
+
 import {RECEIVED_GRAPH} from '../../../client/actions'
 
 import receivedGraph from '../../../client/reducers/received-graph'
