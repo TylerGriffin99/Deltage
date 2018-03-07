@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import request from 'superagent'
 
-import {changeCurrency, sendRates} from '../../../actions/currency'
+import {changeGraphCurrency, sendRates, changeGraph} from '../../../actions/currency'
 
 class CurrencySelctor extends React.Component {
   constructor (props) {
@@ -24,7 +24,13 @@ class CurrencySelctor extends React.Component {
   }
   selectCurrency (evt) {
     const currency = evt.target.value
-    this.props.dispatch(changeCurrency(currency))
+    // const currencyCompare = this.props.currencies
+    // currencyCompare.unshift(currency)
+    // currencyCompare.pop()
+
+    this.props.dispatch(changeGraphCurrency(currency)).then(() => {
+      this.props.dispatch(changeGraph(this.props.currencies, this.props.rates))
+    })
   }
 
   render () {
@@ -68,4 +74,12 @@ class CurrencySelctor extends React.Component {
   }
 }
 
-export default connect()(CurrencySelctor)
+function mapStateToProps (state) {
+  return {
+    currencies: state.currency.dollar,
+    rates: state.currency.rates
+
+  }
+}
+
+export default connect(mapStateToProps)(CurrencySelctor)
