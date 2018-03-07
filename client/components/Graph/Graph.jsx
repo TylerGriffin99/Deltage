@@ -3,7 +3,8 @@ import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux'
 
 import './graph.css'
-import { getGraphData } from '../../actions'
+import GraphLoading from '../GraphLoading/GraphLoading'
+import {getGraphData} from '../../actions'
 
 class Graph extends React.Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class Graph extends React.Component {
         <h1>Live Bitcoin&ndash;USD</h1>
         </div>
         <br />
+        {!this.props.display && <GraphLoading />}
         {this.props.display &&
           <Line
             data={this.props.graph}

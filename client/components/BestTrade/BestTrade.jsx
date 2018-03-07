@@ -1,10 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import './bestTrade.css'
 
 class BestTrade extends React.Component {
-  render() {
+  render () {
     return (
       <div className='bestTrade'>
         <h1>Best Trade</h1>
@@ -20,7 +20,7 @@ class BestTrade extends React.Component {
           <div className='buy'>
             <h2>Buy (Exc)</h2>
             <div className='inner'>
-              <img src={`/images/ex/${this.props.bestTrade.buy.name}.png`} alt={this.props.bestTrade.buy.name} />
+              <img src={`/images/exch-imgs/${this.props.bestTrade.buy.name}.png`} alt={this.props.bestTrade.buy.name} />
               <p>
                 Price (BTC): {Number(this.props.bestTrade.buy.lastPrice).toFixed(6)}
                 <br />
@@ -43,7 +43,7 @@ class BestTrade extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     receivedData: state.receivedData.receivedData,
     bestTrade: state.bestTrade

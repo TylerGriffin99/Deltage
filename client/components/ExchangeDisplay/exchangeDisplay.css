@@ -20,6 +20,10 @@ th, td {
     font-weight: 200;
 }
 
+.exch-img{
+     width: 50px;
+}
+
 .bolder > th{
     font-family: 'Dosis', sans-serif;
     font-weight: 300;  
@@ -35,4 +39,85 @@ th, td {
         padding: 0;
         font-size: 100%;
     }
+}
+
+.checkbox-toggle-container{
+    margin: 10px;
+    width: 700px;
+}
+
+.display-checks {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.check-row-5 > form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin:3px;
+    width: 100%;
+}
+
+@media screen and (max-width: 562px){
+    .check-row-5 > form{
+        width: 340px;
+    }
+}
+
+.checkbox {
+    display: none;
+}
+
+.displaySwitch{
+    position: relative;
+    display: inline-block;
+    width: 41px;
+    height: 22px;
+    margin:6px;
+
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 2px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 1px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 2px;
+  }
+
+input:checked + .slider {
+    background-color: rgb(83, 83, 83);
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px rgb(83, 83, 83);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(19px);
+    -ms-transform: translateX(19px);
+    transform: translateX(19px);
 }

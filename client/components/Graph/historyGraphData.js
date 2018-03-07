@@ -22,7 +22,7 @@ const historyGraphData = {
       pointRadius: 1.5,
       pointHitRadius: 10,
       yAxisID: 'y-axis-1',
-      fontFamily:'Dosis'
+      fontFamily: 'Dosis'
     },
     {
       type: 'bar',
@@ -46,7 +46,7 @@ const historyGraphData = {
       pointRadius: 1.5,
       pointHitRadius: 10,
       yAxisID: 'y-axis-2',
-      fontFamily:'Dosis'
+      fontFamily: 'Dosis'
     }
   ],
   options: {
@@ -57,7 +57,7 @@ const historyGraphData = {
       callbacks: {
         label: function (tooltipItem, data) {
           let label = data.datasets[tooltipItem.datasetIndex].label + ': '
-          let number = tooltipItem.yLabel.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 5})
+          let number = tooltipItem.yLabel.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 5 })
           return (tooltipItem.datasetIndex === 0)
             ? label + '$' + number
             : label + number
@@ -70,7 +70,7 @@ const historyGraphData = {
       }
     },
     scales: {
-      pointLabels:{
+      pointLabels: {
         fontFamily: 'Dosis'
       },
 
@@ -95,7 +95,7 @@ const historyGraphData = {
           ticks: {
             fontFamily: 'Dosis',
             callback: (label, index, labels) => {
-              return '$' + label.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 5})
+              return '$' + label.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 5 })
             }
           },
           scaleLabel: {
@@ -120,7 +120,7 @@ const historyGraphData = {
           ticks: {
             fontFamily: 'Dosis',
             callback: (label, index, labels) => {
-              return label.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})
+              return label.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })
             }
           },
           scaleLabel: {
@@ -142,6 +142,14 @@ const historyGraphData = {
         }
       ],
       legend: {
+        onClick: function (event, legendItem) {
+          const index = legendItem.datasetIndex
+          const myChart = this.chart
+          const meta = myChart.getDatasetMeta(index)
+          meta.hidden = meta.hidden === null ? !myChart.data.datasets[index].hidden : null
+          myChart.options.scales.yAxes[index].display = !myChart.options.scales.yAxes[index].display
+          myChart.update()
+        },
         labels: {
           fontFamily: 'Dosis'
         }
@@ -149,5 +157,6 @@ const historyGraphData = {
     }
   }
 }
+
 
 export default historyGraphData

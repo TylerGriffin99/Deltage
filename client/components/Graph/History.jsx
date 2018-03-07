@@ -1,10 +1,12 @@
 /* eslint no-unused-vars: 0 */
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Bar } from 'react-chartjs-2'
+import React, {Component} from 'react'
+import {Bar} from 'react-chartjs-2'
 
 import './graph.css'
 import historyGraphData from './historyGraphData'
+import {coins} from './coins'
+
+const request = require('superagent')
 
 class History extends Component {
   constructor(props) {
@@ -62,10 +64,11 @@ class History extends Component {
     }
   }
 
-  getData() {
-    axios.get(this.apiURL())
+  getData () {
+    const apiData = request
+      .get(this.apiURL())
       .then(res => {
-        let history = res.data.Data
+        let history = res.body.Data
         historyGraphData.options.scales.xAxes[0].labels = []
         historyGraphData.datasets[0].data = []
         historyGraphData.datasets[1].data = []
@@ -81,6 +84,10 @@ class History extends Component {
           )
         })
         this.setState(historyGraphData)
+      })
+      .catch(err => {
+        /* eslint no-console: 0 */
+        return console.error(err.message)
       })
   }
 
@@ -99,34 +106,28 @@ class History extends Component {
   render() {
     return (
       <div className="graph" >
-        <div>
-          <div className="custom-select">
-            <select value={this.state.coin} onChange={this.handleCoinChange}>
-              <option value='BTC'>Bitcoin</option>
-              <option value='BCH'>Bitcoin Cash</option>
-              <option value='DASH'>DigitalCash</option>
-              <option value='EOS'>EOS</option>
-              <option value='ETH'>Ethereum</option>
-              <option value='ETC'>Ethereum Classic</option>
-              <option value='HT'>Huobi Token</option>
-              <option value='LTC'>Litecoin</option>
-              <option value='XMR'>Monero</option>
-              <option value='NEO'>NEO</option>
-              <option value='XRP'>Ripple</option>
-              <option value='TRX'>Tronix</option>
-            </select>&nbsp;
-        </div>
-          <select value={this.state.period} onChange={this.handleTimeChange}>
-            <option value='0'>Hour</option>
-            <option value='1'>Day</option>
-            <option value='2'>Week</option>
-            <option value='3'>Month</option>
-            <option value='4'>3 Months</option>
-            <option value='5'>6 Months</option>
-            <option value='6'>Year</option>
-          </select>
-        </div>
-        <h1>{this.state.coin}&ndash;USD for the last {this.state.timePeriod}</h1>
+        <select value={this.state.coin} onChange={this.handleCoinChange} className='dropDown'>
+          {coins.map(coin => {
+            return <option value={coin.code} key={coin.code}>{coin.name}</option>
+          })}
+        </select>&nbsp;
+        <select value={this.state.period} onChange={this.handleTimeChange} className='dropDown'>
+          <option value='0'>Hour</option>
+          <option value='1'>Day</option>
+          <option value='2'>Week</option>
+          <option value='3'>Month</option>
+          <option value='4'>3 Months</option>
+          <option value='5'>6 Months</option>
+          <option value='6'>Year</option>
+        </select>
+        <h1>
+          <img
+            src={`/coins/${this.state.coin}.png`}
+            alt={this.state.coin}
+            style={{width: '40px', verticalAlign: 'text-bottom'}}
+          />&nbsp;
+          {this.state.coin}&ndash;USD for the last {this.state.timePeriod}
+        </h1>
         <Bar
           data={this.state.historyGraphData}
           options={this.state.historyGraphData.options}

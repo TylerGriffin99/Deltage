@@ -23,6 +23,5 @@ module.exports = function sort (data) {
   const sortedPairs = allPairs.sort((a, b) => {
     return b.diff - a.diff
   })
-
   return sortedPairs
 }

@@ -4,7 +4,7 @@ const graphData = require('./graphData')
 const {GRAPH_DATA} = require('../../common/events')
 
 function timeString () {
-  return new Date().toLocaleTimeString()
+  return new Date().toLocaleTimeString('en-NZ')
 }
 
 function getData (sockets) {
@@ -26,7 +26,17 @@ function getData (sockets) {
     .then(res => {
       return res.body.USD
     })
-  Promise.all([bittrex, poloniex, kraken])
+  const bitfinex = request
+    .get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=bitfinex')
+    .then(res => {
+      return res.body.USD
+    })
+    const livecoin = request
+    .get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=livecoin')
+    .then(res => {
+      return res.body.USD
+    })
+  Promise.all([bittrex, poloniex, kraken, bitfinex, livecoin])
     .then((results) => {
       if (graphData.labels.length === 100) {
         for (let i = 0; i < results.length; i++) {
