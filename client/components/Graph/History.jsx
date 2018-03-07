@@ -104,6 +104,7 @@ class History extends Component {
   }
 
   render () {
+    console.log(this.state.historyGraphData.options)
     return (
       <div className="graph" >
         <select value={this.state.coin} onChange={this.handleCoinChange} className='dropDown'>
