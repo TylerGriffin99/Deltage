@@ -86,7 +86,6 @@ const graphData = {
       data: []
     },
     {
-      hidden: true,
       label: 'Livecoin',
       fill: false,
       lineTension: 0.0,
@@ -105,7 +104,8 @@ const graphData = {
       pointHoverBorderWidth: 2,
       pointRadius: 1.5,
       pointHitRadius: 10,
-      data: []
+      data: [],
+      hidden: true
     }
   ],
   options: {
