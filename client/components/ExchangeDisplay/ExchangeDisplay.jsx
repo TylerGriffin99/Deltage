@@ -103,8 +103,8 @@ class ExchangeDisplay extends React.Component {
           <tbody>
             {this.props.receivedData && this.props.tableData.map((data, idx) => {
               let lastCoin = data.allExchanges.length - 1
-              return (
-                <tr key={idx}>
+              return data.allExchanges.length > 0 ? (
+                <tr key={`${data.coin}${data.allExchanges.diff}`}>
                   <td>{data.coin}</td>
                   <td>
                     <img src={`/images/exch-imgs/${data.allExchanges[lastCoin].name}.png`} className = 'exch-img'/>
@@ -128,7 +128,7 @@ class ExchangeDisplay extends React.Component {
                     {Number(data.diff).toFixed(2)}
                   </td>
                 </tr>
-              )
+              ) : null
             })}
           </tbody>
         </table>
