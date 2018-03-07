@@ -17,7 +17,7 @@ class Graph extends React.Component {
 
       <div className= 'graphContainer' >
         <div className="graphHeader">
-          <CurrencySelector />
+          {this.props.rates && <CurrencySelector />}
           <img className = 'coin-img' src='/coins/BTC.png' alt='BTC' style={{width: '40px', verticalAlign: 'text-bottom'}} />&nbsp;
           <h1>Live Bitcoin&ndash;{this.props.dollar[0]}</h1>
         </div>
