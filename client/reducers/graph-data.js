@@ -21,13 +21,6 @@ export function convertGraph (currencies, rates, exchangeData, overrideRate) {
     })
   }
 
-  // const convertedDatasets = []
-
-  //   convertedExchanges.label = exchanges[i].label
-  //   convertedExchanges.data = converted
-  //   convertedDatasets.push(convertedExchanges)
-  // }
-  // convertedGraphData.datasets = convertedDatasets
   return convertedGraphData
 }
 
@@ -45,7 +38,6 @@ const graphReducer = (state = initialState, action) => {
   switch (action.type) {
     case (RECEIVED_GRAPH): {
       const newData = convertGraph(action.currencies, action.rates, action.data, 1)
-      console.log(action.currencies)
       return {
         ...state,
         graph: newData
@@ -53,15 +45,11 @@ const graphReducer = (state = initialState, action) => {
     }
     case (CONVERT_GRAPH): {
       const newData = convertGraph(action.currencies, action.rates, state.graph)
-      console.log(newData)
-      console.log(action.currencies)
-      console.log(action.rates)
       return {
         ...state,
         graph: newData
       }
     }
-    // cdn 10 sec window reducer thing
     default:
       return state
   }

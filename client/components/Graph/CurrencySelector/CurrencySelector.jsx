@@ -14,7 +14,6 @@ class CurrencySelctor extends React.Component {
       .get('https://api.fixer.io/latest?base=USD')
       .then((res) => {
         const rates = res.body.rates
-        console.log(rates)
         this.props.dispatch(sendRates(rates))
       })
       .catch((err) => {
@@ -24,10 +23,6 @@ class CurrencySelctor extends React.Component {
   }
   selectCurrency (evt) {
     const currency = evt.target.value
-    // const currencyCompare = this.props.currencies
-    // currencyCompare.unshift(currency)
-    // currencyCompare.pop()
-
     this.props.dispatch(changeGraphCurrency(currency)).then(() => {
       this.props.dispatch(changeGraph(this.props.currencies, this.props.rates))
     })
