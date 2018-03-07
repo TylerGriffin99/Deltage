@@ -33,6 +33,7 @@ class CurrencySelctor extends React.Component {
     return (
       <div className='currency'>
         <select onChange={this.selectCurrency}>
+          <option value='USD'>USD</option>
           {countries.map((country, idx) => {
             return <option key={idx} value={country}>{country}</option>
           })}
