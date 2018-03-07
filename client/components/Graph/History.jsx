@@ -106,6 +106,14 @@ class History extends Component {
   render () {
     return (
       <div className="graph" >
+        <h1>
+          <img
+            src={`/coins/${this.state.coin}.png`}
+            alt={this.state.coin}
+            style={{width: '40px', verticalAlign: 'text-bottom'}}
+          />&nbsp;
+          {this.state.coin}&ndash;USD for the last {this.state.timePeriod}
+        </h1>
         <select value={this.state.coin} onChange={this.handleCoinChange} className='dropDown'>
           {coins.map(coin => {
             return <option value={coin.code} key={coin.code}>{coin.name}</option>
@@ -120,14 +128,6 @@ class History extends Component {
           <option value='5'>6 Months</option>
           <option value='6'>Year</option>
         </select>
-        <h1>
-          <img
-            src={`/coins/${this.state.coin}.png`}
-            alt={this.state.coin}
-            style={{width: '40px', verticalAlign: 'text-bottom'}}
-          />&nbsp;
-          {this.state.coin}&ndash;USD for the last {this.state.timePeriod}
-        </h1>
         <Bar
           data={this.state.historyGraphData}
           options={this.state.historyGraphData.options}
