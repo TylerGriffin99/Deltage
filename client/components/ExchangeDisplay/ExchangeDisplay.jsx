@@ -39,7 +39,8 @@ class ExchangeDisplay extends React.Component {
   render () {
     return (
       <div className = 'exchangeContainer'>
-        <div>
+        <h1>Top Trades</h1>
+        <div className='checkbox-toggle-container'>
           <form>
         Select the exchanges you participate in
             <label >
@@ -90,8 +91,6 @@ class ExchangeDisplay extends React.Component {
             </label>
           </form>
         </div>
-        <h1>Exchange Container</h1>
-        <h1>Top Trades</h1>
         <table className = 'exchangeTable'>
           <thead>
             <tr className='bolder'>

@@ -1,6 +1,7 @@
 .footer{
     text-align: center;
     margin: 20px;
+    margin-top: 50px;
     font-family: 'Dosis', sans-serif;
     color: black;
     display: flex;
@@ -10,12 +11,35 @@
     justify-content: center;
 
   }
+  .image-logo{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+  }
   .hr-footer{ 
-    height: 160px;
+    height: 100px;
     width: 1px;
     margin: 10px; 
-    color: #e5e5e5; 
-    border: none;  
+    border: 0;
+    border-top: 120px solid #e5e5e5;
+    display: block;
+  }
+
+  @media screen and (max-width: 360px){
+    .hr-footer{
+      height: 1px;
+      width: 100px;
+      margin: 10px;
+      border: 0;
+      border-top: 1px solid #e5e5e5;
+      display: block;
+    }
+    .footer{
+      flex-direction: column;
+    }
   }
 
   .credits{

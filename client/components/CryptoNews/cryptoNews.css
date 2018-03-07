@@ -8,7 +8,8 @@
   flex-direction: row;
   width:700px;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  margin-bottom: 5px;
 }
 .article-container{
   display: flex;
@@ -28,9 +29,12 @@
 }
 
 .horizontal-rule{
-  margin: 5px;
-  color: solid #e5e5e5;
-  border: none;     
+  margin-left: 100px;
+	margin-top: 5px;
+	border-top: 1px solid #e5e5e5;
+  width: 80%;
+  margin-left: 10%;
+	align-items: center;
 }
 .verticle-rule{ 
   border:         none;

@@ -44,6 +44,7 @@ class CryptoNews extends React.Component {
           })
           }
         </div>
+      <hr className='horizontal-rule'/>
       </div>
     )
   }
