@@ -4,7 +4,7 @@ const graphData = require('./graphData')
 const {GRAPH_DATA} = require('../../common/events')
 
 function timeString () {
-  return new Date().toLocaleTimeString()
+  return new Date().toLocaleTimeString('en-NZ')
 }
 
 function getData (sockets) {

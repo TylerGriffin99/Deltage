@@ -28,7 +28,7 @@
     display: block;
   }
 
-  @media screen and (max-width: 360px){
+  @media screen and (max-width: 414px){
     .hr-footer{
       height: 1px;
       width: 100px;

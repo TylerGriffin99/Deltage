@@ -34,8 +34,12 @@
     "start": "node server/",
     "dev": "nodemon --watch server & yarn build --watch",
     "build": "webpack --config ./client/webpack.config.js",
-    "postinstall": "yarn build && knex migrate:latest"
-  },
+    "postinstall": "yarn build && knex migrate:latest",
+    "e2e:sh": "cd ./test/e2e && codeceptjs shell",
+    "e2e:debug": "codeceptjs run -c ./test/e2e/codecept.json --debug",
+    "e2e": "codeceptjs run -c ./test/e2e/codecept.json",
+    "e2e:assert": "yarn e2e && yarn assert"
+     },
   "jest": {
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
@@ -49,7 +53,6 @@
     ]
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -85,6 +88,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "devDependencies": {
+    "codeceptjs-nightmare": "^1.1.0",
     "css-loader": "^0.28.10",
     "enzyme-adapter-react-16": "^1.1.1",
     "identity-obj-proxy": "^3.0.0",
