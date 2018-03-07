@@ -72593,15 +72593,41 @@ var Footer = function (_React$Component) {
                     'div',
                     { className: 'adim-credits' },
                     _react2.default.createElement(
-                        'p',
+                        'h3',
                         null,
-                        'EDA Harakeke-2018 Project by'
+                        ' ',
+                        _react2.default.createElement(
+                            'a',
+                            { href: 'https://devacademy.co.nz/' },
+                            'EDA'
+                        ),
+                        ' Harakeke-2018 Project by'
                     ),
                     _react2.default.createElement('br', null),
                     _react2.default.createElement(
-                        'p',
-                        null,
-                        'Adam, Maddie, Peter, Tim & Tyler'
+                        'a',
+                        { href: 'https://www.linkedin.com/in/adam-kuhn-20803481/' },
+                        'Adam,'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'http://www.allinarow.co.nz/' },
+                        ' Madeleine,'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'http://sim.gen.nz/' },
+                        ' Peter,'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://www.linkedin.com/in/timothy-tolley/' },
+                        ' Timothy &'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://www.linkedin.com/in/tyler-griffin-a8097a77/' },
+                        ' Tyler'
                     )
                 ),
                 _react2.default.createElement('hr', { className: 'hr-footer' }),
@@ -72616,7 +72642,12 @@ var Footer = function (_React$Component) {
                     _react2.default.createElement(
                         'a',
                         { target: '_blank', href: 'https://www.instagram.com/nina.vanlier/' },
-                        'Nina Van Lier - Graphic Designer'
+                        _react2.default.createElement('img', { className: 'nina-logo', src: '/images/nina.png', alt: 'nina logo' }),
+                        _react2.default.createElement(
+                            'h3',
+                            null,
+                            'Nina Van Lier'
+                        )
                     ),
                     _react2.default.createElement(
                         'div',
@@ -72701,7 +72732,7 @@ exports = module.exports = __webpack_require__(10)(false);
 
 
 // module
-exports.push([module.i, ".footer {\n  text-align: center;\n  margin: 20px;\n  margin-top: 50px;\n  font-family: 'Dosis', sans-serif;\n  color: black;\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.image-logo {\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.hr-footer {\n  height: 100px;\n  width: 1px;\n  margin: 10px;\n  border: 0;\n  border-top: 120px solid #e5e5e5;\n  display: block; }\n\n@media screen and (max-width: 360px) {\n  .hr-footer {\n    height: 1px;\n    width: 100px;\n    margin: 10px;\n    border: 0;\n    border-top: 1px solid #e5e5e5;\n    display: block; }\n  .footer {\n    flex-direction: column; } }\n\n.credits {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center; }\n\n.credits > a {\n  text-decoration: none;\n  color: black; }\n\n.cryto-logo {\n  width: 100px; }\n\n.news-logo {\n  width: 100px; }\n", ""]);
+exports.push([module.i, ".footer {\n  text-align: center;\n  margin: 20px;\n  margin-top: 50px;\n  font-family: 'Dosis', sans-serif;\n  color: black;\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.image-logo {\n  display: flex;\n  flex-wrap: wrap;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.hr-footer {\n  height: 100px;\n  width: 1px;\n  margin: 10px;\n  border: 0;\n  border-top: 120px solid #e5e5e5;\n  display: block; }\n\n@media screen and (max-width: 360px) {\n  .hr-footer {\n    height: 1px;\n    width: 100px;\n    margin: 10px;\n    border: 0;\n    border-top: 1px solid #e5e5e5;\n    display: block; }\n  .footer {\n    flex-direction: column; } }\n\n.credits {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center; }\n\n.adim-credits > a {\n  text-decoration: none;\n  color: black; }\n\n.credits > a {\n  text-decoration: none;\n  color: black;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center; }\n\n.cryto-logo {\n  width: 50px; }\n\n.news-logo {\n  width: 70px; }\n\n.nina-logo {\n  width: 20px; }\n", ""]);
 
 // exports
 

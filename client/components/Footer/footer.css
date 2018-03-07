@@ -48,14 +48,25 @@
   align-items: center;
   justify-content: center;
   }
-  .credits > a {
+  .adim-credits > a {
     text-decoration: none;
     color: black;
   }
-
+  .credits > a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .cryto-logo{
-    width: 100px;
+    width: 50px;
   }
   .news-logo{
-    width: 100px;
+    width: 70px;
+  }
+  .nina-logo{
+    width: 20px;
   }
