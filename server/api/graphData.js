@@ -86,6 +86,7 @@ const graphData = {
       data: []
     },
     {
+      hidden: true,
       label: 'Livecoin',
       fill: false,
       lineTension: 0.0,
@@ -114,7 +115,10 @@ const graphData = {
       },
       yAxes: [{
         ticks: {
-          fontFamily: 'Dosis'
+          fontFamily: 'Dosis',
+          callback: (label, index, labels) => {
+            return '$' + label.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 5})
+          }
         }
       }],
       xAxes: [{
@@ -132,6 +136,3 @@ const graphData = {
 }
 
 module.exports = graphData
-
-// colour way for future line on the graph
-// #3366cc (51, 102, 204) blue
