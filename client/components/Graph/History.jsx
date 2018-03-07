@@ -9,7 +9,7 @@ import {coins} from './coins'
 const request = require('superagent')
 
 class History extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
@@ -24,40 +24,40 @@ class History extends Component {
     this.apiURL = this.apiURL.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getData()
   }
 
-  timeString(secs) {
+  timeString (secs) {
     return (this.state.period < 2)
       ? new Date(secs * 1000).toLocaleTimeString('en-NZ')
       : new Date(secs * 1000).toLocaleDateString('en-NZ')
   }
 
-  apiURL() {
+  apiURL () {
     const coin = this.state.coin
     const baseURL = 'https://min-api.cryptocompare.com/data/'
     switch (this.state.period) {
       case 0:
-        this.setState({ timePeriod: 'Hour' })
+        this.setState({timePeriod: 'Hour'})
         return `${baseURL}histominute?fsym=${coin}&tsym=USD&limit=60&aggregate=1&e=CCCAGG`
       case 1:
-        this.setState({ timePeriod: 'Day' })
+        this.setState({timePeriod: 'Day'})
         return `${baseURL}histominute?fsym=${coin}&tsym=USD&limit=72&aggregate=20&e=CCCAGG`
       case 2:
-        this.setState({ timePeriod: 'Week' })
+        this.setState({timePeriod: 'Week'})
         return `${baseURL}histohour?fsym=${coin}&tsym=USD&limit=56&aggregate=3&e=CCCAGG`
       case 3:
-        this.setState({ timePeriod: 'Month' })
+        this.setState({timePeriod: 'Month'})
         return `${baseURL}histohour?fsym=${coin}&tsym=USD&limit=60&aggregate=12&e=CCCAGG`
       case 4:
-        this.setState({ timePeriod: '3 Months' })
+        this.setState({timePeriod: '3 Months'})
         return `${baseURL}histoday?fsym=${coin}&tsym=USD&limit=90&aggregate=1&e=CCCAGG`
       case 5:
-        this.setState({ timePeriod: '6 Months' })
+        this.setState({timePeriod: '6 Months'})
         return `${baseURL}histoday?fsym=${coin}&tsym=USD&limit=90&aggregate=2&e=CCCAGG`
       case 6:
-        this.setState({ timePeriod: 'Year' })
+        this.setState({timePeriod: 'Year'})
         return `${baseURL}histoday?fsym=${coin}&tsym=USD&limit=90&aggregate=4&e=CCCAGG`
       default:
         return 'Error'
@@ -91,19 +91,19 @@ class History extends Component {
       })
   }
 
-  handleCoinChange(event) {
-    this.setState({ coin: event.target.value }, () => {
+  handleCoinChange (event) {
+    this.setState({coin: event.target.value}, () => {
       this.getData()
     })
   }
 
-  handleTimeChange(event) {
-    this.setState({ period: Number(event.target.value) }, () => {
+  handleTimeChange (event) {
+    this.setState({period: Number(event.target.value)}, () => {
       this.getData()
     })
   }
 
-  render() {
+  render () {
     return (
       <div className="graph" >
         <select value={this.state.coin} onChange={this.handleCoinChange} className='dropDown'>
