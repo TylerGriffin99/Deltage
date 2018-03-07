@@ -8,7 +8,7 @@ const initialState = {
 }
 
 export function convertGraph (currencies, rates, exchangeData, overrideRate) {
-  // const exchanges = exchangeData.datasets
+  // use spread operator to not overwrite all the data
   const convertedGraphData = {
     ...exchangeData,
     datasets: exchangeData.datasets.map(exchange => {
