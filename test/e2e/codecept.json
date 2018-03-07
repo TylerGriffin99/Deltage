@@ -1,0 +1,21 @@
+{
+  "output": "./logs",
+  "helpers": {
+    "Nightmare": {
+      "url": "http://localhost:3000",
+      "show": false,
+      "restart": false
+    }
+  },
+  "include": {
+    "registeredUser": "./personas/registered.js",
+    "signinPage": "./pages/signin.js"
+  },
+  "mocha": {},
+  "bootstrap": false,
+  "teardown": null,
+  "hooks": [],
+  "tests": "./tests/*.js",
+  "timeout": 10000,
+  "name": "config"
+}

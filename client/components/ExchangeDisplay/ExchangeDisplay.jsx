@@ -38,60 +38,65 @@ class ExchangeDisplay extends React.Component {
 
   render () {
     return (
-      <div className = 'exchangeContainer'>
+      <div className='exchangeContainer'>
         <h1>Top Trades</h1>
-        <div className='checkbox-toggle-container'>
-          <form>
-        Select the exchanges you participate in
-            <label >
-          Bittrex:
-              <input
-                name="bittrex"
-                type="checkbox"
-                checked={this.state.bittrex}
-                onChange={this.handleInputChange} />
-              <span className = "slider"></span>
-            </label>
-            <br />
-            <label >
-          Poloniex:
-              <input
-                name="poloniex"
-                type="checkbox"
-                checked={this.state.poloniex}
-                onChange={this.handleInputChange} />
-              <span className = "slider"></span>
-            </label>
-            <label >
-          Kraken:
-              <input
-                name="kraken"
-                type="checkbox"
-                checked={this.state.kraken}
-                onChange={this.handleInputChange} />
-              <span className = "slider"></span>
-            </label>
-            <label >
-          LiveCoin:
-              <input
-                name="livecoin"
-                type="checkbox"
-                checked={this.state.livecoin}
-                onChange={this.handleInputChange} />
-              <span className = "slider"></span>
-            </label>
-            <label >
-          Bitfinex:
-              <input
-                name="bitfinex"
-                type="checkbox"
-                checked={this.state.bitfinex}
-                onChange={this.handleInputChange} />
-              <span className = "slider"></span>
-            </label>
-          </form>
+        <div className='main-pairs-container'>
+          <div className='check-row-5'>
+            <form>
+              <p>Bittrex:</p>
+              <label className="displaySwitch">
+                <input
+                  className='checkbox'
+                  name="bittrex"
+                  type="checkbox"
+                  checked={this.state.bittrex}
+                  onChange={this.handleInputChange} />
+                <span className="slider"></span>
+              </label>
+              <p>Poloniex:</p>
+              <label className="displaySwitch">
+                <input
+                  className='checkbox'
+                  name="poloniex"
+                  type="checkbox"
+                  checked={this.state.poloniex}
+                  onChange={this.handleInputChange} />
+                <span className="slider"></span>
+              </label>
+              <p>Kraken:</p>
+              <label className="displaySwitch">
+                <input
+                  className='checkbox'
+                  name="kraken"
+                  type="checkbox"
+                  checked={this.state.kraken}
+                  onChange={this.handleInputChange} />
+                <span className="slider"></span>
+              </label>
+              <p>LiveCoin:</p>
+              <label className="displaySwitch">
+                <input
+                  className='checkbox'
+                  name="livecoin"
+                  type="checkbox"
+                  checked={this.state.livecoin}
+                  onChange={this.handleInputChange} />
+                <span className="slider"></span>
+              </label>
+              <p>Bitfinex:</p>
+              <label className="displaySwitch">
+                <input
+                  className='checkbox'
+                  name="bitfinex"
+                  type="checkbox"
+                  checked={this.state.bitfinex}
+                  onChange={this.handleInputChange} />
+                <span className="slider"></span>
+              </label>
+            </form>
+          </div>
         </div>
-        <table className = 'exchangeTable'>
+        <table className='exchangeTable'>
           <thead>
             <tr className='bolder'>
               <th> Coin </th>
@@ -107,7 +112,7 @@ class ExchangeDisplay extends React.Component {
                 <tr key={`${data.coin}${data.allExchanges.diff}`}>
                   <td>{data.coin}</td>
                   <td>
-                    <img src={`/images/exch-imgs/${data.allExchanges[lastCoin].name}.png`} className = 'exch-img'/>
+                    <img src={`/images/exch-imgs/${data.allExchanges[lastCoin].name}.png`} className='exch-img' />
                     <p>
                       Last Price: {Number(data.allExchanges[lastCoin].lastPrice).toFixed(6)}
                     </p>
@@ -116,7 +121,7 @@ class ExchangeDisplay extends React.Component {
                     </p>
                   </td>
                   <td>
-                    <img src={`/images/exch-imgs/${data.allExchanges[0].name}.png`} className = 'exch-img'/>
+                    <img src={`/images/exch-imgs/${data.allExchanges[0].name}.png`} className='exch-img' />
                     <p>
                       Last Price: {Number(data.allExchanges[0].lastPrice).toFixed(6)}
                     </p>
