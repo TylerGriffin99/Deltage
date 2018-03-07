@@ -22,10 +22,17 @@ const initialState = {
   diff: 0,
   timestamp: ''
 }
-test('best-trade returns data', () => {
-    const action = {
-      type: RECEIVE_DATA
-    }
-    const newState = bestTrade(initialState, action)
-    expect(newState).toBe(action.data[0])
-  })
+
+test('best-trade returns data Top Trad', () => {
+  const data = [{
+    trade: 'best trade'
+  },
+  {data: 'worse trade'}
+  ]
+  const action = {
+    type: RECEIVE_DATA,
+    data
+  }
+  const newState = bestTrade(initialState, action)
+  expect(newState).toBe(action.data[0])
+})
