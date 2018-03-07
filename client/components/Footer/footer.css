@@ -52,6 +52,10 @@
     text-decoration: none;
     color: black;
   }
+  .adim-credits > h3 > a {
+    text-decoration: none;
+    color: black;
+  }
   .credits > a {
     text-decoration: none;
     color: black;
