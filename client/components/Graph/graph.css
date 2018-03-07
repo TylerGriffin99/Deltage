@@ -1,26 +1,32 @@
-.graph{
-    margin: 10px;
+.graphContainer {
+    width: 700px;
+}
+
+.graph {
     width: 700px;
     font-family: 'Dosis', sans-serif;
     text-align: center;
     position: relative;
-    
 }
+
 h1{
     text-align: center;
 }
-@media screen and (max-width: 700px){
-    .graph{
-      width: 100%;
-      padding: 5px;
+
+@media only screen and (max-width: 700px) {
+    .graphContainer {
+        width: 100%;
     }
 }
 
-.graphHeader{
-    display: block;
-    margin-left: auto;
-    margin-right: auto 
+.graphHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-.graphHeader > h1, .graphHeader > img{
-display: inline;
+
+.coin-img {
+    width: 30px;
+    padding: 5px;
 }
