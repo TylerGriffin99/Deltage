@@ -15,22 +15,15 @@ class Graph extends React.Component {
   render () {
     return (
 
-      <div>
-        <CurrencySelector />
-        <div className="graph">
-          <div className="graphHeader">
-            <img src='/coins/BTC.png' alt='BTC' style={{width: '40px', verticalAlign: 'text-bottom'}} />&nbsp;
-            <h1>Live Bitcoin&ndash;{this.props.dollar[0]}</h1>
-          </div>
-          <br />
-          {!this.props.display && <GraphLoading />}
-          {this.props.display &&
-          <Line
-            data={this.props.graph}
-            options={this.props.graph.options}
-          />}
-
+      <div className= 'graphContainer' >
+        <div className="graphHeader">
+          <CurrencySelector />
+          <img className = 'coin-img' src='/coins/BTC.png' alt='BTC' style={{width: '40px', verticalAlign: 'text-bottom'}} />&nbsp;
+          <h1>Live Bitcoin&ndash;{this.props.dollar[0]}</h1>
         </div>
+        <br />
+        {!this.props.display && <GraphLoading />}
+        {this.props.display && <Line data={this.props.graph} options={this.props.graph.options} />}
       </div>
     )
   }
