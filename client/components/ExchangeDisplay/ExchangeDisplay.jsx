@@ -1,11 +1,11 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {filterMainTopFive} from '../../actions/filterMainTopFive'
+import { connect } from 'react-redux'
+import { filterMainTopFive } from '../../actions/filterMainTopFive'
 
 import './exchangeDisplay.css'
 
 class ExchangeDisplay extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       bittrex: true,
@@ -17,7 +17,7 @@ class ExchangeDisplay extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
-  handleInputChange (e) {
+  handleInputChange(e) {
     this.setState({
       [e.target.name]: e.target.checked
     }, () => {
@@ -25,9 +25,9 @@ class ExchangeDisplay extends React.Component {
     })
   }
 
-  callDispatch (state) {
+  callDispatch(state) {
     let arr = []
-    function filterArr (state) {
+    function filterArr(state) {
       for (let item in state) {
         if (state[item] === true) arr.push(item)
       }
@@ -36,62 +36,67 @@ class ExchangeDisplay extends React.Component {
     this.props.dispatch(filterMainTopFive(arr))
   }
 
-  render () {
+  render() {
     return (
-      <div className = 'exchangeContainer'>
+      <div className='exchangeContainer'>
         <h1>Top Trades</h1>
-        <div className='checkbox-toggle-container'>
+        <div className='main-pairs-container'>
+        <div className='check-row-5'>
           <form>
-        Select the exchanges you participate in
-            <label >
-          Bittrex:
+          <p>Bittrex:</p>
+            <label className="displaySwitch">
               <input
+                className='checkbox'
                 name="bittrex"
                 type="checkbox"
                 checked={this.state.bittrex}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className="slider"></span>
             </label>
-            <br />
-            <label >
-          Poloniex:
+            <p>Poloniex:</p>
+            <label className="displaySwitch">
               <input
+                className='checkbox'
                 name="poloniex"
                 type="checkbox"
                 checked={this.state.poloniex}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className="slider"></span>
             </label>
-            <label >
-          Kraken:
+            <p>Kraken:</p>
+            <label className="displaySwitch">
               <input
+                className='checkbox'
                 name="kraken"
                 type="checkbox"
                 checked={this.state.kraken}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className="slider"></span>
             </label>
-            <label >
-          LiveCoin:
+            <p>LiveCoin:</p>
+            <label className="displaySwitch">
               <input
+                className='checkbox'
                 name="livecoin"
                 type="checkbox"
                 checked={this.state.livecoin}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className="slider"></span>
             </label>
-            <label >
-          Bitfinex:
+            <p>Bitfinex:</p>
+            <label className="displaySwitch">
               <input
+                className='checkbox'
                 name="bitfinex"
                 type="checkbox"
                 checked={this.state.bitfinex}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className="slider"></span>
             </label>
           </form>
         </div>
-        <table className = 'exchangeTable'>
+        </div>
+        <table className='exchangeTable'>
           <thead>
             <tr className='bolder'>
               <th> Coin </th>
@@ -107,7 +112,7 @@ class ExchangeDisplay extends React.Component {
                 <tr key={`${data.coin}${data.allExchanges.diff}`}>
                   <td>{data.coin}</td>
                   <td>
-                    <img src={`/images/exch-imgs/${data.allExchanges[lastCoin].name}.png`} className = 'exch-img'/>
+                    <img src={`/images/exch-imgs/${data.allExchanges[lastCoin].name}.png`} className='exch-img' />
                     <p>
                       Last Price: {Number(data.allExchanges[lastCoin].lastPrice).toFixed(6)}
                     </p>
@@ -116,7 +121,7 @@ class ExchangeDisplay extends React.Component {
                     </p>
                   </td>
                   <td>
-                    <img src={`/images/exch-imgs/${data.allExchanges[0].name}.png`} className = 'exch-img'/>
+                    <img src={`/images/exch-imgs/${data.allExchanges[0].name}.png`} className='exch-img' />
                     <p>
                       Last Price: {Number(data.allExchanges[0].lastPrice).toFixed(6)}
                     </p>
@@ -137,7 +142,7 @@ class ExchangeDisplay extends React.Component {
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     receivedData: state.receivedData,
     tableData: state.exchangeTable.sortedData,

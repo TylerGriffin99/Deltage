@@ -30,10 +30,11 @@
 
 .horizontal-rule{
   margin-left: 100px;
-	margin-top: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 	border-top: 1px solid #e5e5e5;
-  width: 80%;
-  margin-left: 10%;
+  width: 90%;
+  margin-left: 5%;
 	align-items: center;
 }
 .verticle-rule{ 
