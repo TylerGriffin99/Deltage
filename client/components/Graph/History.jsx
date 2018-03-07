@@ -4,6 +4,7 @@ import {Bar} from 'react-chartjs-2'
 
 import './graph.css'
 import historyGraphData from './historyGraphData'
+import {coins} from './coins'
 
 const request = require('superagent')
 
@@ -106,25 +107,9 @@ class History extends Component {
     return (
       <div className="graph" >
         <select value={this.state.coin} onChange={this.handleCoinChange} className='dropDown'>
-          <option value='BTC'>Bitcoin</option>
-          <option value='BCH'>Bitcoin Cash</option>
-          <option value='CLAM'>CLAMS</option>
-          <option value='DASH'>DigitalCash</option>
-          <option value='DOGE'>Dogecoin</option>
-          <option value='EOS'>EOS</option>
-          <option value='ETH'>Ethereum</option>
-          <option value='ETC'>Ethereum Classic</option>
-          <option value='FLO'>FlorinCoin</option>
-          <option value='GNO'>Gnosis</option>
-          <option value='HT'>Huobi Token</option>
-          <option value='LTC'>Litecoin</option>
-          <option value='MLN'>Melon</option>
-          <option value='XMR'>Monero</option>
-          <option value='NEO'>NEO</option>
-          <option value='XRP'>Ripple</option>
-          <option value='STEEM'>Steem</option>
-          <option value='TRX'>Tronix</option>
-          <option value='XVC'>Vcash</option>
+          {coins.map(coin => {
+            return <option value={coin.code} key={coin.code}>{coin.name}</option>
+          })}
         </select>&nbsp;
         <select value={this.state.period} onChange={this.handleTimeChange} className='dropDown'>
           <option value='0'>Hour</option>

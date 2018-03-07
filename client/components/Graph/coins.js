@@ -1,4 +1,4 @@
-exports.coins = [
+export const coins = [
   {code: 'REP', name: 'Augur'},
   {code: 'BTC', name: 'Bitcoin'},
   {code: 'BCH', name: 'Bitcoin Cash'},
