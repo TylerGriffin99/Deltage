@@ -39,7 +39,7 @@
     "e2e:debug": "codeceptjs run -c ./test/e2e/codecept.json --debug",
     "e2e": "codeceptjs run -c ./test/e2e/codecept.json",
     "e2e:assert": "yarn e2e && yarn assert"
-     },
+  },
   "jest": {
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"

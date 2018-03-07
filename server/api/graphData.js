@@ -108,6 +108,7 @@ const graphData = {
     }
   ],
   options: {
+    responsive: true,
     scales: {
       pointLabels: {
         fontFamily: 'Dosis'
