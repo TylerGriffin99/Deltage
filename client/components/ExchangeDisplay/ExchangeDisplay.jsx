@@ -40,6 +40,10 @@ class ExchangeDisplay extends React.Component {
   handleTopTrades (evt) {
     const numberOfTrades = Number(evt.target.value)
     console.log(numberOfTrades)
+    // sending all the data breaks the exchange filter on the filter table
+    // only works before data is received again
+    // can potentially store the selected value in store and use that value
+    // as a reference for both the amount of trades to show, and the exchange filters
     this.props.dispatch(coinData(this.props.data, numberOfTrades))
   }
 
