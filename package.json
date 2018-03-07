@@ -34,7 +34,10 @@
     "start": "node server/",
     "dev": "nodemon --watch server & yarn build --watch",
     "build": "webpack --config ./client/webpack.config.js",
-    "postinstall": "knex migrate:latest",
+    "e2e:sh": "cd ./test/e2e && codeceptjs shell",
+    "e2e:debug": "codeceptjs run -c ./test/e2e/codecept.json --debug",
+    "e2e": "codeceptjs run -c ./test/e2e/codecept.json",
+    "e2e:assert": "yarn e2e && yarn assert",
     "postinstall": "webpack && knex migrate:latest"
   },
   "babel": {
@@ -82,6 +85,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "devDependencies": {
+    "codeceptjs-nightmare": "^1.1.0",
     "css-loader": "^0.28.10",
     "enzyme": "^2.8.2",
     "jest": "^22.3.0",
