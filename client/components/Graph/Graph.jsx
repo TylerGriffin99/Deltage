@@ -16,7 +16,7 @@ class Graph extends React.Component {
     return (
 
       <div>
-        <CurrencySelector />
+        {this.props.rates && <CurrencySelector />}
         <div className="graph">
           <div className="graphHeader">
             <img src='/coins/BTC.png' alt='BTC' style={{width: '40px', verticalAlign: 'text-bottom'}} />&nbsp;
@@ -29,7 +29,6 @@ class Graph extends React.Component {
             data={this.props.graph}
             options={this.props.graph.options}
           />}
-
         </div>
       </div>
     )
