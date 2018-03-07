@@ -23,7 +23,7 @@ const initialState = {
   timestamp: ''
 }
 
-test('best-trade returns data Top Trad', () => {
+test('best-trade returns data Top Trade', () => {
   const data = [{
     trade: 'best trade'
   },

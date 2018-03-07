@@ -31,7 +31,7 @@ function getData (sockets) {
     .then(res => {
       return res.body.USD
     })
-    const livecoin = request
+  const livecoin = request
     .get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=livecoin')
     .then(res => {
       return res.body.USD
