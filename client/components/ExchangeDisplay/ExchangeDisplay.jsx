@@ -50,7 +50,7 @@ class ExchangeDisplay extends React.Component {
                 type="checkbox"
                 checked={this.state.bittrex}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className = "slider"></span>
             </label>
             <br />
             <label >
@@ -60,7 +60,7 @@ class ExchangeDisplay extends React.Component {
                 type="checkbox"
                 checked={this.state.poloniex}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className = "slider"></span>
             </label>
             <label >
           Kraken:
@@ -69,7 +69,7 @@ class ExchangeDisplay extends React.Component {
                 type="checkbox"
                 checked={this.state.kraken}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className = "slider"></span>
             </label>
             <label >
           LiveCoin:
@@ -78,7 +78,7 @@ class ExchangeDisplay extends React.Component {
                 type="checkbox"
                 checked={this.state.livecoin}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className = "slider"></span>
             </label>
             <label >
           Bitfinex:
@@ -87,7 +87,7 @@ class ExchangeDisplay extends React.Component {
                 type="checkbox"
                 checked={this.state.bitfinex}
                 onChange={this.handleInputChange} />
-              {/* <span className = "slider"></span> */}
+              <span className = "slider"></span>
             </label>
           </form>
         </div>

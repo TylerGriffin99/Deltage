@@ -34,7 +34,6 @@
     "start": "node server/",
     "dev": "nodemon --watch server & yarn build --watch",
     "build": "webpack --config ./client/webpack.config.js",
-    "postinstall": "knex migrate:latest",
     "postinstall": "webpack && knex migrate:latest"
   },
   "babel": {
@@ -45,7 +44,6 @@
     ]
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
