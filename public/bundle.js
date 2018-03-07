@@ -74362,9 +74362,9 @@ var ExchangeDisplay = function (_React$Component) {
             null,
             this.props.receivedData && this.props.tableData.map(function (data, idx) {
               var lastCoin = data.allExchanges.length - 1;
-              return _react2.default.createElement(
+              return data.allExchanges.length > 0 ? _react2.default.createElement(
                 'tr',
-                { key: idx },
+                { key: '' + data.coin + data.allExchanges.diff },
                 _react2.default.createElement(
                   'td',
                   null,
@@ -74409,7 +74409,7 @@ var ExchangeDisplay = function (_React$Component) {
                   null,
                   Number(data.diff).toFixed(2)
                 )
-              );
+              ) : null;
             })
           )
         )
