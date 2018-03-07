@@ -31,6 +31,7 @@ th, td {
 .check-row {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     margin:5px;
@@ -59,6 +60,7 @@ th, td {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+    border-radius: 2px;
   }
   
   .slider:before {
@@ -71,6 +73,7 @@ th, td {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+    border-radius: 2px;
   }
 
 input:checked + .slider {
@@ -100,10 +103,16 @@ input:checked + .slider:before {
       width: 100%;
       padding: 10px;
     }
+   
 }
 @media screen and (max-width: 458px){
     th, td{
         padding: 0;
         font-size: 100%;
+    }
+}
+@media screen and (max-width: 630px){
+    .check-row{
+    width: 315px;
     }
 }

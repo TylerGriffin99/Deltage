@@ -84,6 +84,27 @@ const graphData = {
       pointRadius: 1.5,
       pointHitRadius: 10,
       data: []
+    },
+    {
+      label: 'Livecoin',
+      fill: false,
+      lineTension: 0.0,
+      backgroundColor: 'rgba(51, 102, 204,0.4)',
+      borderColor: 'rgba(51, 102, 204,1)',
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 1.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: 'rgba(51, 102, 204,1)',
+      pointBackgroundColor: '#fff',
+      pointBorderWidth: 0.5,
+      pointHoverRadius: 2,
+      pointHoverBackgroundColor: 'rgba(51, 102, 204,1)',
+      pointHoverBorderColor: 'rgba(220,220,220,1)',
+      pointHoverBorderWidth: 2,
+      pointRadius: 1.5,
+      pointHitRadius: 10,
+      data: []
     }
   ],
   options: {
