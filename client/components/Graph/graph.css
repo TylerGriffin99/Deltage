@@ -19,6 +19,12 @@ h1{
     }
 }
 
+@media only screen and (max-width: 700px) {
+    .graph {
+        width: 100%;
+    }
+}
+
 .graphHeader {
     display: flex;
     flex-direction: row;
