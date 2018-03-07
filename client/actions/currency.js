@@ -29,6 +29,5 @@ export const changeGraphCurrency = (currency) => {
   return (dispatch) => {
     dispatch(changeCurrency(currency))
     return Promise.resolve()
-  
   }
 }

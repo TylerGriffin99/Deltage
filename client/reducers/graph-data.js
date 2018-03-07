@@ -37,12 +37,14 @@ export function convertCurrency (currencies, rates, price, overrideRate) {
 const graphReducer = (state = initialState, action) => {
   switch (action.type) {
     case (RECEIVED_GRAPH): {
+      // exchange rates are USD based, so is data from server
       const newData = convertGraph(action.currencies, action.rates, action.data, 1)
       return {
         ...state,
         graph: newData
       }
     }
+    // convert value based on difference in exchange rates
     case (CONVERT_GRAPH): {
       const newData = convertGraph(action.currencies, action.rates, state.graph)
       return {
