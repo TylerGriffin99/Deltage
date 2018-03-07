@@ -37,19 +37,22 @@ function getCoinData (state, action) {
 }
 
 const exchangeTable = (state = initialState, action) => {
+
   switch (action.type) {
     case (FILTER_TOP_DATA): {
+      console.log('filter red', action.topTrades)
       return {
         filters: action.filters,
         data: state.data,
-        sortedData: getCoinData({filters: action.filters}, {data: state.data}).slice(0, 10)
+        sortedData: getCoinData({filters: action.filters}, {data: state.data}).slice(0, action.topTrades)
       }
     }
     case (RECEIVE_DATA): {
+      console.log('receive exchnage red', action.topTrades)
       return {
         filters: state.filters,
         data: action.data,
-        sortedData: getCoinData(state, action).slice(0, 10)
+        sortedData: getCoinData(state, action).slice(0, action.topTrades)
       }
     }
     default:

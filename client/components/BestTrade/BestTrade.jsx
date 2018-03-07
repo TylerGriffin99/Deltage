@@ -47,7 +47,6 @@ function mapStateToProps (state) {
   return {
     receivedData: state.receivedData.receivedData,
     bestTrade: state.bestTrade
-
   }
 }
 

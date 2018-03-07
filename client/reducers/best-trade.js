@@ -24,6 +24,7 @@ const initialState = {
 const bestTrade = (state = initialState, action) => {
   switch (action.type) {
     case (RECEIVE_DATA): {
+      console.log(action.data[0])
       return action.data[0]
     }
     default:

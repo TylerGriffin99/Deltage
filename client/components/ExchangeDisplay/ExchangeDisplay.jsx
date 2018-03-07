@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {filterMainTopFive} from '../../actions/filterMainTopFive'
-
+import {coinData} from '../../actions'
 import './exchangeDisplay.css'
 
 class ExchangeDisplay extends React.Component {
@@ -15,6 +15,7 @@ class ExchangeDisplay extends React.Component {
       bitfinex: true
     }
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleTopTrades = this.handleTopTrades.bind(this)
   }
 
   handleInputChange (e) {
@@ -34,6 +35,12 @@ class ExchangeDisplay extends React.Component {
     }
     filterArr(state)
     this.props.dispatch(filterMainTopFive(arr))
+  }
+
+  handleTopTrades (evt) {
+    const numberOfTrades = Number(evt.target.value)
+    console.log(numberOfTrades)
+    this.props.dispatch(coinData(this.props.data, numberOfTrades))
   }
 
   render () {
@@ -95,6 +102,12 @@ class ExchangeDisplay extends React.Component {
               </label>
             </form>
           </div>
+          <select onChange={this.handleTopTrades}>
+            <option value='5'>5</option>
+            <option value='10'>10</option>
+            <option value='15'>15</option>
+            <option value='20'>20</option>
+          </select>
         </div>
         <table className='exchangeTable'>
           <thead>
@@ -146,7 +159,8 @@ function mapStateToProps (state) {
   return {
     receivedData: state.receivedData,
     tableData: state.exchangeTable.sortedData,
-    filters: state.exchangeTable.filters
+    filters: state.exchangeTable.filters,
+    data: state.exchangeTable.data
   }
 }
 
