@@ -104,7 +104,8 @@ const graphData = {
       pointHoverBorderWidth: 2,
       pointRadius: 1.5,
       pointHitRadius: 10,
-      data: []
+      data: [],
+      hidden: true
     }
   ],
   options: {
@@ -115,10 +116,10 @@ const graphData = {
       yAxes: [{
         ticks: {
           fontFamily: 'Dosis',
-            callback: (label, index, labels) => {
-              return '$' + label.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 5})
-            },
+          callback: (label, index, labels) => {
+            return '$' + label.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 5})
           }
+        }
       }],
       xAxes: [{
         ticks: {
@@ -135,6 +136,3 @@ const graphData = {
 }
 
 module.exports = graphData
-
-// colour way for future line on the graph
-// #3366cc (51, 102, 204) blue
