@@ -1,5 +1,4 @@
 .graph{
-    margin: 10px;
     width: 700px;
     font-family: 'Dosis', sans-serif;
     text-align: center;
@@ -9,12 +8,50 @@
 h1{
     text-align: center;
 }
-@media screen and (max-width: 700px){
-    .graph{
-      width: 100%;
-      padding: 5px;
+
+@media only screen and (max-width: 700px) {
+    .graph {
+        width: 100%;
     }
 }
+
+/* @media only screen and (max-width: 700px) {
+    .graph {
+        width: 650px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .graph {
+        width: 600px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .graph {
+        width: 550px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .graph {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .graph {
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .graph {
+        width: 400px;
+    }
+} */
+
+
 
 .graphHeader{
     display: block;

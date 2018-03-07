@@ -115,10 +115,10 @@ const graphData = {
       yAxes: [{
         ticks: {
           fontFamily: 'Dosis',
-            callback: (label, index, labels) => {
-              return '$' + label.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 5})
-            },
+          callback: (label, index, labels) => {
+            return '$' + label.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 5})
           }
+        }
       }],
       xAxes: [{
         ticks: {
