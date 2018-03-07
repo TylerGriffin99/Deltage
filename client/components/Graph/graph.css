@@ -15,3 +15,21 @@ h1{
       padding: 5px;
     }
 }
+
+select {
+    height: 40px;
+    width: 170px;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+    font-size:100%;
+    font-family: 'Dosis', sans-serif;
+    margin: 2px; 
+}
+select:focus {
+        border: 1px solid rgb(83, 83, 83);
+        outline: 0; 
+    }
