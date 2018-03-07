@@ -5,18 +5,22 @@ const graphData = {
   datasets: [
     {
       label: 'BitTrex',
+      color: 'red',
       data: [2, 2, 4]
     },
     {
       label: 'Poloniex',
+      color: 'black',
       data: [2, 4, 12]
     },
     {
       label: 'Kraken',
+      border: 'bold',
       data: [2, 2, 2]
     },
     {
       label: 'Bitfinex',
+      border: 'thin',
       data: [10, 10, 10]
     }
   ]
@@ -29,18 +33,22 @@ test('convertGraph converts data', () => {
   const expected = {
     datasets: [
       {label: 'BitTrex',
+        color: 'red',
         data: [1, 1, 2]
       },
       {
         label: 'Poloniex',
+        color: 'black',
         data: [1, 2, 6]
       },
       {
         label: 'Kraken',
+        border: 'bold',
         data: [1, 1, 1]
       },
       {
         label: 'Bitfinex',
+        border: 'thin',
         data: [5, 5, 5]
       }
     ]
@@ -78,9 +86,18 @@ test('convertCurrency converts currencies', () => {
 
 test('convertCurrency converts currencies', () => {
   const currencies = ['CAD', 'USD']
-  const rates = {USD: 1, NZD: 2, CAD: 4}
+  const rates = {NZD: 2, CAD: 4}
   const price = 5
   const expected = 20
   const actual = convertCurrency(currencies, rates, price)
+  expect(actual).toBe(expected)
+})
+
+test('convertCurrency converts  from server', () => {
+  const currencies = ['CAD', 'NZD']
+  const rates = {NZD: 2, CAD: 4}
+  const price = 5
+  const expected = 20
+  const actual = convertCurrency(currencies, rates, price, 1)
   expect(actual).toBe(expected)
 })

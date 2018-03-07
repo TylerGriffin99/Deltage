@@ -11,10 +11,12 @@ export const coinData = (data) => {
   }
 }
 
-export const graphData = (data) => {
+export const graphData = (data, currencies, rates) => {
   return {
     type: RECEIVED_GRAPH,
-    data
+    data,
+    currencies,
+    rates
   }
 }
 
@@ -26,9 +28,10 @@ export const getCoinData = () => {
   }
 }
 export const getGraphData = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
     socket.on(GRAPH_DATA, (data) => {
-      dispatch(graphData(data))
+      const state = getState()
+      dispatch(graphData(data, state.currency.dollar, state.currency.rates))
     })
   }
 }
