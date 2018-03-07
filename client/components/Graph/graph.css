@@ -33,3 +33,11 @@ select:focus {
         border: 1px solid rgb(83, 83, 83);
         outline: 0; 
     }
+.graphHeader{
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+.graphHeader > h1, .graphHeader > img{
+display: inline;
+}
