@@ -4,11 +4,10 @@ const graphData = require('./graphData')
 const {GRAPH_DATA} = require('../../common/events')
 
 function timeString () {
-  return new Date().toLocaleTimeString()
+  return new Date().toLocaleTimeString('en-NZ')
 }
 
 function getData (sockets) {
-  // if statement for too many dots first
   const bittrex = request
     .get('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&e=bittrex')
     .then(res => {

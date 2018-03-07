@@ -1,3 +1,5 @@
+/* global test expect */
+
 import {LOGIN_SUCCESS} from '../../../client/actions/login'
 import {LOGOUT_SUCCESS} from '../../../client/actions/logout'
 import {TOKEN_SUCCESS} from '../../../client/actions/checkToken'

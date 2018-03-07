@@ -41,7 +41,7 @@ exports.seed = (knex, Promise) => {
           username: 'tyler',
           firstname: 'Tyler',
           lastname: 'Griffin',
-          email: 'tylerg99@gmail.com',
+          email: 'tylergriffin70@gmail.com',
           hash: hasher('tylerdeltage')
         },
         {
