@@ -2,8 +2,9 @@ export const CHANGE_DOL = 'CHANGE_DOL'
 export const RECEIVED_RATES = 'RECEIVED_RATES'
 export const CONVERT_GRAPH = 'CONVER_GRAPH'
 
+// export const changeCurrency = (currency) => {
+//   // console.log('action', currencyPair)
 export const changeCurrency = (currency) => {
-  // console.log('action', currencyPair)
   return {
     type: CHANGE_DOL,
     currency
