@@ -12,7 +12,7 @@ class Header extends React.Component {
   }
   handleClick (e) {
     const goToLogin = () => this.props.history.push('/')
-    this.props.logoutUser(goToLogin)
+    this.props.logoutUser(goToLogin, this.props.graph)
   }
 
   render () {
@@ -35,4 +35,10 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-export default withRouter(connect(null, mapDispatchToProps)(Header))
+
+const mapStateToProps = (state) => {
+  return {
+    graph: state.graphData.graph
+  }
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))

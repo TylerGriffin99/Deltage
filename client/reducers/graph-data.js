@@ -1,5 +1,6 @@
 import {RECEIVED_GRAPH} from '../actions'
 import {CONVERT_GRAPH} from '../actions/currency'
+import {LOGOUT_SUCCESS} from '../actions/logout'
 
 const initialState = {
   graph: {},
@@ -47,6 +48,14 @@ const graphReducer = (state = initialState, action) => {
     // convert value based on difference in exchange rates
     case (CONVERT_GRAPH): {
       const newData = convertGraph(action.currencies, action.rates, state.graph)
+      return {
+        ...state,
+        graph: newData
+      }
+    }
+    case (LOGOUT_SUCCESS): {
+      // back to USD
+      const newData = convertGraph(['USD', ''], null, action.data, 1)
       return {
         ...state,
         graph: newData

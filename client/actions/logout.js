@@ -8,24 +8,26 @@ function requestLogout () {
   return {
     type: LOGOUT_REQUEST,
     isFetching: true,
-    isAuthenticated: true
+    isAuthenticated: true,
+
   }
 }
 
-function receiveLogout () {
+function receiveLogout (graphData) {
   return {
     type: LOGOUT_SUCCESS,
     isFetching: false,
-    isAuthenticated: false
+    isAuthenticated: false,
+    data: graphData
   }
 }
 
 // Logs the user out
-export function logoutUser (redir) {
+export function logoutUser (redir, graphData) {
   return dispatch => {
     dispatch(requestLogout())
     removeUser()
-    dispatch(receiveLogout())
+    dispatch(receiveLogout(graphData))
     redir()
   }
 }
