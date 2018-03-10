@@ -8,7 +8,7 @@ function requestLogout () {
   return {
     type: LOGOUT_REQUEST,
     isFetching: true,
-    isAuthenticated: true,
+    isAuthenticated: true
 
   }
 }
@@ -17,7 +17,7 @@ function receiveLogout () {
   return {
     type: LOGOUT_SUCCESS,
     isFetching: false,
-    isAuthenticated: false,
+    isAuthenticated: false
   }
 }
 

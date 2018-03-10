@@ -30,8 +30,8 @@ class Header extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logoutUser: (redir, graphData, rates) => {
-      return dispatch(logoutUser(redir, graphData, rates))
+    logoutUser: (redir) => {
+      return dispatch(logoutUser(redir))
     }
   }
 }
