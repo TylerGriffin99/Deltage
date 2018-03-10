@@ -1,6 +1,5 @@
 import {RECEIVED_GRAPH} from '../actions'
 import {CONVERT_GRAPH} from '../actions/currency'
-import {LOGOUT_SUCCESS} from '../actions/logout'
 
 const initialState = {
   graph: {},
@@ -51,15 +50,6 @@ const graphReducer = (state = initialState, action) => {
       return {
         ...state,
         graph: newData
-      }
-    }
-    case (LOGOUT_SUCCESS): {
-      // back to USD
-      const newData = convertGraph(['USD', ''], action.rates, action.data, 1)
-      console.log(newData)
-      return {
-        ...state,
-        graph: ''
       }
     }
     default:
