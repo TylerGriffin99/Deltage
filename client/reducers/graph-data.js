@@ -55,10 +55,11 @@ const graphReducer = (state = initialState, action) => {
     }
     case (LOGOUT_SUCCESS): {
       // back to USD
-      const newData = convertGraph(['USD', ''], null, action.data, 1)
+      const newData = convertGraph(['USD', ''], action.rates, action.data, 1)
+      console.log(newData)
       return {
         ...state,
-        graph: newData
+        graph: ''
       }
     }
     default:

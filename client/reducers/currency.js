@@ -23,10 +23,7 @@ export default function currency (state = initialState, action) {
       }
     }
     case LOGOUT_SUCCESS: {
-        return {
-          ...state,
-          dollar: ['USD', '']
-        }
+        return initialState
       }
     default:
       return state
