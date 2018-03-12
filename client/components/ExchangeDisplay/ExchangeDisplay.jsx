@@ -130,7 +130,7 @@ class ExchangeDisplay extends React.Component {
                     </p>
                   </td>
                   <td>
-                    {Number(data.diff).toFixed(2)}
+                    {Number(data.filteredDiff).toFixed(2)}
                   </td>
                 </tr>
               ) : null
