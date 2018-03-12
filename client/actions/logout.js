@@ -9,6 +9,7 @@ function requestLogout () {
     type: LOGOUT_REQUEST,
     isFetching: true,
     isAuthenticated: true
+
   }
 }
 
