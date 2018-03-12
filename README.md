@@ -53,5 +53,6 @@ The incoming data is reformatted to show arbitrage opportunities which are deliv
 2. Change to the cloned repo folder. `cd Deltage`
 3. Use `npm install` or `yarn` to pull down the dependencies.
 4. Rename the `.env.example` file to `.env`.
-5. `npm start` or `yarn start`.
-6. In your browser go to: [localhost:3000](http://localhost:3000/ "We use Port 3000"). 
+5. Run `yarn knex migrate:latest` then `yarn knex seed:run`.
+6. `npm start` or `yarn start`.
+7. In your browser go to: [localhost:3000](http://localhost:3000/ "We use Port 3000"). 
