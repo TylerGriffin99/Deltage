@@ -39,9 +39,10 @@
     width: 300px;
 }
 
-.login > p {
+.failed {
     color: red;
 }
+
 /* For the auto fill, stops it from coming up as yellow. */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
