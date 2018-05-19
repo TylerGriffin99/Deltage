@@ -42,6 +42,9 @@ class ExchangeDisplay extends React.Component {
         <h1>Top Trades</h1>
         <div className='main-pairs-container'>
           <div className='check-row-5'>
+          <p>The table below ranks the current best arbitrage opportunities from highest to lowest, in terms of potential profit. 
+            Toggle the switches to select only the exchanges you are interested in. Prices are in Bitcoin.</p>
+
             <form>
               <p>Bittrex:</p>
               <label className="displaySwitch">
