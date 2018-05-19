@@ -45,6 +45,7 @@ class Login extends React.Component {
       <div className='login' onKeyUp={this.handleKeyUp}>
         <img src='./images/deltageBlackName.png' alt="" />
         <br />
+        <p>To login please use Username: deltage Password: delta</p>
         <input id='username' name='username' className='input noSelect'
           placeholder='Username' onChange={this.handleChange}
           autoComplete='off' value={username} />
@@ -53,7 +54,7 @@ class Login extends React.Component {
           autoComplete='off' value={password} />
         <br />
         <button className='loginButton' onClick={this.handleClick}> Login </button>
-        <p>{this.props.failed}</p>
+        <p className='failed'>{this.props.failed}</p>
       </div>
     )
   }
