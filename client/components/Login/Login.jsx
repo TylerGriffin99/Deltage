@@ -12,6 +12,7 @@ class Login extends React.Component {
       password: ''
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleGuest = this.handleGuest.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleKeyUp = this.handleKeyUp.bind(this)
   }
@@ -33,6 +34,15 @@ class Login extends React.Component {
     this.props.loginUser(creds, goToLiveApp)
   }
 
+  handleGuest () {
+    const creds = {
+      username: 'deltage',
+      password: 'delta'
+    }
+    const goToLiveApp = () => this.props.history.push('/LiveApp')
+    this.props.loginUser(creds, goToLiveApp)
+  }
+
   handleKeyUp (e) {
     if (e.keyCode === 13) {
       this.handleClick()
@@ -45,7 +55,6 @@ class Login extends React.Component {
       <div className='login' onKeyUp={this.handleKeyUp}>
         <img src='./images/deltageBlackName.png' alt="" />
         <br />
-        <p>To login please use Username: deltage Password: delta</p>
         <input id='username' name='username' className='input noSelect'
           placeholder='Username' onChange={this.handleChange}
           autoComplete='off' value={username} />
@@ -54,6 +63,7 @@ class Login extends React.Component {
           autoComplete='off' value={password} />
         <br />
         <button className='loginButton' onClick={this.handleClick}> Login </button>
+        <button className='loginButton' onClick={this.handleGuest}> Login as Guest </button>
         <p className='failed'>{this.props.failed}</p>
       </div>
     )
