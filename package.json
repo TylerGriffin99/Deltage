@@ -1,0 +1,104 @@
+{
+  "name": "deltage",
+  "description": "Arbitrage cryptocurrency tool",
+  "version": "0.0.0",
+  "main": "server",
+  "keywords": [
+    "feathers",
+    "react",
+    "redux"
+  ],
+  "author": {
+    "name": "Deltage",
+    "email": "ps.in.nz@gmail.com"
+  },
+  "contributors": [
+    "tyler",
+    "madeleine",
+    "adam",
+    "peter",
+    "tim"
+  ],
+  "bugs": {},
+  "directories": {
+    "lib": "server",
+    "test": "test/"
+  },
+  "engines": {
+    "node": "^8.0.0",
+    "yarn": ">= 0.18.0"
+  },
+  "scripts": {
+    "test": "jest --watchAll",
+    "eslint": "eslint server/. test/. --config .eslintrc.json",
+    "start": "node server/index.js",
+    "dev": "nodemon --watch server & yarn build --watch",
+    "build": "webpack --config ./client/webpack.config.js",
+    "postinstall": "yarn build && knex migrate:latest",
+    "e2e:sh": "cd ./test/e2e && codeceptjs shell",
+    "e2e:debug": "codeceptjs run -c ./test/e2e/codecept.json --debug",
+    "e2e": "codeceptjs run -c ./test/e2e/codecept.json",
+    "e2e:assert": "yarn e2e && yarn assert"
+     },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-3"
+    ]
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "body-parser": "^1.18.2",
+    "chart.js": "^2.7.2",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
+    "jsonwebtoken": "^8.1.1",
+    "jwt-decode": "^2.2.0",
+    "knex": "^0.14.4",
+    "moment": "^2.21.0",
+    "npm": "^5.7.1",
+    "pg": "^7.4.1",
+    "react": "^16.2.0",
+    "react-chartjs-2": "^2.7.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^4.4.5",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "socket.io": "^2.0.4",
+    "socket.io-react": "^1.2.0",
+    "sodium": "^2.0.3",
+    "superagent": "^3.8.2",
+    "webpack": "^3.10.0",
+    "css-loader": "^0.28.10",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "codeceptjs-nightmare": "^1.1.0",
+    "css-loader": "^0.28.10",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.3.0",
+    "nodemon": "^1.17.1",
+    "sqlite3": "^3.1.13",
+    "react-addons-test-utils": "^15.6.2",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-livereload-plugin": "^1.0.0"
+  }
+}

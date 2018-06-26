@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+ height:100%;
+ background-repeat: no-repeat;
+ background-attachment: fixed; 
+}
+
+h1, h2, p{
+font-family: 'Dosis', sans-serif;
+font-weight: 300;
+}
+
+.app{ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+}
+
+#app {
+  width: 100%
+}

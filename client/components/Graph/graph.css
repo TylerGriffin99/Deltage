@@ -1,0 +1,56 @@
+.graphContainer {
+    width: 700px;
+}
+
+.graph {
+    width: 700px;
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    position: relative;
+}
+
+h1{
+    text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .graphContainer {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .graph {
+        width: 100%;
+    }
+}
+
+.graphHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.coin-img {
+    width: 30px;
+    padding: 5px;
+}
+
+select {
+    height: 30px;
+    width: 120px;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+    font-size:100%;
+    font-family: 'Dosis', sans-serif;
+    margin: 2px; 
+}
+select:focus {
+        border: 1px solid rgb(83, 83, 83);
+        outline: 0; 
+    }
