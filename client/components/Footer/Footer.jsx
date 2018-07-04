@@ -19,7 +19,7 @@ class Footer extends React.Component {
         <div className='credits'>
           <h3>A Special thanks to:</h3>
           <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/nina.vanlier/">
-             <img className='nina-logo'src="/images/nina.png" alt="nina logo" />
+            <img className='nina-logo'src="/images/nina.png" alt="nina logo" />
             <h3>Nina Van Lier</h3>
           </a>
 
