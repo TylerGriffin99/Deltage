@@ -11,7 +11,7 @@ class CurrencySelctor extends React.Component {
   }
   componentDidMount () {
     request
-      .get('https://api.fixer.io/latest?base=USD')
+      .get('http://data.fixer.io/api/latest?access_key=323b6463bc8ea4f25f1f1e46504643fb&format=1')
       .then((res) => {
         const rates = res.body.rates
         this.props.dispatch(sendRates(rates))

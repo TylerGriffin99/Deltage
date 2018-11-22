@@ -40,4 +40,4 @@ setInterval(() => {
   }
 }, 13000)
 
-module.exports = app
+module.exports = server
